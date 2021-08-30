@@ -26,6 +26,7 @@ public class AbstractEntity {
 	 */
 	@MongoId(FieldType.OBJECT_ID)
 	private String id;
+
 	/**
 	 * La date de création.
 	 */

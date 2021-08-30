@@ -1,7 +1,6 @@
 package com.filrouge.restaurantcore.entity;
 
-import java.time.Instant;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Embedded;
@@ -9,7 +8,6 @@ import javax.persistence.Embedded;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -57,15 +55,15 @@ public class Restaurant extends AbstractEntity {
 	 * Les informations des employés dans un sous document. 
 	 */
 	@DBRef
-	private set<User> employees;
+	private List<User> employees;
 	
 	/**
 	 * Les informations des tables dans un sous document. 
 	 */
 	@DBRef
-	private set<Table> tables;
+	private List<Table> tables;
 
-	
+	@Field("budget")
 
 	/**
 	 * Les rôles associées.
@@ -73,10 +71,5 @@ public class Restaurant extends AbstractEntity {
 	@DBRef
 	private Set<Role> roles;
 
-	/**
-	 * Constructeur.
-	 */
-	public Administrator() {
-		this.roles = new HashSet<Role>();
-	}
+	
 }
