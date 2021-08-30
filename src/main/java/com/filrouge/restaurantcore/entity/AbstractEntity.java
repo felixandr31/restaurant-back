@@ -41,5 +41,5 @@ public abstract class AbstractEntity {
 	@LastModifiedDate
 	@Field("LastModifiedDate")
 	@JsonIgnore
-	private Instant LastModifiedDate;
+	private Instant lastModifiedDate;
 }
