@@ -31,7 +31,7 @@ dependencies {
 	implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
 
 	// https://mvnrepository.com/artifact/org.projectlombok/lombok
-compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
+compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.16.22'
 
 
 
