@@ -1,0 +1,50 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.filrouge'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	implementation 'org.apache.commons:commons-collections4:4.0'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2'
+	// https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
+	runtimeOnly group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
+
+	// https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api
+	implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
+
+
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation group: 'junit', name: 'junit', version: '4.12'
+}
+
+configurations {
+	all {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
