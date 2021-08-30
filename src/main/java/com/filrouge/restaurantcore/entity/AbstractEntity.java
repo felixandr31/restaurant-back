@@ -13,18 +13,22 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
+/**
+ * 
+ * @author Safia
+ *
+ */
 @Data
 @Document(collection = "AbstractEntity")
 public abstract class AbstractEntity {
-
 	/**
-	 * ID
+	 * L'identifiant.
 	 */
 	@MongoId(FieldType.OBJECT_ID)
 	private String id;
 
 	/**
-	 * creation date
+	 * La date de création.
 	 */
 	@CreatedDate
 	@Field("createdDate")
@@ -32,12 +36,10 @@ public abstract class AbstractEntity {
 	private Instant createDate;
 
 	/**
-	 * the last update date
+	 * La dernière date de mise à jour.
 	 */
 	@LastModifiedDate
 	@Field("LastModifiedDate")
 	@JsonIgnore
 	private Instant LastModifiedDate;
-
 }
-
