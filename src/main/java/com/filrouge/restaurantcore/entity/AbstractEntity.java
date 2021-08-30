@@ -20,7 +20,7 @@ import lombok.Data;
  */
 @Data
 @Document(collection = "AbstractEntity")
-public class AbstractEntity {
+public abstract class AbstractEntity {
 	/**
 	 * L'identifiant.
 	 */
