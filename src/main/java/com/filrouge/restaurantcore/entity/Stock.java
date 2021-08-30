@@ -1,5 +1,8 @@
 package com.filrouge.restaurantcore.entity;
 
+import java.math.BigDecimal;
+
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -7,23 +10,27 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
+/**
+ * Stock Entity
+ * 
+ * @author sslimani
+ *
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Document(collection = "coordinates")
-public class Coordinates extends AbstractEntity {
-	
+@Document(collection = "stock")
+
+public class Stock extends AbstractEntity {
 	/**
-	 * Latitude
+	 * Ingredient
 	 */
-	@Field("latitude")
-	private Float latitude;
-	
+	@DBRef
+	private Ingredient ingredient;
     /**
-     * Longitude
+     * Quantity
      */
-	@Field("longitude")
-	private Float longitude;
+	@Field("quantity")
+	private BigDecimal quantity;
 }

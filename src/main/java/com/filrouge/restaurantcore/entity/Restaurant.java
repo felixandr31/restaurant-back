@@ -1,5 +1,6 @@
 package com.filrouge.restaurantcore.entity;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
 
@@ -15,7 +16,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * L'entit" restaurant
+ * Restaurant Entity
  * @author sslimani
  *
  */
@@ -28,25 +29,25 @@ public class Restaurant extends AbstractEntity {
 
 
 	/**
-	 * Le nom.
+	 * Name.
 	 */
 	@Field("name")
 	private String name;
 	
 	/**
-	 * Les informations de l'adresse dans un sous document.
+	 * Informations of l'adresses dans un sous document.
 	 */
 	@Embedded
 	private Address address;
 
 	/**
-	 * Le nombre d'étoiles 
+	 * Stars. 
 	 */
 	@Field("stars")
-	private String stars;
+	private Float stars;
 
 	/**
-	 * Les coordonnées.
+	 * Coordinates.
 	 */
 	@Embedded
 	private Coordinates coordinates;
@@ -58,18 +59,29 @@ public class Restaurant extends AbstractEntity {
 	private List<User> employees;
 	
 	/**
-	 * Les informations des tables dans un sous document. 
+	 * Informations of tables dans un sous document. 
 	 */
 	@DBRef
 	private List<Table> tables;
-
+	
+    /**
+     * Budget
+     */
 	@Field("budget")
-
+	private BigDecimal budget;
+	
 	/**
-	 * Les rôles associées.
+	 * Purchase list. 
 	 */
 	@DBRef
-	private Set<Role> roles;
+	private List<Purchase> purchases;
+	
+    /**
+     * list of recipes 
+     */
+	@DBRef
+	private List<Recipe> recipes;
+	
 
 	
 }

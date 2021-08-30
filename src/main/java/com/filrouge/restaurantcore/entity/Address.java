@@ -13,34 +13,38 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+/**
+ * Address Entity
+ * 
+ * @author sslimani
+ *
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Entity
 @Document(collection = "address")
 @Data
-@Builder
 public class Address extends AbstractEntity {
 	/**
-	 * L'adresse complète.
+	 * Address.
 	 */
 	@Field("streetName")
 	private String streetName;
 
 	/**
-	 * La ville.
+	 * City.
 	 */
 	@Field("city")
 	private String city;
 
 	/**
-	 * Le code postal.
+	 * Zip-code.
 	 */
 	@Field("zipcode")
 	private BigInteger zipCode;
-	
+
 	/**
-	 * Le pays .
+	 * Country .
 	 */
 	@Field("country")
 	private String country;
