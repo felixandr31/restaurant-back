@@ -7,12 +7,18 @@ import com.filrouge.restaurantcore.entity.Role;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * Role Object Transfer (DTO).
+ * @author Hermann
+ *
+ */
+
 @Data
 @Builder
 public class RoleDto {
 	
 	/**
-	 * L'identifiant.
+	 * ID
 	 */
 	private String id;
 
@@ -22,7 +28,7 @@ public class RoleDto {
 	private String name;
 
 	/**
-	 * Transforme l'entité en un DTO.
+	 * Transform the entity into a DTO.
 	 * 
 	 * @param entity l'entité
 	 * @return le DTO
@@ -31,14 +37,14 @@ public class RoleDto {
 		if (role == null) {
 			return null;
 		}
-		return RoleDto.builder().id(role.getId()).name(role.getRoleName()).build();
+		return RoleDto.builder().id(role.getId()).name(role.getName()).build();
 	}
 
 	/**
-	 * Transforme le DTO en une entité.
+	 * Transform the DTO into entity.
 	 * 
-	 * @param dto le DTO
-	 * @return l'entité
+	 * @param dto 
+	 * @return entity of dto
 	 */
 	public static Role toEntity(RoleDto dto) {
 		if (dto == null) {
@@ -46,7 +52,7 @@ public class RoleDto {
 		}
 		final Role role = new Role();
 		role.setId(dto.getId());
-		role.setRoleName(dto.getName());
+		role.setName(dto.getName());
 		return role;
 	}
 

@@ -6,6 +6,12 @@ import com.filrouge.restaurantcore.entity.Table;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * Recipe Object Transfer (DTO).
+ * @author Hermann
+ *
+ */
+
 @Data
 @Builder
 public class TableDto {
