@@ -1,8 +1,8 @@
 package com.filrouge.restaurantcore.entity;
 
 import java.math.BigInteger;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,9 +15,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-
 /**
  * Entity Recipe
+ * 
  * @author formation
  *
  */
@@ -25,45 +25,44 @@ import lombok.EqualsAndHashCode;
 @Data
 @Builder
 
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @Document("recipe")
-public class Recipe extends AbstractEntity{
-	
+public class Recipe extends AbstractEntity {
+
 	/**
 	 * the name of recipe
 	 */
 	@Field("recipe")
 	@NonNull
 	private String name;
-	 
-	 /**
-	  * the craftion price
-	  */
-	@NonNull
-	 @Field("craftingPrice")
-	 private BigInteger craftingPrice;
-	 
-	 /**
-	  * the selling price
-	  */
-	 @Field("sellingPrice")
-	 private BigInteger sellingPrice;
-	 
-	 /**
-		 * the Map of ingredients
-		 */
 
-		@DBRef
-		 private Map<String, Integer> ingredients;
-	 
-	 /**
-		 * constructor NoArgs
-		 */
-		
-		public Recipe() {
-			this.ingredients = new HashMap<String, Integer>(0);
-			
-		}
-		
+	/**
+	 * the craftion price
+	 */
+	@NonNull
+	@Field("craftingPrice")
+	private BigInteger craftingPrice;
+
+	/**
+	 * the selling price
+	 */
+	@Field("sellingPrice")
+	private BigInteger sellingPrice;
+
+	/**
+	 * set of ingredientRecipe
+	 */
+	@DBRef
+	private Set<IngredientRecipe> ingredientsRecipe;
+
+	/**
+	 * constructor
+	 */
+
+	public Recipe() {
+		this.ingredientsRecipe = new HashSet<IngredientRecipe>(0);
+
+	}
+
 }

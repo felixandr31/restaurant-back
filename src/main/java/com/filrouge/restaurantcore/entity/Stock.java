@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
 /**
  * Stock Entity
  * 
@@ -28,9 +29,9 @@ public class Stock extends AbstractEntity {
 	 */
 	@DBRef
 	private Ingredient ingredient;
-    /**
-     * Quantity
-     */
+	/**
+	 * Quantity
+	 */
 	@Field("quantity")
 	private BigDecimal quantity;
 }

@@ -20,16 +20,16 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @Document(collection = "coordinates")
 public class Coordinates extends AbstractEntity {
-	
+
 	/**
 	 * Latitude
 	 */
 	@Field("latitude")
 	private Float latitude;
-	
-    /**
-     * Longitude
-     */
+
+	/**
+	 * Longitude
+	 */
 	@Field("longitude")
 	private Float longitude;
 }

@@ -12,7 +12,6 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 /**
  * Booking Entity
@@ -26,36 +25,36 @@ import lombok.NoArgsConstructor;
 @Document(collection = "address")
 @Data
 public class Booking extends AbstractEntity {
-	
+
 	/**
 	 * Day.
 	 */
 	@Field("day")
 	private Date day;
-	
+
 	/**
 	 * Hour.
 	 */
 	@Field("hour")
 	private Hour hour;
-	
+
 	@DBRef
 	private List<User> clients;
-	
+
 	/**
-	 * Informations of tables. 
+	 * Informations of tables.
 	 */
 	@DBRef
 	private Table table;
-	
+
 	/**
-	 * Informations of orders. 
+	 * Informations of orders.
 	 */
 	@DBRef
 	private List<Order> orders;
-	
+
 	public Booking() {
-	 this.clients = new ArrayList<User>(0);
-	 this.orders =  new ArrayList<Order>(0);
+		this.clients = new ArrayList<User>(0);
+		this.orders = new ArrayList<Order>(0);
 	}
 }

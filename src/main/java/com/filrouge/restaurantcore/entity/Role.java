@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Entity Role
+ * 
  * @author Hermann
  *
  */
@@ -20,15 +21,15 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper = true)
 @Document(collection = "Role")
-public class Role extends AbstractEntity{
-	
+public class Role extends AbstractEntity {
+
 	/**
 	 * associated roles
 	 */
 	@Field("name")
 	@Indexed(unique = true)
-	private String Name;
+	private String name;
 
 }
