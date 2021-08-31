@@ -1,16 +1,23 @@
 package com.filrouge.restaurantcore.dto;
 
-import java.math.BigDecimal;
+
 import java.time.Instant;
+import java.util.ArrayList;
+
 import java.util.List;
 
+import java.util.stream.Collectors;
+
+import com.filrouge.restaurantcore.entity.Order;
 import com.filrouge.restaurantcore.entity.Purchase;
-import com.filrouge.restaurantcore.entity.Stock;
+
+
 
 import lombok.Builder;
 import lombok.Data;
+
 /**
- * Transfert Object from stock (DTO).
+ * Transfert Object from purchase (DTO).
  * 
  * @author sslimani
  *
@@ -24,10 +31,14 @@ public class PurchaseDto {
 	private Instant date;
 
 	/**
-	 * Orders
+	 * Orders.
+	 * 
 	 */
-	private List<OrderDto> orders;
-	
+	// @Builder.Default permet de surcharger la construction de la collection de
+	// lombok
+	@Builder.Default
+	private List<OrderDto> orders = new ArrayList<OrderDto>(0);
+
 	/**
 	 * Transform entity into DTO.
 	 * 
@@ -38,8 +49,12 @@ public class PurchaseDto {
 		if (entity == null) {
 			return null;
 		}
-		return PurchaseDto.builder().date(entity.getDate()).orders(OrderDto.fromEntity(entity.getOrders()))
-				.build();
+		
+		final List<OrderDto> ordersDTO = new ArrayList<OrderDto>(entity.getOrders().size());
+		for (final Order order : entity.getOrders()) {
+			ordersDTO.add(OrderDto.fromEntity(order));
+		}
+		return PurchaseDto.builder().date(entity.getDate()).orders(ordersDTO).build();
 	}
 
 	/**
@@ -48,13 +63,19 @@ public class PurchaseDto {
 	 * @param dto le DTO
 	 * @return l'entité
 	 */
-	public static Stock toEntity(StockDto dto) {
+	public static Purchase toEntity(PurchaseDto dto) {
 		if (dto == null) {
 			return null;
 		}
-		final Stock stock = new Stock();
-		stock.setIngredient(IngredientDto.toEntity(dto.getIngredient()));
-		stock.setQuantity(dto.getQuantity());
-		return stock;
+		
+		final Purchase purchase = new Purchase();
+		purchase.setDate(dto.getDate());
+		
+		final List<Order> orders = dto.getOrders()
+		        .stream()
+		        .map(OrderDto::toEntity)
+		        .collect(Collectors.toList());
+		purchase.setOrders(orders);
+		return purchase;
 	}
 }
