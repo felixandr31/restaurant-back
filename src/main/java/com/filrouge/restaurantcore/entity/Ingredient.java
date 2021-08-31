@@ -11,6 +11,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+/**
+ * Entity Ingrdient
+ * @author Hermann
+ *
+ */
+
 @Data
 @EqualsAndHashCode(callSuper=true)
 @NoArgsConstructor

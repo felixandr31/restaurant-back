@@ -8,6 +8,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+/**
+ * 
+ * @author sslimani
+ *
+ */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

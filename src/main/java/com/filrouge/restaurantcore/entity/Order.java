@@ -9,6 +9,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+
+/**
+ * Entity Order
+ * @author Hermann
+ *
+ */
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)

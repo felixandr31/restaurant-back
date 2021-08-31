@@ -7,6 +7,12 @@ import com.filrouge.restaurantcore.entity.Ingredient;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * Ingredient Object Transfer (DTO).
+ * @author Hermann
+ *
+ */
+
 @Data
 @Builder
 public class IngredientDto {

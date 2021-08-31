@@ -1,39 +1,46 @@
 package com.filrouge.restaurantcore.entity;
 
 import java.math.BigInteger;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import com.mongodb.lang.NonNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+
+
+/**
+ * Entity Recipe
+ * @author formation
+ *
+ */
 
 @Data
 @Builder
-@NoArgsConstructor
+
 @EqualsAndHashCode(callSuper=true)
 @AllArgsConstructor
 @Document("recipe")
 public class Recipe extends AbstractEntity{
 	
 	/**
-	 * the list of ingredients
+	 * the name of recipe
 	 */
-
-	 @JsonIgnore
-	 private List<Ingredient> Ingredients;
+	@Field("recipe")
+	@NonNull
+	private String name;
 	 
 	 /**
 	  * the craftion price
 	  */
-	 
+	@NonNull
 	 @Field("craftingPrice")
 	 private BigInteger craftingPrice;
 	 
@@ -42,4 +49,21 @@ public class Recipe extends AbstractEntity{
 	  */
 	 @Field("sellingPrice")
 	 private BigInteger sellingPrice;
+	 
+	 /**
+		 * the Map of ingredients
+		 */
+
+		@DBRef
+		 private Map<String, Integer> ingredients;
+	 
+	 /**
+		 * constructor NoArgs
+		 */
+		
+		public Recipe() {
+			this.ingredients = new HashMap<String, Integer>(0);
+			
+		}
+		
 }
