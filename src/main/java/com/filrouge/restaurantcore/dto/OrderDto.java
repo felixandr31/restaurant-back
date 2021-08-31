@@ -9,8 +9,13 @@ import lombok.Data;
 
 
 @Builder
-
 @Data
+
+/**
+ * Order Object Transfer (DTO).
+ * @author Hermann
+ *
+ */
 public class OrderDto {
 	
 	private String id;
