@@ -1,9 +1,7 @@
 package com.filrouge.restaurantcore.dto;
 
 import java.math.BigInteger;
-import java.util.List;
-
-
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.filrouge.restaurantcore.entity.Recipe;
@@ -11,18 +9,27 @@ import com.filrouge.restaurantcore.entity.Recipe;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * Recipe Object Transfer (DTO).
+ * @author Hermann
+ *
+ */
+
 @Data
 @Builder
 public class RecipeDto {
 
 	private String id;
-
-	@JsonIgnore
-	private List<IngredientDto> Ingredients;
+	
+	private String name;
 
 	private BigInteger craftingPrice;
 
 	private BigInteger sellingPrice;
+	
+	//@Builder.Default
+	//@JsonIgnore
+	//private Map<String,Integer> ingredients = new HashMap<String,Integer>();
 
 	/**
 	 * Transform the entity into a DTO.
@@ -35,6 +42,7 @@ public class RecipeDto {
 			// TODO throw an exception
 			return null;
 		}
+		
 		return RecipeDto.builder().id(entity.getId()).craftingPrice(entity.getCraftingPrice())
 				.sellingPrice(entity.getSellingPrice()).build();
 
