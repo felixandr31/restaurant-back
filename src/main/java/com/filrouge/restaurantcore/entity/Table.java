@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Entity Table
+ * 
  * @author formation
  *
  */
@@ -24,8 +25,8 @@ import lombok.NoArgsConstructor;
 
 @Builder
 @Document("table")
-public class Table extends AbstractEntity{
-	
+public class Table extends AbstractEntity {
+
 	/**
 	 * table name
 	 */
@@ -33,7 +34,7 @@ public class Table extends AbstractEntity{
 	@Field("name")
 	@NonNull
 	private String name;
-	
+
 	/**
 	 * the number of seat
 	 */

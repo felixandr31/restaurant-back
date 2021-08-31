@@ -14,8 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 /**
+ * AbstractEntity
  * 
- * @author Safia
+ * @author Hermann
  *
  */
 @Data
@@ -39,7 +40,7 @@ public abstract class AbstractEntity {
 	 * La dernière date de mise à jour.
 	 */
 	@LastModifiedDate
-	@Field("LastModifiedDate")
+	@Field("UpdateDate")
 	@JsonIgnore
-	private Instant LastModifiedDate;
+	private Instant UpdateDate;
 }

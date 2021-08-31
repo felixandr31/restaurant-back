@@ -1,7 +1,5 @@
 package com.filrouge.restaurantcore.dto;
 
-
-
 import com.filrouge.restaurantcore.entity.Role;
 
 import lombok.Builder;
@@ -9,6 +7,7 @@ import lombok.Data;
 
 /**
  * Role Object Transfer (DTO).
+ * 
  * @author Hermann
  *
  */
@@ -16,7 +15,7 @@ import lombok.Data;
 @Data
 @Builder
 public class RoleDto {
-	
+
 	/**
 	 * ID
 	 */
@@ -43,7 +42,7 @@ public class RoleDto {
 	/**
 	 * Transform the DTO into entity.
 	 * 
-	 * @param dto 
+	 * @param dto
 	 * @return entity of dto
 	 */
 	public static Role toEntity(RoleDto dto) {
