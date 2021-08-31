@@ -1,5 +1,6 @@
 package com.filrouge.restaurantcore.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +20,7 @@ import lombok.NoArgsConstructor;
  * @author sslimani
  *
  */
-@NoArgsConstructor
+
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Document(collection = "address")
@@ -45,7 +46,7 @@ public class Booking extends AbstractEntity {
 	 * Informations of tables. 
 	 */
 	@DBRef
-	private List<Table> tables;
+	private Table table;
 	
 	/**
 	 * Informations of orders. 
@@ -53,6 +54,8 @@ public class Booking extends AbstractEntity {
 	@DBRef
 	private List<Order> orders;
 	
-	
-	
+	public Booking() {
+	 this.clients = new ArrayList<User>(0);
+	 this.orders =  new ArrayList<Order>(0);
+	}
 }
