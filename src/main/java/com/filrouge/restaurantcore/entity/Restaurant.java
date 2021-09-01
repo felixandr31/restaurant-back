@@ -81,6 +81,15 @@ public class Restaurant extends AbstractEntity {
 	@DBRef
 	private List<Recipe> recipes;
 
+	/**
+	 * Stock
+	 */
+	@DBRef
+	private Stock stock;
+
+	/**
+	 * Constructor
+	 */
 	public Restaurant() {
 		this.employees = new ArrayList<User>(0);
 		this.tables = new ArrayList<Table>(0);

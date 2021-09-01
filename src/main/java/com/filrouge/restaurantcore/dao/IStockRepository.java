@@ -10,6 +10,6 @@ import com.filrouge.restaurantcore.entity.Stock;
  * @author sslimani
  *
  */
-public interface IStockRepository extends MongoRepository<Stock, Long>  {
+public interface IStockRepository extends MongoRepository<Stock, String>  {
 
 }

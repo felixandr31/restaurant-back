@@ -5,15 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
-
-
 import com.filrouge.restaurantcore.entity.Purchase;
 import com.filrouge.restaurantcore.entity.Recipe;
 import com.filrouge.restaurantcore.entity.Restaurant;
 import com.filrouge.restaurantcore.entity.Table;
 import com.filrouge.restaurantcore.entity.User;
-
 
 import lombok.Builder;
 import lombok.Data;
@@ -27,7 +23,12 @@ import lombok.Data;
 @Data
 @Builder
 public class RestaurantDto {
-
+     
+	/**
+	 * Id
+	 */
+	private String id;
+	
 	/**
 	 * Name.
 	 */
@@ -52,6 +53,11 @@ public class RestaurantDto {
 	 * Budget
 	 */
 	private BigDecimal budget;
+
+	/**
+	 * Stock
+	 */
+	private StockDto stock;
 
 	// @Builder.Default permet de surcharger la construction de la collection de
 	// lombok
@@ -95,9 +101,11 @@ public class RestaurantDto {
 			recipesDTO.add(RecipeDto.fromEntity(recipe));
 		}
 
-		return RestaurantDto.builder().name(entity.getName()).address(AddressDto.fromEntity(entity.getAddress())).stars(entity.getStars())
-				.budget(entity.getBudget()).coordinates(CoordinatesDto.fromEntity(entity.getCoordinates())).tables(tablesDTO)
-				.employees(employeesDTO).purchases(purchasesDTO).recipes(recipesDTO).build();
+		return RestaurantDto.builder().name(entity.getName()).address(AddressDto.fromEntity(entity.getAddress()))
+				.stars(entity.getStars()).budget(entity.getBudget())
+				.coordinates(CoordinatesDto.fromEntity(entity.getCoordinates()))
+				.stock(StockDto.fromEntity(entity.getStock())).tables(tablesDTO).employees(employeesDTO)
+				.purchases(purchasesDTO).recipes(recipesDTO).build();
 	}
 
 	/**
@@ -116,27 +124,20 @@ public class RestaurantDto {
 		restaurant.setAddress(AddressDto.toEntity(dto.getAddress()));
 		restaurant.setStars(dto.getStars());
 		restaurant.setCoordinates(CoordinatesDto.toEntity(dto.getCoordinates()));
+		restaurant.setStock(StockDto.toEntity(dto.getStock()));
 		restaurant.setBudget(dto.getBudget());
 
 		final List<User> employees = dto.getEmployees().stream().map(UserDto::toEntity).collect(Collectors.toList());
 		restaurant.setEmployees(employees);
 
-		final List<Table> tables = dto.getTables()
-				.stream()
-				.map(TableDto::toEntity)
-				.collect(Collectors.toList());
+		final List<Table> tables = dto.getTables().stream().map(TableDto::toEntity).collect(Collectors.toList());
 		restaurant.setTables(tables);
-		
-		final List<Purchase> purchases = dto.getPurchases()
-				.stream()
-				.map(PurchaseDto::toEntity)
+
+		final List<Purchase> purchases = dto.getPurchases().stream().map(PurchaseDto::toEntity)
 				.collect(Collectors.toList());
 		restaurant.setPurchases(purchases);
-		
-		final List<Recipe> recipes = dto.getRecipes()
-				.stream()
-				.map(RecipeDto::toEntity)
-				.collect(Collectors.toList());
+
+		final List<Recipe> recipes = dto.getRecipes().stream().map(RecipeDto::toEntity).collect(Collectors.toList());
 		restaurant.setRecipes(recipes);
 
 		return restaurant;
