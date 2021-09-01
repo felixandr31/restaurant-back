@@ -4,6 +4,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.filrouge.restaurantcore.entity.Address;
 
-public interface IAddressRepository extends MongoRepository<Address, Long> {
+public interface IAddressRepository extends MongoRepository<Address, String> {
 
 }

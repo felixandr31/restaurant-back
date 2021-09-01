@@ -2,6 +2,7 @@ package com.filrouge.restaurantcore.service.impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,7 @@ import com.filrouge.restaurantcore.dao.IRestaurantRepository;
 import com.filrouge.restaurantcore.dto.AddressDto;
 import com.filrouge.restaurantcore.dto.RestaurantDto;
 import com.filrouge.restaurantcore.entity.Restaurant;
+import com.filrouge.restaurantcore.exception.EntityNotFoundException;
 import com.filrouge.restaurantcore.exception.ErrorCodes;
 import com.filrouge.restaurantcore.exception.InvalidEntityException;
 import com.filrouge.restaurantcore.service.IRestaurantService;
@@ -80,11 +82,14 @@ public class RestaurantServiceImpl implements IRestaurantService {
 
 	@Override
 	public List<RestaurantDto> findAll() {
-		return DtosResto;
+		return restaurantRepository.findAll().stream().map(RestaurantDto::fromEntity).collect(Collectors.toList());
 	}
 
 	@Override
 	public void deleteById(String id) {
-
+		if (id == null) {
+			return;
+		}
+		restaurantRepository.deleteById(id);
 	}
 }

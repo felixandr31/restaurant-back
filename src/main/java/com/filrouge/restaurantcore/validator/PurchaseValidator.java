@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.util.StringUtils;
 
-import com.filrouge.restaurantcore.dto.TableDto;
+import com.filrouge.restaurantcore.dto.PurchaseDto;
 
 /**
  * Services de validation des données de l'adresse.
@@ -13,27 +13,26 @@ import com.filrouge.restaurantcore.dto.TableDto;
  * @author sslimani
  *
  */
-public class TableValidator {
+public class PurchaseValidator {
 	/**
 	 * Validation du DTO.
 	 * 
 	 * @param dto le DTO
 	 * @return les erreurs pour chaque attribut.
 	 */
-	public static List<String> validate(final TableDto dto) {
+	public static List<String> validate(final PurchaseDto dto) {
 		final List<String> errors = new ArrayList<String>();
 		// TODO utiliser des messages dans des fichiers de propriétes
 		if (dto == null) {
-			errors.add("capacity is required");
-			errors.add("name is required");
+			errors.add("date is required");
+			//errors.addAll(OrderValidator.validate(null));
 
 			return errors;
 		}
-		if (dto.getCapacity() != null && !StringUtils.hasLength(dto.getCapacity().toString())) {
-			errors.add("capacity is required");
-		}
-		if (dto.getName() != null && !StringUtils.hasLength(dto.getName().toString())) {
-			errors.add("name is required");
+		// errors.addAll(OrderValidator.validate(dto.getOrders()));
+
+		if (dto.getDate() != null && !StringUtils.hasLength(dto.getDate().toString())) {
+			errors.add("date is required");
 		}
 
 		return errors;

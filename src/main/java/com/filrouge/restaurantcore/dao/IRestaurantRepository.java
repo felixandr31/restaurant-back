@@ -6,6 +6,6 @@ import com.filrouge.restaurantcore.entity.Restaurant;
 
 
 
-public interface IRestaurantRepository extends MongoRepository<Restaurant, Long> {
+public interface IRestaurantRepository extends MongoRepository<Restaurant, String> {
 
 }

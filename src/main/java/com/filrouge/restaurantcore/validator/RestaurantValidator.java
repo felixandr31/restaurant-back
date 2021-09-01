@@ -7,6 +7,12 @@ import org.springframework.util.StringUtils;
 
 import com.filrouge.restaurantcore.dto.RestaurantDto;
 
+/**
+ * Services de validation des données de l'adresse.
+ * 
+ * @author sslimani
+ *
+ */
 public class RestaurantValidator {
 	/**
 	 * Validation du DTO.
@@ -27,7 +33,6 @@ public class RestaurantValidator {
 			errors.addAll(TableValidator.validate(null));
 			errors.add("budget is required");
 			errors.addAll(PurchaseValidator.validate(null));
-			errors.addAll(RecipeValidator.validate(null));
 			errors.addAll(StockValidator.validate(null));
 			return errors;
 		}
@@ -37,15 +42,14 @@ public class RestaurantValidator {
 		}
 		if (dto.getStars() != null && !StringUtils.hasLength(dto.getStars().toString())) {
 			errors.add("stars is required");
-		}	
+		}
 		if (dto.getBudget() != null && !StringUtils.hasLength(dto.getBudget().toString())) {
-				errors.add("budget is required");
+			errors.add("budget is required");
 		}
 		errors.addAll(AddressValidator.validate(dto.getAddress()));
 		errors.addAll(CoordinatesValidator.validate(dto.getCoordinates()));
-		errors.addAll(UserValidator.validate(dto.getEmployees()));
-		errors.addAll(TableValidator.validate(dto.getTables()));
-		
+		errors.addAll(StockValidator.validate(dto.getStock()));
+
 		return errors;
 	}
 }
