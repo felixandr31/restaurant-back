@@ -14,9 +14,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-
 /**
  * Entity User
+ * 
  * @author formation
  *
  */
@@ -24,62 +24,58 @@ import lombok.EqualsAndHashCode;
 @Data
 @Builder
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper = true)
 @Document(collection = "user")
 public class User extends AbstractEntity {
-	
+
 	/**
 	 * first name of user
 	 */
 	@Field("firstname")
 	@NonNull
 	private String firstName;
-	
+
 	/**
 	 * last name of user
 	 */
 	@Field("laststname")
 	@NonNull
 	private String lastName;
-	
+
 	/**
 	 * password of user
 	 */
 	@Field("password")
 	private String password;
-	
-	
+
 	/**
 	 * email of user
 	 */
 	@Field("email")
 	@NonNull
 	private String email;
-	
+
 	/**
 	 * roles associated with the user
 	 */
-	
+
 	@DBRef
-	private List<Role>roles;
-	
+	private List<Role> roles;
+
 	/**
 	 * Friends associated at User
 	 */
-	
+
 	@DBRef
 	private List<User> friends;
-	
+
 	/**
 	 * constructor NoArgs
 	 */
-	
+
 	public User() {
 		this.roles = new ArrayList<Role>(0);
 		this.friends = new ArrayList<User>(0);
 	}
-	
-	
-	
 
 }

@@ -2,13 +2,10 @@ package com.filrouge.restaurantcore.entity;
 
 import java.math.BigInteger;
 
-import javax.persistence.Entity;
-
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

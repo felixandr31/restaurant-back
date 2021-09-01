@@ -9,27 +9,27 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-
 /**
  * Entity Order
+ * 
  * @author Hermann
  *
  */
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @Builder
 @Document(collection = "order")
 public class Order extends AbstractEntity {
-	
+
 	/**
 	 * the order item
 	 */
-	
+
 	@Field("item")
 	private Object item;
-	
+
 	/**
 	 * the order quantity
 	 */

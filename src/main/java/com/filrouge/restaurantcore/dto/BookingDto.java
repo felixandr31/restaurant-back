@@ -1,6 +1,5 @@
 package com.filrouge.restaurantcore.dto;
 
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -27,26 +26,32 @@ import lombok.Data;
 @Data
 @Builder
 public class BookingDto {
-	
+
 	/**
 	 * Day.
 	 */
 	private Date day;
-	
+
 	/**
 	 * Hour.
 	 */
 	private Hour hour;
-	
+
 	/**
-	 * Informations of tables. 
+	 * Informations of tables.
 	 */
+
 	private TableDto table;
 	
+
+	
+
+
 	/**
-	 * Informations of orders. 
+	 * Informations of orders.
 	 */
 	// @Builder.Default permet de surcharger la construction de la collection de
+
 		// lombok
 		@Builder.Default
 		private List<OrderDto> orders = new ArrayList<OrderDto>(0);
@@ -106,5 +111,6 @@ public class BookingDto {
 			
 			
 			return booking;
-		}
+
+	}
 }

@@ -9,6 +9,7 @@ import lombok.Data;
 
 /**
  * Ingredient Object Transfer (DTO).
+ * 
  * @author Hermann
  *
  */
