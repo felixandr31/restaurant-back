@@ -7,11 +7,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.filrouge.restaurantcore.entity.User;
-
-
 import com.filrouge.restaurantcore.entity.Role;
-
+import com.filrouge.restaurantcore.entity.User;
 
 import lombok.Builder;
 import lombok.Data;

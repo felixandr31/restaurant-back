@@ -14,8 +14,8 @@ import com.filrouge.restaurantcore.util.MessagesUtil;
 
 
 /**
- * ApectJ pour effectuer un traitement post service métier même en cas d'exception
- * @author pgosse
+ * ApectJ to perform post service business processing even in the event of an exception
+ * @author User
  *
  */
 @Aspect
