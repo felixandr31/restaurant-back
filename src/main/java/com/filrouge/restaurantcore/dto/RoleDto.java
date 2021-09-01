@@ -2,6 +2,7 @@ package com.filrouge.restaurantcore.dto;
 
 import com.filrouge.restaurantcore.entity.Role;
 
+
 import lombok.Builder;
 import lombok.Data;
 
