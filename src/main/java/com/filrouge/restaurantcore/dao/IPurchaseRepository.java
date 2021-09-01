@@ -1,5 +1,10 @@
 package com.filrouge.restaurantcore.dao;
 
-public interface IPurchaseRepository {
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+
+import com.filrouge.restaurantcore.entity.Purchase;
+
+public interface IPurchaseRepository extends MongoRepository<Purchase, Long> {
 
 }
