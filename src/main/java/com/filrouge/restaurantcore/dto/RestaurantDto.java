@@ -2,7 +2,7 @@ package com.filrouge.restaurantcore.dto;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.persistence.Embedded;
