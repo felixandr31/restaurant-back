@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import com.filrouge.restaurantcore.util.MessagesUtil;
 
 /**
- * ApectJ to trace the messages corresponding to the exceptions of the job
+ * ApectJ to trace the messages corresponding to the exceptions of the bussiness process
  * process.
  * 
  * @author Hermann

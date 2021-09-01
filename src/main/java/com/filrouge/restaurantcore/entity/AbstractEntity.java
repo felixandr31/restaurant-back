@@ -40,7 +40,7 @@ public abstract class AbstractEntity {
 	 * La dernière date de mise à jour.
 	 */
 	@LastModifiedDate
-	@Field("UpdateDate")
+	@Field("updateDate")
 	@JsonIgnore
-	private Instant UpdateDate;
+	private Instant updateDate;
 }
