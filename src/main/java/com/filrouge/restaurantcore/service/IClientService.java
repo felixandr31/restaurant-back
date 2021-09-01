@@ -63,7 +63,7 @@ public interface IClientService {
 	 * @param roleIds the identifier of roles
 	 * @return the client's DTO with these roles.
 	 */
-	UserDto addRolesToUser(String id, Set<String> roleIds);
+	UserDto addRoles(String id, Set<String> roleIds);
 	
 	/**
 	 * Removal of client roles. Identifiers of roles not found
@@ -74,7 +74,7 @@ public interface IClientService {
      * @return the client's DTO with these roles.
 	 * 
 	 */
-	UserDto removeRolesToUser(String id, Set<String> roleIds);
+	UserDto removeRoles(String id, Set<String> roleIds);
 }
 	
 	

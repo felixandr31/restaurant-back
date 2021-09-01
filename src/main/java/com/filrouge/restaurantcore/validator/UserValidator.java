@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.util.StringUtils;
 
 import com.filrouge.restaurantcore.dto.UserDto;
+import com.filrouge.restaurantcore.util.MessagesUtil;
 
 
 
@@ -16,6 +17,7 @@ import com.filrouge.restaurantcore.dto.UserDto;
  *
  */
 public class UserValidator {
+	private static final MessagesUtil MESSAGE_UTILS = MessagesUtil.getInstance("message");
 	
 	/**
 	 * DTO validation
@@ -28,9 +30,9 @@ public class UserValidator {
 
 		//TODO utiliser des messages dans des fichiers de propriétes
 		if (dto == null) {
-			errors.add("First name is required");
-			errors.add("Last name is required");
-			errors.add("E-Mail is required");
+			errors.add(MESSAGE_UTILS.getMessage("message.validator.user.firstname"));
+			errors.add(MESSAGE_UTILS.getMessage("message.validator.user.lastname"));
+			errors.add(MESSAGE_UTILS.getMessage("message.validator.user.email"));
 			return errors;
 		}
 

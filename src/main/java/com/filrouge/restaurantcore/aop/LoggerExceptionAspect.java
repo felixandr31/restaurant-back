@@ -28,7 +28,7 @@ public class LoggerExceptionAspect {
 	// Key of the message on a job process
 	private static final String CLE_MESSAGE_EXCEPTION = "message.service.exception";
 
-	@AfterThrowing(pointcut = "execution(* com.filrouge.springboot.mongodb.service.impl.*ServiceImpl.*(..))", throwing = "ex")
+	@AfterThrowing(pointcut = "execution(* com.filrouge.restaurantcore.service.impl.*ServiceImpl.*(..))", throwing = "ex")
 	public void tracerException(final JoinPoint joinpoint, com.filrouge.restaurantcore.exception.FunctionnalException ex)
 			throws Throwable {
 		final Object[] args = joinpoint.getArgs();

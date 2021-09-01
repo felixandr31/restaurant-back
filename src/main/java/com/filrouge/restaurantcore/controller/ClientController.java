@@ -91,7 +91,7 @@ public class ClientController {
 	public ResponseEntity<UserDto> addRolesToAdministrator(@PathVariable String id,
 			@RequestBody Set<String> roleIds) {
 
-		UserDto clientUpdate = clientService.addRolesToUser(id, roleIds);
+		UserDto clientUpdate = clientService.addRoles(id, roleIds);
 		return new ResponseEntity<UserDto>(clientUpdate, HttpStatus.CREATED);
 	}
 
@@ -106,7 +106,7 @@ public class ClientController {
 	public ResponseEntity<UserDto> removeRolesToUser(@PathVariable String id,
 			@RequestBody Set<String> roleIds) {
 
-		UserDto clientUpdate = clientService.removeRolesToUser(id, roleIds);
+		UserDto clientUpdate = clientService.removeRoles(id, roleIds);
 		return new ResponseEntity<UserDto>(clientUpdate, HttpStatus.CREATED);
 	}
 }
