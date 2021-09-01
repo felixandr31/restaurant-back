@@ -1,5 +1,7 @@
 package com.filrouge.restaurantcore.service;
 
-public class IClientService {
+public class IUserService {
+	
+	
 
 }
