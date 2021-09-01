@@ -45,7 +45,7 @@ public class TableDto {
 		 * @return entity of DTO
 		 */
 		
-		public static Table fromEntity(TableDto dto) {
+		public static Table toEntity(TableDto dto) {
 			if(dto == null) {
 				//TODO throw an exception
 				return null;

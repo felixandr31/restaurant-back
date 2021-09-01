@@ -1,7 +1,7 @@
 package com.filrouge.restaurantcore.dto;
 
 import com.filrouge.restaurantcore.entity.Coordinates;
-import com.filrouge.restaurantcore.entity.Stock;
+
 
 import lombok.Builder;
 import lombok.Data;

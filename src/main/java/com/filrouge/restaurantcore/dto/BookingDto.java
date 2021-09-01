@@ -11,8 +11,9 @@ import org.springframework.data.mongodb.core.aggregation.DateOperators.Hour;
 import com.filrouge.restaurantcore.entity.Booking;
 import com.filrouge.restaurantcore.entity.Order;
 
-import com.filrouge.restaurantcore.entity.Table;
+
 import com.filrouge.restaurantcore.entity.User;
+
 
 import lombok.Builder;
 import lombok.Data;
@@ -40,7 +41,7 @@ public class BookingDto {
 	/**
 	 * Informations of tables. 
 	 */
-	private Table table;
+	private TableDto table;
 	
 	/**
 	 * Informations of orders. 
@@ -49,6 +50,7 @@ public class BookingDto {
 		// lombok
 		@Builder.Default
 		private List<OrderDto> orders = new ArrayList<OrderDto>(0);
+		@Builder.Default
 		private List<UserDto> clients = new ArrayList<UserDto>(0);
 		/**
 		 * Transform entity into DTO.
@@ -70,7 +72,8 @@ public class BookingDto {
 				clientsDTO.add(UserDto.fromEntity(client));
 			}
 			
-			return BookingDto.builder().day(entity.getDay()).hour(entity.getHour()).table(entity.getTable()).orders(ordersDTO).clients(clientsDTO).build();
+			return BookingDto.builder().day(entity.getDay()).hour(entity.getHour())
+					.table(TableDto.fromEntity(entity.getTable())).orders(ordersDTO).clients(clientsDTO).build();
 		}
 
 		/**
@@ -87,6 +90,7 @@ public class BookingDto {
 			final Booking booking = new Booking();
 			booking.setDay(dto.getDay());
 			booking.setHour(dto.getHour());
+			booking.setTable(TableDto.toEntity(dto.getTable()));
 			
 			final List<Order> orders = dto.getOrders()
 			        .stream()

@@ -1,9 +1,9 @@
 package com.filrouge.restaurantcore.dto;
 
 import java.math.BigInteger;
-import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 import com.filrouge.restaurantcore.entity.Recipe;
 
 import lombok.Builder;
@@ -54,7 +54,7 @@ public class RecipeDto {
 	 * @param dto
 	 * @return entity of DTO
 	 */
-	public static Recipe fromEntity(RecipeDto dto) {
+	public static Recipe toEntity(RecipeDto dto) {
 		if (dto == null) {
 			// TODO throw an exception
 			return null;
