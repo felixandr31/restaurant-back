@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.filrouge.restaurantcore.dto.RoleDto;
+
 import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.service.IClientService;
 
@@ -26,13 +26,13 @@ import com.filrouge.restaurantcore.service.IClientService;
 /**
  * REST role management services.
  * 
- * @author pgosse
+ * @author Hermann
  *
  */
 @CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
 @RestController
-@RequestMapping("/client/*")
-public class ClientController {
+@RequestMapping("/user/*")
+public class UserController {
 
 	@Autowired
 	IClientService clientService;
@@ -42,14 +42,14 @@ public class ClientController {
 	 * 
 	 * @return Clients of the DTO.
 	 */
-	@GetMapping(value = "/clients")
+	@GetMapping(value = "/users")
 	public ResponseEntity<Collection<UserDto>> findAll() {
 		Collection<UserDto> clients = clientService.findAll();
 		return new ResponseEntity<Collection<UserDto>>(clients, HttpStatus.FOUND);
 	}
 
 	/**
-	 * Creation of an Client.
+	 * création d'un utilisateur avec leurs roles si existe;
 	 * @param UserDto the client to create.
 	 * @return Created Client.
 	 */
@@ -57,11 +57,11 @@ public class ClientController {
 	@Transactional
 	public ResponseEntity<UserDto> save(@RequestBody UserDto userDto) {
 
-		if (userDto.getRoles() == null) {
-			userDto.setRoles(new ArrayList<RoleDto>(0));
-		}
-		UserDto clientCreated = clientService.save(userDto);
-		return new ResponseEntity<UserDto>(clientCreated, HttpStatus.CREATED);
+		//if (userDto.getRoles() == null) {
+		//	userDto.setRoles(new ArrayList<RoleDto>(0));
+		//}
+		UserDto userCreated = clientService.save(userDto);
+		return new ResponseEntity<UserDto>(userCreated, HttpStatus.CREATED);
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class ClientController {
 	 */
 	@PostMapping("/addroles/{id}")
 	@Transactional
-	public ResponseEntity<UserDto> addRolesToAdministrator(@PathVariable String id,
+	public ResponseEntity<UserDto> addRoles(@PathVariable String id,
 			@RequestBody Set<String> roleIds) {
 
 		UserDto clientUpdate = clientService.addRoles(id, roleIds);
@@ -103,7 +103,7 @@ public class ClientController {
 	 */
 	@PostMapping("/removeroles/{id}")
 	@Transactional
-	public ResponseEntity<UserDto> removeRolesToUser(@PathVariable String id,
+	public ResponseEntity<UserDto> removeRoles(@PathVariable String id,
 			@RequestBody Set<String> roleIds) {
 
 		UserDto clientUpdate = clientService.removeRoles(id, roleIds);

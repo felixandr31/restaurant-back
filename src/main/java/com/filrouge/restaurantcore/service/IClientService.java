@@ -59,9 +59,9 @@ public interface IClientService {
 	 * Add roles of the client. Identifiers of roles not found
      * are ignored
 	 * 
-	 * @param ID      identifier of client.
-	 * @param roleIds the identifier of roles
-	 * @return the client's DTO with these roles.
+	 * @param ID      identifier of Recipe.
+	 * @param IngredientRecipeIds the identifier of ingredientRecipe
+	 * @return the recipe's DTO with these IngredientRecipe.
 	 */
 	UserDto addRoles(String id, Set<String> roleIds);
 	
@@ -69,9 +69,9 @@ public interface IClientService {
 	 * Removal of client roles. Identifiers of roles not found
      * are ignored.
 	 * 
-	 * @param id The client identifier.
-     * @param roleIds The role identifiers
-     * @return the client's DTO with these roles.
+	 * @param id The Recipe identifier.
+     * @param IngredientRecipeIds The IngredientRecipe identifiers
+     * @return the recipe's DTO with these ingredientRecipe.
 	 * 
 	 */
 	UserDto removeRoles(String id, Set<String> roleIds);

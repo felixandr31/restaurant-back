@@ -27,13 +27,13 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
-@Document("recipe")
+@Document(collection = "recipe")
 public class Recipe extends AbstractEntity {
 
 	/**
 	 * the name of recipe
 	 */
-	@Field("recipe")
+	@Field("name")
 	@NonNull
 	private String name;
 
@@ -57,7 +57,7 @@ public class Recipe extends AbstractEntity {
 	private Set<IngredientRecipe> ingredientsRecipe;
 
 	/**
-	 * constructor
+	 * Constructor
 	 */
 
 	public Recipe() {
