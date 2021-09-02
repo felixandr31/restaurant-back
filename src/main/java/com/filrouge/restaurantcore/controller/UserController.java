@@ -1,7 +1,7 @@
 package com.filrouge.restaurantcore.controller;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 
 import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.service.IClientService;
@@ -57,11 +56,9 @@ public class UserController {
 	@Transactional
 	public ResponseEntity<UserDto> save(@RequestBody UserDto userDto) {
 
-		//if (userDto.getRoles() == null) {
-		//	userDto.setRoles(new ArrayList<RoleDto>(0));
-		//}
 		UserDto userCreated = clientService.save(userDto);
-		return new ResponseEntity<UserDto>(userCreated, HttpStatus.CREATED);
+		Optional<UserDto> userFind = clientService.findById(userCreated.getId());
+		return new ResponseEntity<UserDto>(userFind.get(), HttpStatus.CREATED);
 	}
 
 	/**
