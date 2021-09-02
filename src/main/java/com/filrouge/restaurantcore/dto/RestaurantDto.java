@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import com.filrouge.restaurantcore.entity.Purchase;
 import com.filrouge.restaurantcore.entity.Recipe;
 import com.filrouge.restaurantcore.entity.Restaurant;
+import com.filrouge.restaurantcore.entity.Stock;
 import com.filrouge.restaurantcore.entity.Table;
 import com.filrouge.restaurantcore.entity.User;
 
@@ -69,7 +70,8 @@ public class RestaurantDto {
 	private List<PurchaseDto> purchases = new ArrayList<PurchaseDto>(0);
 	@Builder.Default
 	private List<RecipeDto> recipes = new ArrayList<RecipeDto>(0);
-
+	@Builder.Default
+	private List<StockDto> stocks = new ArrayList<StockDto>(0);
 	/**
 	 * Transform entity into DTO.
 	 * 
@@ -100,11 +102,16 @@ public class RestaurantDto {
 		for (final Recipe recipe : entity.getRecipes()) {
 			recipesDTO.add(RecipeDto.fromEntity(recipe));
 		}
+		
+		final List<StockDto> stocksDTO = new ArrayList<StockDto>(entity.getStocks().size());
+		for (final Stock stock : entity.getStocks()) {
+			stocksDTO.add(StockDto.fromEntity(stock));
+		}
 
 		return RestaurantDto.builder().name(entity.getName()).address(AddressDto.fromEntity(entity.getAddress()))
 				.stars(entity.getStars()).budget(entity.getBudget())
 				.coordinates(CoordinatesDto.fromEntity(entity.getCoordinates()))
-				.stock(StockDto.fromEntity(entity.getStock())).tables(tablesDTO).employees(employeesDTO)
+				.stocks(stocksDTO).tables(tablesDTO).employees(employeesDTO)
 				.purchases(purchasesDTO).recipes(recipesDTO).build();
 	}
 
@@ -124,7 +131,7 @@ public class RestaurantDto {
 		restaurant.setAddress(AddressDto.toEntity(dto.getAddress()));
 		restaurant.setStars(dto.getStars());
 		restaurant.setCoordinates(CoordinatesDto.toEntity(dto.getCoordinates()));
-		restaurant.setStock(StockDto.toEntity(dto.getStock()));
+		
 		restaurant.setBudget(dto.getBudget());
 
 		final List<User> employees = dto.getEmployees().stream().map(UserDto::toEntity).collect(Collectors.toList());
@@ -139,6 +146,9 @@ public class RestaurantDto {
 
 		final List<Recipe> recipes = dto.getRecipes().stream().map(RecipeDto::toEntity).collect(Collectors.toList());
 		restaurant.setRecipes(recipes);
+		
+		final List<Stock> stocks = dto.getStocks().stream().map(StockDto::toEntity).collect(Collectors.toList());
+		restaurant.setStocks(stocks);
 
 		return restaurant;
 	}

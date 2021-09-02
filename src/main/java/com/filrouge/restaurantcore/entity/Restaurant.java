@@ -85,7 +85,7 @@ public class Restaurant extends AbstractEntity {
 	 * Stock
 	 */
 	@DBRef
-	private Stock stock;
+	private List<Stock> stocks;
 
 	/**
 	 * Constructor
@@ -95,6 +95,7 @@ public class Restaurant extends AbstractEntity {
 		this.tables = new ArrayList<Table>(0);
 		this.purchases = new ArrayList<Purchase>(0);
 		this.recipes = new ArrayList<Recipe>(0);
+		this.stocks = new ArrayList<Stock>(0);
 	}
 
 }
