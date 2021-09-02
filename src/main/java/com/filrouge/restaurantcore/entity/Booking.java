@@ -22,7 +22,7 @@ import lombok.EqualsAndHashCode;
 
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Document(collection = "address")
+@Document(collection = "Booking")
 @Data
 public class Booking extends AbstractEntity {
 

@@ -32,8 +32,8 @@ public class RestaurantValidator {
 			errors.addAll(UserValidator.validate(null));
 			errors.addAll(TableValidator.validate(null));
 			errors.add("budget is required");
-			errors.addAll(PurchaseValidator.validate(null));
-			errors.addAll(StockValidator.validate(null));
+			
+		
 			return errors;
 		}
 
@@ -48,7 +48,7 @@ public class RestaurantValidator {
 		}
 		errors.addAll(AddressValidator.validate(dto.getAddress()));
 		errors.addAll(CoordinatesValidator.validate(dto.getCoordinates()));
-		errors.addAll(StockValidator.validate(dto.getStock()));
+		
 
 		return errors;
 	}
