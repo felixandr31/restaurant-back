@@ -1,12 +1,9 @@
 package com.filrouge.restaurantcore.dto;
 
 import java.util.ArrayList;
-
 import java.util.List;
-
 import java.util.stream.Collectors;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.filrouge.restaurantcore.entity.Role;
 import com.filrouge.restaurantcore.entity.User;
 

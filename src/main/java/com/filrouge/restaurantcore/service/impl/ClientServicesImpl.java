@@ -45,12 +45,12 @@ public class ClientServicesImpl implements IClientService {
 	public UserDto save(final UserDto dto) {
 
 		UserDto userDto = UserDto.fromEntity(userRepository.save(UserDto.toEntity(dto)));
-		if (dto.getRoles().size() > 0) {
+		/**if (dto.getRoles().size() > 0) {
 
 			Set<String> roleIds = dto.getRoles().stream().map(role -> role.getId()).collect(Collectors.toSet());
 
-			userDto = addRoles(dto.getId(), roleIds);
-		}
+			userDto = addRoles(userDto.getId(), roleIds);
+		}*/
 		return userDto;
 
 	}
@@ -74,12 +74,6 @@ public class ClientServicesImpl implements IClientService {
 		return Optional.of(userRepository.findById(id).map(UserDto::fromEntity)).orElseThrow(
 				() -> new EntityNotFoundException("Aucun Client avec l'ID = " + id + " n' ete trouve dans la BDD",
 						ErrorCodes.CLIENT_NOT_FOUND));
-	}
-
-	@Override
-	public List<UserDto> findAll() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -136,4 +130,8 @@ public class ClientServicesImpl implements IClientService {
 		return UserDto.fromEntity(userRepository.save(toUpdate));
 	}
 
+	@Override
+	public List<UserDto> findAll() {
+		return userRepository.findAll().stream().map(UserDto::fromEntity).collect(Collectors.toList());
+	}
 }
