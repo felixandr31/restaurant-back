@@ -19,20 +19,13 @@ import com.filrouge.restaurantcore.service.IClientService;
 import com.filrouge.restaurantcore.util.MessagesUtil;
 import com.filrouge.restaurantcore.validator.UserValidator;
 
-
-
-
-
-
-
-
 @Service
 public class ClientServicesImpl implements IClientService {
-	
+
 	private static final MessagesUtil MESSAGE_UTILS = MessagesUtil.getInstance("message");
 
 	// DAOs
-	
+
 	private IUserRepository userRepository;
 	private IRoleRepository roleRepository;
 
@@ -47,36 +40,41 @@ public class ClientServicesImpl implements IClientService {
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
 	}
-	
 
 	@Override
 	public UserDto save(final UserDto dto) {
 
-		return UserDto.fromEntity(userRepository.save(UserDto.toEntity(dto)));
+		UserDto userDto = UserDto.fromEntity(userRepository.save(UserDto.toEntity(dto)));
+		if (dto.getRoles().size() > 0) {
+
+			Set<String> roleIds = dto.getRoles().stream().map(role -> role.getId()).collect(Collectors.toSet());
+
+			userDto = addRoles(dto.getId(), roleIds);
+		}
+		return userDto;
+
 	}
-	
 
 	@Override
 	public UserDto update(UserDto dto) {
 		List<String> errors = UserValidator.validate(dto);
 		if (!errors.isEmpty()) {
-			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client"), ErrorCodes.CLIENT_NOT_FOUND, errors);
+			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client"),
+					ErrorCodes.CLIENT_NOT_FOUND, errors);
 		}
 		return UserDto.fromEntity(userRepository.save(UserDto.toEntity(dto)));
 	}
 
 	@Override
 	public Optional<UserDto> findById(String id) {
-	
+
 		if (id == null) {
 			return null;
 		}
-		return Optional.of(userRepository.findById(id).map(UserDto::fromEntity))
-				.orElseThrow(() -> new EntityNotFoundException(
-						"Aucun Client avec l'ID = " + id + " n' ete trouve dans la BDD", ErrorCodes.CLIENT_NOT_FOUND)
-						);
+		return Optional.of(userRepository.findById(id).map(UserDto::fromEntity)).orElseThrow(
+				() -> new EntityNotFoundException("Aucun Client avec l'ID = " + id + " n' ete trouve dans la BDD",
+						ErrorCodes.CLIENT_NOT_FOUND));
 	}
-	
 
 	@Override
 	public List<UserDto> findAll() {
@@ -87,14 +85,13 @@ public class ClientServicesImpl implements IClientService {
 	@Override
 	public List<UserDto> findAllUsers() {
 		// TODO Auto-generated method stub
-			return userRepository.findAll().stream().map(UserDto::fromEntity).collect(Collectors.toList());
+		return userRepository.findAll().stream().map(UserDto::fromEntity).collect(Collectors.toList());
 
-		
 	}
 
 	@Override
 	public void deleteById(String id) {
-		if(id == null) {
+		if (id == null) {
 			return;
 		}
 		userRepository.deleteById(id);
@@ -106,7 +103,8 @@ public class ClientServicesImpl implements IClientService {
 		Optional<User> optionalClient = userRepository.findById(id);
 
 		if (!optionalClient.isPresent()) {
-			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client.update"), ErrorCodes.CLIENT_NOT_VALID);
+			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client.update"),
+					ErrorCodes.CLIENT_NOT_VALID);
 		}
 		User toUpdateClient = optionalClient.get();
 
@@ -124,7 +122,8 @@ public class ClientServicesImpl implements IClientService {
 		Optional<User> optionalClient = userRepository.findById(id);
 
 		if (!optionalClient.isPresent()) {
-			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client.update"), ErrorCodes.CLIENT_NOT_VALID);
+			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client.update"),
+					ErrorCodes.CLIENT_NOT_VALID);
 		}
 		User toUpdate = optionalClient.get();
 

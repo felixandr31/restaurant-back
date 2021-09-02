@@ -40,7 +40,7 @@ public class User extends AbstractEntity {
 	/**
 	 * last name of user
 	 */
-	@Field("laststname")
+	@Field("lastname")
 	@NonNull
 	private String lastName;
 

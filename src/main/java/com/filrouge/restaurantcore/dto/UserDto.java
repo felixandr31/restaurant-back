@@ -36,11 +36,11 @@ public class UserDto {
 		
 		private String email;
 		
-		@JsonIgnore
+		//@JsonIgnore
 		@Builder.Default
 		private List<RoleDto> roles = new ArrayList<RoleDto>();
 		
-		@JsonIgnore
+		//@JsonIgnore
 		@Builder.Default
 		private List<UserDto> friends = new ArrayList<UserDto>();
 		
