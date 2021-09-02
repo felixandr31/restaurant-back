@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Document(collection = "Role")
+@Document(collection = "role")
 public class Role extends AbstractEntity {
 
 	/**
