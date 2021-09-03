@@ -77,38 +77,21 @@ public class UserController {
 		UserDto userUpdate = userService.update(userDto);
 		return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
 	}
-	
+
 	/**
 	 * Adding a role to the User.
 	 * @param id the user's 
 	 * @param roleIds the identifiers of the roles to add
 	 * @return updated User
 	 */
-	@PostMapping("/addusers/{id}")
+	@PostMapping("/addroles/{id}")
 	@Transactional
-	public ResponseEntity<UserDto> addUsers(@PathVariable String id,
-			@RequestBody Set<String> userIds) {
+	public ResponseEntity<UserDto> addRoles(@PathVariable String id,
+			@RequestBody Set<String> roleIds) {
 
-		UserDto userUpdate = userService.addRoles(id, userIds);
+		UserDto userUpdate = userService.addRoles(id, roleIds);
 		return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
 	}
-	
-	/**
-	 * Removal of a role from the client.
-	 * @param id the client's identifier
-	 * @param roleIds the identifiers of the roles to be deleted
-	 * @return the updated client
-	 */
-	@PostMapping("/removeusers/{id}")
-	@Transactional
-	public ResponseEntity<UserDto> removeRoles(@PathVariable String id,
-			@RequestBody Set<String> userIds) {
-
-		UserDto userUpdate = userService.removeRoles(id, userIds);
-		return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
-	}
-
-	
 	
 	/**
 	 * Adding a friend to the User.
@@ -125,6 +108,20 @@ public class UserController {
 		return new ResponseEntity<UserDto>(friendUpdate, HttpStatus.CREATED);
 	}
 
+	/**
+	 * Removal of a role from the client.
+	 * @param id the client's identifier
+	 * @param roleIds the identifiers of the roles to be deleted
+	 * @return the updated client
+	 */
+	@PostMapping("/removeroles/{id}")
+	@Transactional
+	public ResponseEntity<UserDto> removeRoles(@PathVariable String id,
+			@RequestBody Set<String> roleIds) {
+
+		UserDto userUpdate = userService.removeRoles(id, roleIds);
+		return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
+	}
 	
 	/**
 	 * Removal of a friend from the client.
