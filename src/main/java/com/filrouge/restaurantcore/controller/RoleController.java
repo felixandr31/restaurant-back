@@ -36,7 +36,9 @@ public class RoleController {
 	@GetMapping(value = "/roles")
 	public ResponseEntity<Collection<RoleDto>> findAll() {
 		Collection<RoleDto> roles = roleService.findAll();
-		return new ResponseEntity<Collection<RoleDto>>(roles, HttpStatus.FOUND);
+		return new ResponseEntity<Collection<RoleDto>>(roles, HttpStatus.OK);
+		
+		//TODO findByName
 	}
 
 	@PostMapping(value = "/create")

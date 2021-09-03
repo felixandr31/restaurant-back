@@ -63,10 +63,10 @@ public class UserController {
 	}
 
 	/**
-	 * Update of an administrator (without these associations)
-	 * @param  id the client's identifier
+	 * Update of an user (without these associations)
+	 * @param  id the user's identifier
 	 * @param userDto the data to update
-	 * @return the updated Client
+	 * @return the updated user
 	 */
 	@PutMapping("/update/{id}")
 	@Transactional
@@ -92,21 +92,6 @@ public class UserController {
 		UserDto userUpdate = userService.addRoles(id, roleIds);
 		return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
 	}
-	
-	/**
-	 * Adding a friend to the User.
-	 * @param id the user's 
-	 * @param friendIds the identifiers of the friends to add
-	 * @return updated User
-	 */
-	@PostMapping("/addfriends/{id}")
-	@Transactional
-	public ResponseEntity<UserDto> addFriends(@PathVariable String id,
-			@RequestBody Set<String> friendIds) {
-
-		UserDto friendUpdate = userService.addFriends(id, friendIds);
-		return new ResponseEntity<UserDto>(friendUpdate, HttpStatus.CREATED);
-	}
 
 	/**
 	 * Removal of a role from the client.
@@ -124,6 +109,21 @@ public class UserController {
 	}
 	
 	/**
+	 * Adding a friend to the User.
+	 * @param id the user's 
+	 * @param friendIds the identifiers of the friends to add
+	 * @return updated User
+	 */
+	@PostMapping("/addfriends/{id}")
+	@Transactional
+	public ResponseEntity<UserDto> addFriends(@PathVariable String id,
+			@RequestBody Set<String> friendIds) {
+
+		UserDto friendUpdate = userService.addFriends(id, friendIds);
+		return new ResponseEntity<UserDto>(friendUpdate, HttpStatus.CREATED);
+	}
+	
+	/**
 	 * Removal of a friend from the client.
 	 * @param id the client's identifier
 	 * @param friendIds the identifiers of the friends to be deleted
@@ -134,7 +134,7 @@ public class UserController {
 	public ResponseEntity<UserDto> removeFriends(@PathVariable String id,
 			@RequestBody Set<String> friendIds) {
 
-		UserDto friendUpdate = userService.removeRoles(id, friendIds);
+		UserDto friendUpdate = userService.removeFriends(id, friendIds);
 		return new ResponseEntity<UserDto>(friendUpdate, HttpStatus.CREATED);
 	}
 }
