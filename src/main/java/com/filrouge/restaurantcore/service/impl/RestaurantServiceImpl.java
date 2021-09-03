@@ -81,7 +81,8 @@ public class RestaurantServiceImpl implements IRestaurantService {
 
 		return RestaurantDto.fromEntity(restaurantRepository.save(toUpdateRestaurant));
 	}
-
+	
+	 
 	@Override
 	public RestaurantDto update(RestaurantDto dto) {
 		List<String> errors = RestaurantValidator.validate(dto);

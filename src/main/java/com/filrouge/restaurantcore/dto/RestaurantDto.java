@@ -55,10 +55,7 @@ public class RestaurantDto {
 	 */
 	private BigDecimal budget;
 
-	/**
-	 * Stock
-	 */
-	private StockDto stock;
+	
 
 	// @Builder.Default permet de surcharger la construction de la collection de
 	// lombok
