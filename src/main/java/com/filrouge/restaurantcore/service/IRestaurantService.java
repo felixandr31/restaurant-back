@@ -2,6 +2,7 @@ package com.filrouge.restaurantcore.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import com.filrouge.restaurantcore.dto.RestaurantDto;
 
@@ -21,7 +22,7 @@ public interface IRestaurantService {
 	 * @return le DTO suite à la création
 	 */
 	RestaurantDto save(RestaurantDto dto);
-
+	RestaurantDto addUsers(String id, final Set<String> userIds);
 	/**
 	 * Update d'un restaurant sans ces associations.
 	 * 
