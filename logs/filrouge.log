@@ -1,313 +1,300 @@
-2021-08-31 06:16:30,146 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadException: Exception receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketException: Socket Closed
-	at java.net.AbstractPlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.PlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.Socket.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 06:16:30,207 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadException: Exception receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketException: Socket Closed
-	at java.net.AbstractPlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.PlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.Socket.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 06:16:30,220 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadException: Exception receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketException: Socket Closed
-	at java.net.AbstractPlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.PlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.Socket.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 06:16:30,370 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketException: cluster-poei-shard-00-00.z9yhc.mongodb.net
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:211) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:75) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:143) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:188) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.UnknownHostException: cluster-poei-shard-00-00.z9yhc.mongodb.net
-	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:1.8.0_241]
-	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAddressesFromNameService(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName0(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:203) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 6 more
-2021-08-31 06:16:30,370 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketException: cluster-poei-shard-00-01.z9yhc.mongodb.net
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:211) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:75) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:143) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:188) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.UnknownHostException: cluster-poei-shard-00-01.z9yhc.mongodb.net
-	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:1.8.0_241]
-	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAddressesFromNameService(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName0(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:203) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 6 more
-2021-08-31 06:16:30,370 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketException: cluster-poei-shard-00-02.z9yhc.mongodb.net
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:211) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:75) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:143) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:188) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.UnknownHostException: cluster-poei-shard-00-02.z9yhc.mongodb.net
-	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:1.8.0_241]
-	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAddressesFromNameService(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName0(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:203) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 6 more
-2021-08-31 06:16:40,682 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:12, serverValue:23819}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 06:16:40,683 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:11, serverValue:21766}] to cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-2021-08-31 06:16:40,685 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=118102500, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff00000000000000c9, setVersion=7, topologyVersion=TopologyVersion{processId=612ca3ae0185a8407a5ddce4, counter=6}, lastWriteDate=Tue Aug 31 06:16:40 CEST 2021, lastUpdateTimeNanos=140501171685899}
-2021-08-31 06:16:40,685 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=119733400, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca29da66423eb52ba3176, counter=4}, lastWriteDate=Tue Aug 31 06:16:40 CEST 2021, lastUpdateTimeNanos=140501173261099}
-2021-08-31 06:16:40,685 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Discovered replica set primary cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 06:16:40,765 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:13, serverValue:21629}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-2021-08-31 06:16:40,765 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=106637101, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca4a650644ab79403bbff, counter=4}, lastWriteDate=Tue Aug 31 06:16:40 CEST 2021, lastUpdateTimeNanos=140501255064200}
-2021-08-31 06:16:45,806 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:14, serverValue:24081}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 06:16:46,324 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:15, serverValue:21618}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-2021-08-31 06:16:46,587 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:16, serverValue:21895}] to cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-2021-08-31 08:27:42,188 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadException: Exception receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketException: Socket Closed
-	at java.net.AbstractPlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.PlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.Socket.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 08:27:42,188 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadException: Exception receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketException: Socket Closed
-	at java.net.AbstractPlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.PlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.Socket.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 08:27:42,188 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadException: Exception receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketException: Socket Closed
-	at java.net.AbstractPlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.PlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.Socket.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 08:27:42,390 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:19, serverValue:26292}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 08:27:42,391 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=127738400, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff00000000000000c9, setVersion=7, topologyVersion=TopologyVersion{processId=612ca3ae0185a8407a5ddce4, counter=6}, lastWriteDate=Tue Aug 31 08:27:41 CEST 2021, lastUpdateTimeNanos=148362898909300}
-2021-08-31 08:27:42,391 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Discovered replica set primary cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 08:27:42,398 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:17, serverValue:23221}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-2021-08-31 08:27:42,399 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=133217300, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca4a650644ab79403bbff, counter=4}, lastWriteDate=Tue Aug 31 08:27:41 CEST 2021, lastUpdateTimeNanos=148362906758400}
-2021-08-31 08:27:42,409 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:18, serverValue:23481}] to cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-2021-08-31 08:27:42,409 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=132738800, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca29da66423eb52ba3176, counter=4}, lastWriteDate=Tue Aug 31 08:27:41 CEST 2021, lastUpdateTimeNanos=148362916975700}
-2021-08-31 08:27:52,353 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:21, serverValue:23234}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-2021-08-31 08:27:52,353 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:20, serverValue:26070}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 08:27:55,943 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:22, serverValue:23466}] to cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-2021-08-31 09:06:26,246 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadException: Exception receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketException: Socket Closed
-	at java.net.AbstractPlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.PlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.Socket.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 09:06:26,246 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadException: Exception receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketException: Socket Closed
-	at java.net.AbstractPlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.PlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.Socket.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 09:06:26,246 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadException: Exception receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:636) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketException: Socket Closed
-	at java.net.AbstractPlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.PlainSocketImpl.setOption(Unknown Source) ~[?:1.8.0_241]
-	at java.net.Socket.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.BaseSSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.setSoTimeout(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:133) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 09:06:26,292 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketException: cluster-poei-shard-00-02.z9yhc.mongodb.net
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:211) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:75) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:143) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:188) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.UnknownHostException: cluster-poei-shard-00-02.z9yhc.mongodb.net
-	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:1.8.0_241]
-	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAddressesFromNameService(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName0(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:203) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 6 more
-2021-08-31 09:06:26,292 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketException: cluster-poei-shard-00-00.z9yhc.mongodb.net
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:211) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:75) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:143) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:188) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.UnknownHostException: cluster-poei-shard-00-00.z9yhc.mongodb.net
-	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:1.8.0_241]
-	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAddressesFromNameService(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName0(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:203) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 6 more
-2021-08-31 09:06:26,293 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketException: cluster-poei-shard-00-01.z9yhc.mongodb.net
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:211) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:75) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:143) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:188) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.UnknownHostException: cluster-poei-shard-00-01.z9yhc.mongodb.net
-	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:1.8.0_241]
-	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAddressesFromNameService(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName0(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:203) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 6 more
-2021-08-31 09:06:36,727 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:30, serverValue:24150}] to cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-2021-08-31 09:06:36,727 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=199944800, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca29da66423eb52ba3176, counter=4}, lastWriteDate=Tue Aug 31 09:06:36 CEST 2021, lastUpdateTimeNanos=150697254484600}
-2021-08-31 09:06:36,730 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:29, serverValue:23951}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-2021-08-31 09:06:36,730 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=202674500, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca4a650644ab79403bbff, counter=4}, lastWriteDate=Tue Aug 31 09:06:36 CEST 2021, lastUpdateTimeNanos=150697257208400}
-2021-08-31 09:06:36,740 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:31, serverValue:26134}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 09:06:36,740 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=193909300, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff00000000000000c9, setVersion=7, topologyVersion=TopologyVersion{processId=612ca3ae0185a8407a5ddce4, counter=6}, lastWriteDate=Tue Aug 31 09:06:36 CEST 2021, lastUpdateTimeNanos=150697267982000}
-2021-08-31 09:06:36,740 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Discovered replica set primary cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 09:06:46,470 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:34, serverValue:23957}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-2021-08-31 09:06:46,470 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:32, serverValue:24097}] to cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-2021-08-31 09:06:46,470 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:33, serverValue:26942}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 09:53:30,771 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
+2021-09-02 15:49:42,364 INFO o.s.b.StartupInfoLogger [main] Starting RestaurantCoreApplication using Java 1.8.0_241 on LAPTOP-5U0CG77U with PID 2832 (C:\Users\formation\Documents\Workspace\ProgramFiles\SpringToolsSuite\workspace\restaurant-back\bin\main started by formation in C:\Users\formation\Documents\Workspace\ProgramFiles\SpringToolsSuite\workspace\restaurant-back)
+2021-09-02 15:49:42,376 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-09-02 15:49:43,187 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2021-09-02 15:49:43,195 DEBUG o.s.d.r.c.RepositoryConfigurationDelegate [main] Scanning for MongoDB repositories in packages com.filrouge.restaurantcore.
+2021-09-02 15:49:43,223 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\formation\Documents\Workspace\ProgramFiles\SpringToolsSuite\workspace\restaurant-back\bin\main\com\filrouge\restaurantcore\dao\IAddressRepository.class]
+2021-09-02 15:49:43,224 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\formation\Documents\Workspace\ProgramFiles\SpringToolsSuite\workspace\restaurant-back\bin\main\com\filrouge\restaurantcore\dao\IBookingRepository.class]
+2021-09-02 15:49:43,224 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\formation\Documents\Workspace\ProgramFiles\SpringToolsSuite\workspace\restaurant-back\bin\main\com\filrouge\restaurantcore\dao\ICoordinatesRepository.class]
+2021-09-02 15:49:43,224 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\formation\Documents\Workspace\ProgramFiles\SpringToolsSuite\workspace\restaurant-back\bin\main\com\filrouge\restaurantcore\dao\IIngredientRepository.class]
+2021-09-02 15:49:43,225 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\formation\Documents\Workspace\ProgramFiles\SpringToolsSuite\workspace\restaurant-back\bin\main\com\filrouge\restaurantcore\dao\IOrderRepository.class]
+2021-09-02 15:49:43,225 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\formation\Documents\Workspace\ProgramFiles\SpringToolsSuite\workspace\restaurant-back\bin\main\com\filrouge\restaurantcore\dao\IPurchaseRepository.class]
+2021-09-02 15:49:43,225 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\formation\Documents\Workspace\ProgramFiles\SpringToolsSuite\workspace\restaurant-back\bin\main\com\filrouge\restaurantcore\dao\IRecipeRepository.class]
+2021-09-02 15:49:43,226 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\formation\Documents\Workspace\ProgramFiles\SpringToolsSuite\workspace\restaurant-back\bin\main\com\filrouge\restaurantcore\dao\IRestaurantRepository.class]
+2021-09-02 15:49:43,226 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\formation\Documents\Workspace\ProgramFiles\SpringToolsSuite\workspace\restaurant-back\bin\main\com\filrouge\restaurantcore\dao\IRoleRepository.class]
+2021-09-02 15:49:43,227 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\formation\Documents\Workspace\ProgramFiles\SpringToolsSuite\workspace\restaurant-back\bin\main\com\filrouge\restaurantcore\dao\IStockRepository.class]
+2021-09-02 15:49:43,227 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\formation\Documents\Workspace\ProgramFiles\SpringToolsSuite\workspace\restaurant-back\bin\main\com\filrouge\restaurantcore\dao\ITableRepository.class]
+2021-09-02 15:49:43,227 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\formation\Documents\Workspace\ProgramFiles\SpringToolsSuite\workspace\restaurant-back\bin\main\com\filrouge\restaurantcore\dao\IUserRepository.class]
+2021-09-02 15:49:43,320 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 109 ms. Found 12 MongoDB repository interfaces.
+2021-09-02 15:49:44,098 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-09-02 15:49:44,120 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-09-02 15:49:44,121 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2021-09-02 15:49:44,121 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-02 15:49:44,210 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-09-02 15:49:44,211 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1782 ms
+2021-09-02 15:49:46,756 INFO c.m.d.l.SLF4JLogger [main] Cluster created with settings {hosts=[127.0.0.1:27017], srvHost=cluster-poei.z9yhc.mongodb.net, mode=MULTIPLE, requiredClusterType=REPLICA_SET, serverSelectionTimeout='30000 ms', requiredReplicaSetName='atlas-inwl8u-shard-0'}
+2021-09-02 15:49:46,945 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.Character to class java.lang.String as writing converter.
+2021-09-02 15:49:46,947 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Locale to class java.lang.String as writing converter.
+2021-09-02 15:49:46,949 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.math.BigDecimal to class java.lang.String as writing converter.
+2021-09-02 15:49:46,949 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.math.BigDecimal to class org.bson.types.Decimal128 as writing converter.
+2021-09-02 15:49:46,950 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.math.BigDecimal as reading converter.
+2021-09-02 15:49:46,950 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.types.Decimal128 to class java.math.BigDecimal as reading converter.
+2021-09-02 15:49:46,951 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.math.BigInteger to class java.lang.String as writing converter.
+2021-09-02 15:49:46,951 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.math.BigInteger as reading converter.
+2021-09-02 15:49:46,952 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.net.URL to class java.lang.String as writing converter.
+2021-09-02 15:49:46,952 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.net.URL as reading converter.
+2021-09-02 15:49:46,953 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class java.lang.String as reading converter.
+2021-09-02 15:49:46,953 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.query.Term to class java.lang.String as writing converter.
+2021-09-02 15:49:46,954 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.script.NamedMongoScript to class org.bson.Document as writing converter.
+2021-09-02 15:49:46,954 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.script.NamedMongoScript as reading converter.
+2021-09-02 15:49:46,955 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Currency to class java.lang.String as writing converter.
+2021-09-02 15:49:46,955 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.util.Currency as reading converter.
+2021-09-02 15:49:46,955 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.concurrent.atomic.AtomicInteger to class java.lang.Integer as writing converter.
+2021-09-02 15:49:46,956 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.concurrent.atomic.AtomicLong to class java.lang.Long as writing converter.
+2021-09-02 15:49:46,956 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.Long to class java.util.concurrent.atomic.AtomicLong as reading converter.
+2021-09-02 15:49:46,956 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.Integer to class java.util.concurrent.atomic.AtomicInteger as reading converter.
+2021-09-02 15:49:46,957 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.types.Binary to class [B as reading converter.
+2021-09-02 15:49:46,957 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.BsonTimestamp to class java.time.Instant as reading converter.
+2021-09-02 15:49:46,957 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.net.URI to class java.lang.String as writing converter.
+2021-09-02 15:49:46,957 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.net.URI as reading converter.
+2021-09-02 15:49:46,958 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.geo.Box to class org.bson.Document as writing converter.
+2021-09-02 15:49:46,958 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.geo.Polygon to class org.bson.Document as writing converter.
+2021-09-02 15:49:46,958 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.geo.Circle to class org.bson.Document as writing converter.
+2021-09-02 15:49:46,959 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.geo.Sphere to class org.bson.Document as writing converter.
+2021-09-02 15:49:46,959 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.geo.Box as reading converter.
+2021-09-02 15:49:46,960 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.geo.Polygon as reading converter.
+2021-09-02 15:49:46,960 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.geo.Circle as reading converter.
+2021-09-02 15:49:46,960 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.Sphere as reading converter.
+2021-09-02 15:49:46,961 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.geo.Point as reading converter.
+2021-09-02 15:49:46,961 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.geo.Point to class org.bson.Document as writing converter.
+2021-09-02 15:49:46,961 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.query.GeoCommand to class org.bson.Document as writing converter.
+2021-09-02 15:49:46,963 DEBUG o.s.d.c.CustomConversions [main] Adding converter from interface org.springframework.data.mongodb.core.geo.GeoJson to class org.bson.Document as writing converter.
+2021-09-02 15:49:46,963 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.geo.GeoJsonPoint to class org.bson.Document as writing converter.
+2021-09-02 15:49:46,964 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.geo.GeoJsonPolygon to class org.bson.Document as writing converter.
+2021-09-02 15:49:46,965 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonPoint as reading converter.
+2021-09-02 15:49:46,965 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonPolygon as reading converter.
+2021-09-02 15:49:46,965 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonLineString as reading converter.
+2021-09-02 15:49:46,966 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonMultiLineString as reading converter.
+2021-09-02 15:49:46,966 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonMultiPoint as reading converter.
+2021-09-02 15:49:46,967 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonMultiPolygon as reading converter.
+2021-09-02 15:49:46,967 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonGeometryCollection as reading converter.
+2021-09-02 15:49:46,967 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to interface org.springframework.data.mongodb.core.geo.GeoJson as reading converter.
+2021-09-02 15:49:46,968 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Date to class java.time.LocalDateTime as reading converter.
+2021-09-02 15:49:46,968 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.LocalDateTime to class java.util.Date as writing converter.
+2021-09-02 15:49:46,968 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Date to class java.time.LocalDate as reading converter.
+2021-09-02 15:49:46,969 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.LocalDate to class java.util.Date as writing converter.
+2021-09-02 15:49:46,969 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Date to class java.time.LocalTime as reading converter.
+2021-09-02 15:49:46,969 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.LocalTime to class java.util.Date as writing converter.
+2021-09-02 15:49:46,969 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Date to class java.time.Instant as reading converter.
+2021-09-02 15:49:46,970 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.Instant to class java.util.Date as writing converter.
+2021-09-02 15:49:46,970 DEBUG o.s.d.c.CustomConversions [main] Skipping converter from class java.time.LocalDateTime to class java.time.Instant as reading converter. class java.time.LocalDateTime is not a store supported simple type!
+2021-09-02 15:49:46,970 DEBUG o.s.d.c.CustomConversions [main] Skipping converter from class java.time.Instant to class java.time.LocalDateTime as reading converter. class java.time.Instant is not a store supported simple type!
+2021-09-02 15:49:46,971 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.ZoneId to class java.lang.String as writing converter.
+2021-09-02 15:49:46,971 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.ZoneId as reading converter.
+2021-09-02 15:49:46,971 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.Duration to class java.lang.String as writing converter.
+2021-09-02 15:49:46,971 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.Duration as reading converter.
+2021-09-02 15:49:46,972 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.Period to class java.lang.String as writing converter.
+2021-09-02 15:49:46,972 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.Period as reading converter.
+2021-09-02 15:49:46,972 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.LocalDate as reading converter.
+2021-09-02 15:49:46,972 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.LocalDateTime as reading converter.
+2021-09-02 15:49:46,973 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.Instant as reading converter.
+2021-09-02 15:49:47,294 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.Character to class java.lang.String as writing converter.
+2021-09-02 15:49:47,295 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Locale to class java.lang.String as writing converter.
+2021-09-02 15:49:47,295 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.math.BigDecimal to class java.lang.String as writing converter.
+2021-09-02 15:49:47,296 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.math.BigDecimal to class org.bson.types.Decimal128 as writing converter.
+2021-09-02 15:49:47,296 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.math.BigDecimal as reading converter.
+2021-09-02 15:49:47,296 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.types.Decimal128 to class java.math.BigDecimal as reading converter.
+2021-09-02 15:49:47,297 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.math.BigInteger to class java.lang.String as writing converter.
+2021-09-02 15:49:47,297 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.math.BigInteger as reading converter.
+2021-09-02 15:49:47,297 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.net.URL to class java.lang.String as writing converter.
+2021-09-02 15:49:47,298 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.net.URL as reading converter.
+2021-09-02 15:49:47,298 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class java.lang.String as reading converter.
+2021-09-02 15:49:47,298 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.query.Term to class java.lang.String as writing converter.
+2021-09-02 15:49:47,299 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.script.NamedMongoScript to class org.bson.Document as writing converter.
+2021-09-02 15:49:47,299 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.script.NamedMongoScript as reading converter.
+2021-09-02 15:49:47,299 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Currency to class java.lang.String as writing converter.
+2021-09-02 15:49:47,299 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.util.Currency as reading converter.
+2021-09-02 15:49:47,300 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.concurrent.atomic.AtomicInteger to class java.lang.Integer as writing converter.
+2021-09-02 15:49:47,300 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.concurrent.atomic.AtomicLong to class java.lang.Long as writing converter.
+2021-09-02 15:49:47,300 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.Long to class java.util.concurrent.atomic.AtomicLong as reading converter.
+2021-09-02 15:49:47,300 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.Integer to class java.util.concurrent.atomic.AtomicInteger as reading converter.
+2021-09-02 15:49:47,300 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.types.Binary to class [B as reading converter.
+2021-09-02 15:49:47,301 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.BsonTimestamp to class java.time.Instant as reading converter.
+2021-09-02 15:49:47,301 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.net.URI to class java.lang.String as writing converter.
+2021-09-02 15:49:47,301 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.net.URI as reading converter.
+2021-09-02 15:49:47,302 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.geo.Box to class org.bson.Document as writing converter.
+2021-09-02 15:49:47,303 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.geo.Polygon to class org.bson.Document as writing converter.
+2021-09-02 15:49:47,303 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.geo.Circle to class org.bson.Document as writing converter.
+2021-09-02 15:49:47,303 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.geo.Sphere to class org.bson.Document as writing converter.
+2021-09-02 15:49:47,303 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.geo.Box as reading converter.
+2021-09-02 15:49:47,304 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.geo.Polygon as reading converter.
+2021-09-02 15:49:47,304 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.geo.Circle as reading converter.
+2021-09-02 15:49:47,304 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.Sphere as reading converter.
+2021-09-02 15:49:47,305 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.geo.Point as reading converter.
+2021-09-02 15:49:47,305 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.geo.Point to class org.bson.Document as writing converter.
+2021-09-02 15:49:47,305 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.query.GeoCommand to class org.bson.Document as writing converter.
+2021-09-02 15:49:47,306 DEBUG o.s.d.c.CustomConversions [main] Adding converter from interface org.springframework.data.mongodb.core.geo.GeoJson to class org.bson.Document as writing converter.
+2021-09-02 15:49:47,306 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.geo.GeoJsonPoint to class org.bson.Document as writing converter.
+2021-09-02 15:49:47,307 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.geo.GeoJsonPolygon to class org.bson.Document as writing converter.
+2021-09-02 15:49:47,307 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonPoint as reading converter.
+2021-09-02 15:49:47,307 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonPolygon as reading converter.
+2021-09-02 15:49:47,308 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonLineString as reading converter.
+2021-09-02 15:49:47,308 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonMultiLineString as reading converter.
+2021-09-02 15:49:47,308 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonMultiPoint as reading converter.
+2021-09-02 15:49:47,309 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonMultiPolygon as reading converter.
+2021-09-02 15:49:47,309 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonGeometryCollection as reading converter.
+2021-09-02 15:49:47,309 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to interface org.springframework.data.mongodb.core.geo.GeoJson as reading converter.
+2021-09-02 15:49:47,309 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Date to class java.time.LocalDateTime as reading converter.
+2021-09-02 15:49:47,310 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.LocalDateTime to class java.util.Date as writing converter.
+2021-09-02 15:49:47,310 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Date to class java.time.LocalDate as reading converter.
+2021-09-02 15:49:47,310 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.LocalDate to class java.util.Date as writing converter.
+2021-09-02 15:49:47,311 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Date to class java.time.LocalTime as reading converter.
+2021-09-02 15:49:47,311 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.LocalTime to class java.util.Date as writing converter.
+2021-09-02 15:49:47,311 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Date to class java.time.Instant as reading converter.
+2021-09-02 15:49:47,312 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.Instant to class java.util.Date as writing converter.
+2021-09-02 15:49:47,312 DEBUG o.s.d.c.CustomConversions [main] Skipping converter from class java.time.LocalDateTime to class java.time.Instant as reading converter. class java.time.LocalDateTime is not a store supported simple type!
+2021-09-02 15:49:47,313 DEBUG o.s.d.c.CustomConversions [main] Skipping converter from class java.time.Instant to class java.time.LocalDateTime as reading converter. class java.time.Instant is not a store supported simple type!
+2021-09-02 15:49:47,313 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.ZoneId to class java.lang.String as writing converter.
+2021-09-02 15:49:47,314 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.ZoneId as reading converter.
+2021-09-02 15:49:47,315 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.Duration to class java.lang.String as writing converter.
+2021-09-02 15:49:47,315 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.Duration as reading converter.
+2021-09-02 15:49:47,315 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.Period to class java.lang.String as writing converter.
+2021-09-02 15:49:47,316 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.Period as reading converter.
+2021-09-02 15:49:47,316 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.LocalDate as reading converter.
+2021-09-02 15:49:47,316 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.LocalDateTime as reading converter.
+2021-09-02 15:49:47,317 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.Instant as reading converter.
+2021-09-02 15:49:47,357 DEBUG o.s.d.m.c.i.MongoPersistentEntityIndexCreator [main] Analyzing class class com.filrouge.restaurantcore.entity.User for index information.
+2021-09-02 15:49:47,367 DEBUG o.s.d.m.c.i.MongoPersistentEntityIndexCreator [main] Analyzing class class com.filrouge.restaurantcore.entity.Address for index information.
+2021-09-02 15:49:47,368 DEBUG o.s.d.m.c.i.MongoPersistentEntityIndexCreator [main] Analyzing class class com.filrouge.restaurantcore.entity.Purchase for index information.
+2021-09-02 15:49:47,370 DEBUG o.s.d.m.c.i.MongoPersistentEntityIndexCreator [main] Analyzing class class com.filrouge.restaurantcore.entity.Coordinates for index information.
+2021-09-02 15:49:47,370 DEBUG o.s.d.m.c.i.MongoPersistentEntityIndexCreator [main] Analyzing class class com.filrouge.restaurantcore.entity.Table for index information.
+2021-09-02 15:49:47,370 DEBUG o.s.d.m.c.i.MongoPersistentEntityIndexCreator [main] Analyzing class class com.filrouge.restaurantcore.entity.Order for index information.
+2021-09-02 15:49:47,371 DEBUG o.s.d.m.c.i.MongoPersistentEntityIndexCreator [main] Analyzing class class com.filrouge.restaurantcore.entity.Stock for index information.
+2021-09-02 15:49:47,371 DEBUG o.s.d.m.c.i.MongoPersistentEntityIndexCreator [main] Analyzing class class com.filrouge.restaurantcore.entity.Role for index information.
+2021-09-02 15:49:47,402 INFO c.m.d.l.SLF4JLogger [main] Cluster description not yet available. Waiting for 30000 ms before timing out
+2021-09-02 15:49:48,893 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-srv-cluster-poei.z9yhc.mongodb.net] Adding discovered server cluster-poei-shard-00-01.z9yhc.mongodb.net:27017 to client view of cluster
+2021-09-02 15:49:48,943 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-srv-cluster-poei.z9yhc.mongodb.net] Adding discovered server cluster-poei-shard-00-00.z9yhc.mongodb.net:27017 to client view of cluster
+2021-09-02 15:49:48,946 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-srv-cluster-poei.z9yhc.mongodb.net] Adding discovered server cluster-poei-shard-00-02.z9yhc.mongodb.net:27017 to client view of cluster
+2021-09-02 15:49:48,953 INFO c.m.d.l.SLF4JLogger [main] No server chosen by com.mongodb.client.internal.MongoClientDelegate$1@69a5c6be from cluster description ClusterDescription{type=REPLICA_SET, connectionMode=MULTIPLE, serverDescriptions=[ServerDescription{address=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, type=UNKNOWN, state=CONNECTING}, ServerDescription{address=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, type=UNKNOWN, state=CONNECTING}, ServerDescription{address=cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, type=UNKNOWN, state=CONNECTING}]}. Waiting for 30000 ms before timing out
+2021-09-02 15:49:50,168 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:5, serverValue:178810}] to cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
+2021-09-02 15:49:50,168 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:4, serverValue:178811}] to cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
+2021-09-02 15:49:50,168 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:6, serverValue:178658}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
+2021-09-02 15:49:50,168 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:2, serverValue:178658}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
+2021-09-02 15:49:50,169 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:1, serverValue:190189}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
+2021-09-02 15:49:50,169 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:3, serverValue:190159}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
+2021-09-02 15:49:50,173 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=478859500, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca4a650644ab79403bbff, counter=4}, lastWriteDate=Thu Sep 02 15:49:49 CEST 2021, lastUpdateTimeNanos=347691074833200}
+2021-09-02 15:49:50,173 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=479261700, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff00000000000000c9, setVersion=7, topologyVersion=TopologyVersion{processId=612ca3ae0185a8407a5ddce4, counter=6}, lastWriteDate=Thu Sep 02 15:49:49 CEST 2021, lastUpdateTimeNanos=347691074833200}
+2021-09-02 15:49:50,173 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=479291300, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca29da66423eb52ba3176, counter=4}, lastWriteDate=Thu Sep 02 15:49:49 CEST 2021, lastUpdateTimeNanos=347691074833200}
+2021-09-02 15:49:50,177 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Setting max election id to 7fffffff00000000000000c9 from replica set primary cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
+2021-09-02 15:49:50,178 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Setting max set version to 7 from replica set primary cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
+2021-09-02 15:49:50,178 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Discovered replica set primary cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
+2021-09-02 15:49:50,877 INFO c.m.d.l.SLF4JLogger [main] Opened connection [connectionId{localValue:7, serverValue:190207}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
+2021-09-02 15:49:50,999 DEBUG o.s.d.m.c.i.MongoPersistentEntityIndexCreator [main] Analyzing class class com.filrouge.restaurantcore.entity.Recipe for index information.
+2021-09-02 15:49:51,001 DEBUG o.s.d.m.c.i.MongoPersistentEntityIndexCreator [main] Analyzing class class com.filrouge.restaurantcore.entity.IngredientRecipe for index information.
+2021-09-02 15:49:51,005 INFO o.s.d.m.c.i.MongoPersistentEntityIndexResolver$1 [main] Found cycle for field 'name' in type 'Ingredient' for path 'ingredient -> ingredientRecipe -> ingredient'
+2021-09-02 15:49:51,006 INFO o.s.d.m.c.i.MongoPersistentEntityIndexResolver [main] Found cycle for field 'ingredientRecipe' in type 'Ingredient' for path 'ingredient -> ingredientRecipe -> ingredient'
+2021-09-02 15:49:51,007 DEBUG o.s.d.m.c.i.MongoPersistentEntityIndexCreator [main] Analyzing class class com.filrouge.restaurantcore.entity.Restaurant for index information.
+2021-09-02 15:49:51,010 DEBUG o.s.d.m.c.i.MongoPersistentEntityIndexCreator [main] Analyzing class class org.springframework.data.mongodb.core.aggregation.DateOperators$Hour for index information.
+2021-09-02 15:49:51,010 DEBUG o.s.d.m.c.i.MongoPersistentEntityIndexCreator [main] Analyzing class class com.filrouge.restaurantcore.entity.Booking for index information.
+2021-09-02 15:49:51,011 DEBUG o.s.d.m.c.i.MongoPersistentEntityIndexCreator [main] Analyzing class class com.filrouge.restaurantcore.entity.Ingredient for index information.
+2021-09-02 15:49:51,012 INFO o.s.d.m.c.i.MongoPersistentEntityIndexResolver$1 [main] Found cycle for field 'quantity' in type 'IngredientRecipe' for path 'ingredientRecipe -> ingredient -> ingredientRecipe'
+2021-09-02 15:49:51,013 INFO o.s.d.m.c.i.MongoPersistentEntityIndexResolver [main] Found cycle for field 'ingredient' in type 'IngredientRecipe' for path 'ingredientRecipe -> ingredient -> ingredientRecipe'
+2021-09-02 15:49:51,245 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Initializing repository instance for com.filrouge.restaurantcore.dao.IRestaurantRepository…
+2021-09-02 15:49:51,314 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Finished creation of repository instance for {}.
+2021-09-02 15:49:51,418 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Initializing repository instance for com.filrouge.restaurantcore.dao.IRoleRepository…
+2021-09-02 15:49:51,426 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Finished creation of repository instance for {}.
+2021-09-02 15:49:51,537 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Initializing repository instance for com.filrouge.restaurantcore.dao.IUserRepository…
+2021-09-02 15:49:51,544 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Finished creation of repository instance for {}.
+2021-09-02 15:49:52,212 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.Character to class java.lang.String as writing converter.
+2021-09-02 15:49:52,212 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Locale to class java.lang.String as writing converter.
+2021-09-02 15:49:52,213 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.math.BigDecimal to class java.lang.String as writing converter.
+2021-09-02 15:49:52,213 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.math.BigDecimal to class org.bson.types.Decimal128 as writing converter.
+2021-09-02 15:49:52,213 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.math.BigDecimal as reading converter.
+2021-09-02 15:49:52,213 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.types.Decimal128 to class java.math.BigDecimal as reading converter.
+2021-09-02 15:49:52,213 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.math.BigInteger to class java.lang.String as writing converter.
+2021-09-02 15:49:52,213 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.math.BigInteger as reading converter.
+2021-09-02 15:49:52,214 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.net.URL to class java.lang.String as writing converter.
+2021-09-02 15:49:52,214 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.net.URL as reading converter.
+2021-09-02 15:49:52,214 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class java.lang.String as reading converter.
+2021-09-02 15:49:52,214 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.query.Term to class java.lang.String as writing converter.
+2021-09-02 15:49:52,214 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.script.NamedMongoScript to class org.bson.Document as writing converter.
+2021-09-02 15:49:52,215 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.script.NamedMongoScript as reading converter.
+2021-09-02 15:49:52,215 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Currency to class java.lang.String as writing converter.
+2021-09-02 15:49:52,216 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.util.Currency as reading converter.
+2021-09-02 15:49:52,216 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.concurrent.atomic.AtomicInteger to class java.lang.Integer as writing converter.
+2021-09-02 15:49:52,216 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.concurrent.atomic.AtomicLong to class java.lang.Long as writing converter.
+2021-09-02 15:49:52,217 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.Long to class java.util.concurrent.atomic.AtomicLong as reading converter.
+2021-09-02 15:49:52,217 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.Integer to class java.util.concurrent.atomic.AtomicInteger as reading converter.
+2021-09-02 15:49:52,217 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.types.Binary to class [B as reading converter.
+2021-09-02 15:49:52,218 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.BsonTimestamp to class java.time.Instant as reading converter.
+2021-09-02 15:49:52,218 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.net.URI to class java.lang.String as writing converter.
+2021-09-02 15:49:52,218 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.net.URI as reading converter.
+2021-09-02 15:49:52,219 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.geo.Box to class org.bson.Document as writing converter.
+2021-09-02 15:49:52,220 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.geo.Polygon to class org.bson.Document as writing converter.
+2021-09-02 15:49:52,220 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.geo.Circle to class org.bson.Document as writing converter.
+2021-09-02 15:49:52,221 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.geo.Sphere to class org.bson.Document as writing converter.
+2021-09-02 15:49:52,221 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.geo.Box as reading converter.
+2021-09-02 15:49:52,233 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.geo.Polygon as reading converter.
+2021-09-02 15:49:52,234 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.geo.Circle as reading converter.
+2021-09-02 15:49:52,234 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.Sphere as reading converter.
+2021-09-02 15:49:52,234 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.geo.Point as reading converter.
+2021-09-02 15:49:52,235 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.geo.Point to class org.bson.Document as writing converter.
+2021-09-02 15:49:52,235 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.query.GeoCommand to class org.bson.Document as writing converter.
+2021-09-02 15:49:52,235 DEBUG o.s.d.c.CustomConversions [main] Adding converter from interface org.springframework.data.mongodb.core.geo.GeoJson to class org.bson.Document as writing converter.
+2021-09-02 15:49:52,236 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.geo.GeoJsonPoint to class org.bson.Document as writing converter.
+2021-09-02 15:49:52,236 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.springframework.data.mongodb.core.geo.GeoJsonPolygon to class org.bson.Document as writing converter.
+2021-09-02 15:49:52,236 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonPoint as reading converter.
+2021-09-02 15:49:52,237 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonPolygon as reading converter.
+2021-09-02 15:49:52,237 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonLineString as reading converter.
+2021-09-02 15:49:52,237 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonMultiLineString as reading converter.
+2021-09-02 15:49:52,238 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonMultiPoint as reading converter.
+2021-09-02 15:49:52,238 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonMultiPolygon as reading converter.
+2021-09-02 15:49:52,238 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to class org.springframework.data.mongodb.core.geo.GeoJsonGeometryCollection as reading converter.
+2021-09-02 15:49:52,238 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class org.bson.Document to interface org.springframework.data.mongodb.core.geo.GeoJson as reading converter.
+2021-09-02 15:49:52,239 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Date to class java.time.LocalDateTime as reading converter.
+2021-09-02 15:49:52,239 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.LocalDateTime to class java.util.Date as writing converter.
+2021-09-02 15:49:52,239 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Date to class java.time.LocalDate as reading converter.
+2021-09-02 15:49:52,239 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.LocalDate to class java.util.Date as writing converter.
+2021-09-02 15:49:52,240 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Date to class java.time.LocalTime as reading converter.
+2021-09-02 15:49:52,240 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.LocalTime to class java.util.Date as writing converter.
+2021-09-02 15:49:52,240 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.util.Date to class java.time.Instant as reading converter.
+2021-09-02 15:49:52,240 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.Instant to class java.util.Date as writing converter.
+2021-09-02 15:49:52,240 DEBUG o.s.d.c.CustomConversions [main] Skipping converter from class java.time.LocalDateTime to class java.time.Instant as reading converter. class java.time.LocalDateTime is not a store supported simple type!
+2021-09-02 15:49:52,240 DEBUG o.s.d.c.CustomConversions [main] Skipping converter from class java.time.Instant to class java.time.LocalDateTime as reading converter. class java.time.Instant is not a store supported simple type!
+2021-09-02 15:49:52,241 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.ZoneId to class java.lang.String as writing converter.
+2021-09-02 15:49:52,241 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.ZoneId as reading converter.
+2021-09-02 15:49:52,241 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.Duration to class java.lang.String as writing converter.
+2021-09-02 15:49:52,241 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.Duration as reading converter.
+2021-09-02 15:49:52,241 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.time.Period to class java.lang.String as writing converter.
+2021-09-02 15:49:52,241 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.Period as reading converter.
+2021-09-02 15:49:52,242 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.LocalDate as reading converter.
+2021-09-02 15:49:52,242 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.LocalDateTime as reading converter.
+2021-09-02 15:49:52,242 DEBUG o.s.d.c.CustomConversions [main] Adding converter from class java.lang.String to class java.time.Instant as reading converter.
+2021-09-02 15:49:52,280 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Initializing repository instance for com.filrouge.restaurantcore.dao.ICoordinatesRepository…
+2021-09-02 15:49:52,284 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Finished creation of repository instance for {}.
+2021-09-02 15:49:52,291 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Initializing repository instance for com.filrouge.restaurantcore.dao.IOrderRepository…
+2021-09-02 15:49:52,296 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Finished creation of repository instance for {}.
+2021-09-02 15:49:52,303 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Initializing repository instance for com.filrouge.restaurantcore.dao.IAddressRepository…
+2021-09-02 15:49:52,306 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Finished creation of repository instance for {}.
+2021-09-02 15:49:52,310 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Initializing repository instance for com.filrouge.restaurantcore.dao.ITableRepository…
+2021-09-02 15:49:52,313 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Finished creation of repository instance for {}.
+2021-09-02 15:49:52,317 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Initializing repository instance for com.filrouge.restaurantcore.dao.IPurchaseRepository…
+2021-09-02 15:49:52,320 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Finished creation of repository instance for {}.
+2021-09-02 15:49:52,323 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Initializing repository instance for com.filrouge.restaurantcore.dao.IIngredientRepository…
+2021-09-02 15:49:52,326 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Finished creation of repository instance for {}.
+2021-09-02 15:49:52,330 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Initializing repository instance for com.filrouge.restaurantcore.dao.IBookingRepository…
+2021-09-02 15:49:52,332 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Finished creation of repository instance for {}.
+2021-09-02 15:49:52,336 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Initializing repository instance for com.filrouge.restaurantcore.dao.IStockRepository…
+2021-09-02 15:49:52,338 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Finished creation of repository instance for {}.
+2021-09-02 15:49:52,341 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Initializing repository instance for com.filrouge.restaurantcore.dao.IRecipeRepository…
+2021-09-02 15:49:52,344 DEBUG o.s.d.r.c.s.RepositoryFactorySupport [main] Finished creation of repository instance for {}.
+2021-09-02 15:49:52,394 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-09-02 15:49:52,423 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path '/backend-filrouge'
+2021-09-02 15:49:52,439 INFO o.s.b.StartupInfoLogger [main] Started RestaurantCoreApplication in 10.749 seconds (JVM running for 12.335)
+2021-09-02 15:49:52,898 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-02 15:49:52,900 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2021-09-02 15:49:52,902 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2021-09-02 15:49:56,895 DEBUG o.s.d.m.c.MongoTemplate [http-nio-8080-exec-2] find using query: {} fields: {} for class: class com.filrouge.restaurantcore.entity.User in collection: user
+2021-09-02 15:49:57,058 DEBUG o.s.d.m.c.m.e.AbstractMongoEventListener [http-nio-8080-exec-2] onAfterLoad({_id=6130ca39447e9f77dc1423fb, firstname=marius, lastname=Dupont, password=xxxxx, email=marius@gmail.com, roles=[{ "$ref" : "role", "$id" : "61309c90009435126fc70795" }], friends=[], createdDate=2021-09-02T15:17:10.187+0200, updateDate=2021-09-02T15:17:10.187+0200})
+2021-09-02 15:49:57,227 DEBUG o.s.d.m.c.m.e.AbstractMongoEventListener [http-nio-8080-exec-2] onAfterConvert({_id=6130ca39447e9f77dc1423fb, firstname=marius, lastname=Dupont, password=xxxxx, email=marius@gmail.com, roles=[{ "$ref" : "role", "$id" : "61309c90009435126fc70795" }], friends=[], createdDate=2021-09-02T15:17:10.187+0200, updateDate=2021-09-02T15:17:10.187+0200}, User(firstName=marius, lastName=Dupont, password=xxxxx, email=marius@gmail.com, roles=[Role(name=Waiter)], friends=[]))
+2021-09-02 15:50:31,555 DEBUG o.s.d.m.c.m.e.AbstractMongoEventListener [http-nio-8080-exec-3] onBeforeConvert(User(firstName=Safia, lastName=Blanco, password=dfdvvdfvdf, email=marius@gmail.com, roles=[Role(name=null)], friends=[]))
+2021-09-02 15:50:31,567 DEBUG o.s.d.m.c.m.e.AbstractMongoEventListener [http-nio-8080-exec-3] onBeforeSave(User(firstName=Safia, lastName=Blanco, password=dfdvvdfvdf, email=marius@gmail.com, roles=[Role(name=null)], friends=[]), {firstname=Safia, lastname=Blanco, password=dfdvvdfvdf, email=marius@gmail.com, roles=[{ "$ref" : "role", "$id" : "61309c90009435126fc70795" }], friends=[], createdDate=2021-09-02T15:50:31.556+0200, updateDate=2021-09-02T15:50:31.556+0200})
+2021-09-02 15:50:31,572 DEBUG o.s.d.m.c.MongoTemplate [http-nio-8080-exec-3] Inserting Document containing fields: [firstname, lastname, password, email, roles, friends, createdDate, updateDate] in collection: user
+2021-09-02 15:50:31,730 DEBUG o.s.d.m.c.m.e.AbstractMongoEventListener [http-nio-8080-exec-3] onAfterSave(User(firstName=Safia, lastName=Blanco, password=dfdvvdfvdf, email=marius@gmail.com, roles=[Role(name=null)], friends=[]), {firstname=Safia, lastname=Blanco, password=dfdvvdfvdf, email=marius@gmail.com, roles=[{ "$ref" : "role", "$id" : "61309c90009435126fc70795" }], friends=[], createdDate=2021-09-02T15:50:31.556+0200, updateDate=2021-09-02T15:50:31.556+0200, _id=6130d6a710df7d5b224df807})
+2021-09-02 15:50:31,737 DEBUG o.s.d.m.c.MongoTemplate [http-nio-8080-exec-3] findOne using query: { "id" : "6130d6a710df7d5b224df807"} fields: {} for class: class com.filrouge.restaurantcore.entity.User in collection: user
+2021-09-02 15:50:31,740 DEBUG o.s.d.m.c.MongoTemplate$FindOneCallback [http-nio-8080-exec-3] findOne using query: { "_id" : { "$oid" : "6130d6a710df7d5b224df807"}} fields: {} in db.collection: filrouge.user
+2021-09-02 15:50:31,814 DEBUG o.s.d.m.c.m.e.AbstractMongoEventListener [http-nio-8080-exec-3] onAfterLoad({_id=6130d6a710df7d5b224df807, firstname=Safia, lastname=Blanco, password=dfdvvdfvdf, email=marius@gmail.com, roles=[{ "$ref" : "role", "$id" : "61309c90009435126fc70795" }], friends=[], createdDate=2021-09-02T15:50:31.556+0200, updateDate=2021-09-02T15:50:31.556+0200})
+2021-09-02 15:50:31,891 DEBUG o.s.d.m.c.m.e.AbstractMongoEventListener [http-nio-8080-exec-3] onAfterConvert({_id=6130d6a710df7d5b224df807, firstname=Safia, lastname=Blanco, password=dfdvvdfvdf, email=marius@gmail.com, roles=[{ "$ref" : "role", "$id" : "61309c90009435126fc70795" }], friends=[], createdDate=2021-09-02T15:50:31.556+0200, updateDate=2021-09-02T15:50:31.556+0200}, User(firstName=Safia, lastName=Blanco, password=dfdvvdfvdf, email=marius@gmail.com, roles=[Role(name=Waiter)], friends=[]))
+2021-09-02 16:14:36,685 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
 com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
 	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630) ~[mongodb-driver-core-4.2.3.jar:?]
 	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
@@ -331,287 +318,5 @@ Caused by: java.net.SocketTimeoutException: Read timed out
 	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
 	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
 	... 5 more
-2021-08-31 09:53:30,801 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.net.SocketInputStream.socketRead0(Native Method) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.socketRead(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.readFully(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readDataRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.AppInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 09:53:31,603 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:36, serverValue:28101}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 09:53:31,603 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=301615900, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff00000000000000c9, setVersion=7, topologyVersion=TopologyVersion{processId=612ca3ae0185a8407a5ddce4, counter=6}, lastWriteDate=Tue Aug 31 09:53:31 CEST 2021, lastUpdateTimeNanos=153512148010400}
-2021-08-31 09:53:31,603 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Discovered replica set primary cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 09:53:31,605 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:35, serverValue:24778}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-2021-08-31 09:53:31,606 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=304038300, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca4a650644ab79403bbff, counter=4}, lastWriteDate=Tue Aug 31 09:53:31 CEST 2021, lastUpdateTimeNanos=153512150504800}
-2021-08-31 09:53:42,682 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:38, serverValue:28109}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 09:53:42,682 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:37, serverValue:24777}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-2021-08-31 09:53:42,732 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:39, serverValue:25010}] to cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-2021-08-31 10:22:33,012 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.net.SocketInputStream.socketRead0(Native Method) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.socketRead(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.readFully(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readDataRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.AppInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 10:22:43,296 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketOpenException: Exception opening socket
-	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:70) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:143) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:188) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketTimeoutException: connect timed out
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[?:1.8.0_241]
-	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source) ~[?:1.8.0_241]
-	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source) ~[?:1.8.0_241]
-	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source) ~[?:1.8.0_241]
-	at java.net.AbstractPlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_241]
-	at java.net.PlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocksSocketImpl.connect(Unknown Source) ~[?:1.8.0_241]
-	at java.net.Socket.connect(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.connect(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:107) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:79) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 4 more
-2021-08-31 10:23:02,104 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:43, serverValue:25522}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-2021-08-31 10:23:13,883 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:44, serverValue:25526}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-2021-08-31 10:23:13,883 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=365124100, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca4a650644ab79403bbff, counter=4}, lastWriteDate=Tue Aug 31 10:23:13 CEST 2021, lastUpdateTimeNanos=155294428832300}
-2021-08-31 10:37:04,586 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.net.SocketInputStream.socketRead0(Native Method) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.socketRead(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.readFully(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readDataRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.AppInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 10:37:10,207 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.net.SocketInputStream.socketRead0(Native Method) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.socketRead(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.readFully(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readDataRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.AppInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 10:37:10,208 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:45, serverValue:25869}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-2021-08-31 10:37:10,208 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=329327000, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca4a650644ab79403bbff, counter=4}, lastWriteDate=Tue Aug 31 10:37:10 CEST 2021, lastUpdateTimeNanos=156130753642100}
-2021-08-31 10:37:10,999 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:46, serverValue:26088}] to cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-2021-08-31 10:37:10,999 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=448647400, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca29da66423eb52ba3176, counter=4}, lastWriteDate=Tue Aug 31 10:37:10 CEST 2021, lastUpdateTimeNanos=156131544673200}
-2021-08-31 11:15:31,974 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.net.SocketInputStream.socketRead0(Native Method) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.socketRead(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.readFully(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readDataRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.AppInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 11:15:32,788 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.net.SocketInputStream.socketRead0(Native Method) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.socketRead(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.readFully(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readDataRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.AppInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 11:15:34,975 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.net.SocketInputStream.socketRead0(Native Method) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.socketRead(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.readFully(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readDataRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.AppInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 11:15:39,645 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketException: Ceci est habituellement une erreur temporaire qui se produit durant la rÃ©solution du nom dâ€™hÃ´te et qui signifie que le serveur local nâ€™a pas reÃ§u de rÃ©ponse dâ€™un serveur faisant autoritÃ© (cluster-poei-shard-00-02.z9yhc.mongodb.net)
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:211) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:75) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:143) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:188) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.UnknownHostException: Ceci est habituellement une erreur temporaire qui se produit durant la rÃ©solution du nom dâ€™hÃ´te et qui signifie que le serveur local nâ€™a pas reÃ§u de rÃ©ponse dâ€™un serveur faisant autoritÃ© (cluster-poei-shard-00-02.z9yhc.mongodb.net)
-	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:1.8.0_241]
-	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAddressesFromNameService(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName0(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:203) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 6 more
-2021-08-31 11:15:39,646 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketException: Ceci est habituellement une erreur temporaire qui se produit durant la rÃ©solution du nom dâ€™hÃ´te et qui signifie que le serveur local nâ€™a pas reÃ§u de rÃ©ponse dâ€™un serveur faisant autoritÃ© (cluster-poei-shard-00-00.z9yhc.mongodb.net)
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:211) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:75) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:143) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:188) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.UnknownHostException: Ceci est habituellement une erreur temporaire qui se produit durant la rÃ©solution du nom dâ€™hÃ´te et qui signifie que le serveur local nâ€™a pas reÃ§u de rÃ©ponse dâ€™un serveur faisant autoritÃ© (cluster-poei-shard-00-00.z9yhc.mongodb.net)
-	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:1.8.0_241]
-	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAddressesFromNameService(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName0(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.ServerAddress.getSocketAddresses(ServerAddress.java:203) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 6 more
-2021-08-31 11:15:40,615 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:49, serverValue:30197}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 11:15:40,616 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=489038900, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff00000000000000c9, setVersion=7, topologyVersion=TopologyVersion{processId=612ca3ae0185a8407a5ddce4, counter=6}, lastWriteDate=Tue Aug 31 11:15:40 CEST 2021, lastUpdateTimeNanos=158441160368900}
-2021-08-31 11:15:40,617 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Discovered replica set primary cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 11:15:45,651 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:52, serverValue:30114}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 11:15:52,218 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:54, serverValue:26641}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-2021-08-31 11:15:52,218 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:53, serverValue:26854}] to cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-2021-08-31 11:15:52,218 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=117079700, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca4a650644ab79403bbff, counter=4}, lastWriteDate=Tue Aug 31 11:15:51 CEST 2021, lastUpdateTimeNanos=158452763632800}
-2021-08-31 11:15:52,218 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=117073700, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca29da66423eb52ba3176, counter=4}, lastWriteDate=Tue Aug 31 11:15:51 CEST 2021, lastUpdateTimeNanos=158452763632700}
-2021-08-31 11:15:55,381 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:56, serverValue:26652}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-2021-08-31 11:15:55,381 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:55, serverValue:26857}] to cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-2021-08-31 12:39:40,887 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Exception in monitor thread while connecting to server cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:630) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:515) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:355) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:315) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) [mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) [mongodb-driver-core-4.2.3.jar:?]
-	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.net.SocketInputStream.socketRead0(Native Method) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.socketRead(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.readFully(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.InputRecord.read(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.SSLSocketImpl.readDataRecord(Unknown Source) ~[?:1.8.0_241]
-	at sun.security.ssl.AppInputStream.read(Unknown Source) ~[?:1.8.0_241]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:647) ~[mongodb-driver-core-4.2.3.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:512) ~[mongodb-driver-core-4.2.3.jar:?]
-	... 5 more
-2021-08-31 12:39:41,213 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:57, serverValue:36633}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 12:39:41,213 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=134580800, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff00000000000000c9, setVersion=7, topologyVersion=TopologyVersion{processId=612ca3ae0185a8407a5ddce4, counter=6}, lastWriteDate=Tue Aug 31 12:39:41 CEST 2021, lastUpdateTimeNanos=163481775558400}
-2021-08-31 12:39:41,213 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Discovered replica set primary cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 12:39:51,724 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-01.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:58, serverValue:36661}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 12:39:51,899 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:59, serverValue:32938}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
-2021-08-31 12:39:51,953 INFO c.m.d.l.SLF4JLogger [cluster-rtt-ClusterId{value='612cd92fbabfce3747310b57', description='null'}-cluster-poei-shard-00-00.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:60, serverValue:33175}] to cluster-poei-shard-00-00.z9yhc.mongodb.net:27017
-2021-08-31 15:18:24,753 INFO o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(2)-127.0.0.1] Application shutdown requested.
-2021-08-31 15:18:25,110 INFO c.m.d.l.SLF4JLogger [RMI TCP Connection(2)-127.0.0.1] Closed connection [connectionId{localValue:7, serverValue:6844}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017 because there was a socket exception raised on another connection from this pool.
-2021-08-31 15:18:25,566 INFO c.m.d.l.SLF4JLogger [RMI TCP Connection(2)-127.0.0.1] Opened connection [connectionId{localValue:61, serverValue:42490}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017
-2021-08-31 15:18:25,629 INFO c.m.d.l.SLF4JLogger [RMI TCP Connection(2)-127.0.0.1] Closed connection [connectionId{localValue:61, serverValue:42490}] to cluster-poei-shard-00-01.z9yhc.mongodb.net:27017 because the pool has been closed.
+2021-09-02 16:14:37,006 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Opened connection [connectionId{localValue:8, serverValue:179042}] to cluster-poei-shard-00-02.z9yhc.mongodb.net:27017
+2021-09-02 16:14:37,008 INFO c.m.d.l.SLF4JLogger [cluster-ClusterId{value='6130d67a10df7d5b224df806', description='null'}-cluster-poei-shard-00-02.z9yhc.mongodb.net:27017] Monitor thread successfully connected to server with description ServerDescription{address=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=242369800, setName='atlas-inwl8u-shard-0', canonicalAddress=cluster-poei-shard-00-02.z9yhc.mongodb.net:27017, hosts=[cluster-poei-shard-00-00.z9yhc.mongodb.net:27017, cluster-poei-shard-00-01.z9yhc.mongodb.net:27017, cluster-poei-shard-00-02.z9yhc.mongodb.net:27017], passives=[], arbiters=[], primary='cluster-poei-shard-00-01.z9yhc.mongodb.net:27017', tagSet=TagSet{[Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='GCP'}, Tag{name='region', value='WESTERN_EUROPE'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=7, topologyVersion=TopologyVersion{processId=612ca4a650644ab79403bbff, counter=4}, lastWriteDate=Thu Sep 02 16:14:37 CEST 2021, lastUpdateTimeNanos=349177939610300}
