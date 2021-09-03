@@ -64,7 +64,7 @@ public class RestaurantServiceImpl implements IRestaurantService {
 	}
 
 	@Override
-	public RestaurantDto addUsers(String id, final Set<String> userIds) {
+	public RestaurantDto addUsers(String id, final Set<String> employeeIds) {
 		Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(id);
 
 		if (!optionalRestaurant.isPresent()) {
@@ -74,15 +74,33 @@ public class RestaurantServiceImpl implements IRestaurantService {
 		Restaurant toUpdateRestaurant = optionalRestaurant.get();
 
 		// Finding existing role entities
-		List<User> usersToAdd = userIds.stream().map(userId -> userRepository.findById(userId))
+		List<User> employeesToAdd = employeeIds.stream().map(employeeId -> userRepository.findById(employeeId))
 				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
 
-		toUpdateRestaurant.getEmployees().addAll(usersToAdd);
+		toUpdateRestaurant.getEmployees().addAll(employeesToAdd);
 
 		return RestaurantDto.fromEntity(restaurantRepository.save(toUpdateRestaurant));
 	}
-	
-	 
+
+	@Override
+	public RestaurantDto removeUsers(String id, Set<String> userIds) {
+		Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(id);
+
+		if (!optionalRestaurant.isPresent()) {
+			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.restaurant.update"),
+					ErrorCodes.CLIENT_NOT_VALID);
+		}
+		Restaurant toUpdate = optionalRestaurant.get();
+
+		// Finding existing user entities
+		List<User> usersToRemove = userIds.stream().map(userId -> userRepository.findById(userId))
+				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
+
+		toUpdate.getEmployees().removeAll(usersToRemove);
+
+		return RestaurantDto.fromEntity(restaurantRepository.save(toUpdate));
+	}
+
 	@Override
 	public RestaurantDto update(RestaurantDto dto) {
 		List<String> errors = RestaurantValidator.validate(dto);

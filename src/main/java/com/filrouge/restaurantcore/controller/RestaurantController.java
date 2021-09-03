@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.filrouge.restaurantcore.dto.RestaurantDto;
+
 import com.filrouge.restaurantcore.service.IRestaurantService;
 
 /**
@@ -77,37 +78,35 @@ public class RestaurantController {
     
 	
 	/**
-	 * Adding a employee to restaurant.
-	 * 
-	 * @param id          of Restaurant
-	 * @param employeeIds
-	 * @return updated Restaurant
+	 * Adding a role to the User.
+	 * @param id the user's 
+	 * @param roleIds the identifiers of the roles to add
+	 * @return updated User
 	 */
 	@PostMapping("/addusers/{id}")
 	@Transactional
 	public ResponseEntity<RestaurantDto> addUsers(@PathVariable String id,
-			@RequestBody Set<String> usersIds) {
+			@RequestBody Set<String> userIds) {
 
-		RestaurantDto restaurantUpdate = restaurantService.addUsers(id, usersIds);
+		RestaurantDto restaurantUpdate = restaurantService.addUsers(id, userIds);
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
-	
 	/**
 	 * Removal of a user from a restaurant.
 	 * @param id the restaurant's identifier
 	 * @param userIds the identifiers of the users to be deleted
 	 * @return the updated restaurant
 	 */
-//	@PostMapping("/removeusers/{id}")
-//	@Transactional
-//	public ResponseEntity<RestaurantDto> removeUsers(@PathVariable String id,
-//			@RequestBody Set<String> userIds) {
-//
-//		RestaurantDto restaurantUpdate = restaurantService.removeUsers(id, userIds);
-//		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
-//	}
+	@PostMapping("/removeusers/{id}")
+	@Transactional
+	public ResponseEntity<RestaurantDto> removeUsers(@PathVariable String id,
+			@RequestBody Set<String> userIds) {
+
+		RestaurantDto restaurantUpdate = restaurantService.removeUsers(id, userIds);
+		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
+	}
 	
-	//TODO supprimer un user 
+
 	// ajout/ suppression recette 
 	// ajout/ suppression table
 	// ajout/ suppression stock
