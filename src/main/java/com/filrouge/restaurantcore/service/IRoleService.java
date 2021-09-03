@@ -39,4 +39,12 @@ public interface IRoleService {
 	 */
 	void deleteById(String id);
 
+/**
+ * Recherche un User par son nom
+ * @param name
+ * @return
+ */
+	RoleDto getByName(final String name);
+	
+
 }

@@ -57,4 +57,10 @@ public class RoleServiceImpl implements IRoleService {
 		}
 		roleRepository.deleteById(id);
 	}
+
+	@Override
+	public RoleDto getByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

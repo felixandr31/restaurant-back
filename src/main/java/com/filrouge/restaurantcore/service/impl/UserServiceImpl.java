@@ -1,39 +1,177 @@
 package com.filrouge.restaurantcore.service.impl;
 
-
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.filrouge.restaurantcore.dao.IRoleRepository;
 import com.filrouge.restaurantcore.dao.IUserRepository;
 import com.filrouge.restaurantcore.dto.UserDto;
+import com.filrouge.restaurantcore.entity.Role;
+import com.filrouge.restaurantcore.entity.User;
+import com.filrouge.restaurantcore.exception.EntityNotFoundException;
+import com.filrouge.restaurantcore.exception.ErrorCodes;
+import com.filrouge.restaurantcore.exception.InvalidEntityException;
 import com.filrouge.restaurantcore.service.IUserService;
-
-
-/**
- * User management services
- * @author Hermann
- *
- */
+import com.filrouge.restaurantcore.util.MessagesUtil;
+import com.filrouge.restaurantcore.validator.UserValidator;
 
 @Service
 public class UserServiceImpl implements IUserService {
-	
+
+	private static final MessagesUtil MESSAGE_UTILS = MessagesUtil.getInstance("message");
+
+	// DAOs
+
 	private IUserRepository userRepository;
-	
+	private IRoleRepository roleRepository;
+
 	/**
-	 * Constructeur
+	 * Constructor
+	 * 
 	 * @param userepository The DTO of user
 	 */
 
-	public UserServiceImpl(IUserRepository userRepository) {
+	public UserServiceImpl(IUserRepository userRepository, IRoleRepository roleRepository) {
 		super();
 		this.userRepository = userRepository;
+		this.roleRepository = roleRepository;
 	}
 
 	@Override
 	public UserDto save(final UserDto dto) {
+		
+		//TODO initialiser un User avec un role client par defaut
+		//findByName name = client
+
+		return UserDto.fromEntity(userRepository.save(UserDto.toEntity(dto)));
+		
+
+	}
+
+	@Override
+	public UserDto update(UserDto dto) {
+		List<String> errors = UserValidator.validate(dto);
+		if (!errors.isEmpty()) {
+			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client"),
+					ErrorCodes.CLIENT_NOT_FOUND, errors);
+		}
+		// TODO attribut à mettre à jour: 
+		// - nom
 
 		return UserDto.fromEntity(userRepository.save(UserDto.toEntity(dto)));
 	}
 
+	@Override
+	public Optional<UserDto> findById(String id) {
+
+		if (id == null) {
+			return null;
+		}
+		return Optional.of(userRepository.findById(id).map(UserDto::fromEntity)).orElseThrow(
+				() -> new EntityNotFoundException("Aucun Client avec l'ID = " + id + " n' ete trouve dans la BDD",
+						ErrorCodes.CLIENT_NOT_FOUND));
+	}
+
+	@Override
+	public List<UserDto> findAllUsers() {
+		// TODO Auto-generated method stub
+		return userRepository.findAll().stream().map(UserDto::fromEntity).collect(Collectors.toList());
+
+	}
+
+	@Override
+	public void deleteById(String id) {
+		if (id == null) {
+			return;
+		}
+		userRepository.deleteById(id);
+
+	}
+
+	@Override
+	public UserDto addRoles(String id, final Set<String> roleIds) {
+		Optional<User> optionalUser = userRepository.findById(id);
+
+		if (!optionalUser.isPresent()) {
+			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client.update"),
+					ErrorCodes.CLIENT_NOT_VALID);
+		}
+		User toUpdateUser = optionalUser.get();
+
+		// Finding existing role entities
+		List<Role> rolesToAdd = roleIds.stream().map(roleId -> roleRepository.findById(roleId))
+				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
+
+		toUpdateUser.getRoles().addAll(rolesToAdd);
+
+		return UserDto.fromEntity(userRepository.save(toUpdateUser));
+	}
+
+	@Override
+	public UserDto removeRoles(String id, Set<String> roleIds) {
+		Optional<User> optionalUser = userRepository.findById(id);
+
+		if (!optionalUser.isPresent()) {
+			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client.update"),
+					ErrorCodes.CLIENT_NOT_VALID);
+		}
+		User toUpdate = optionalUser.get();
+
+		// Finding existing role entities
+		List<Role> rolesToRemove = roleIds.stream().map(roleId -> roleRepository.findById(roleId))
+				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
+
+		toUpdate.getRoles().removeAll(rolesToRemove);
+
+		return UserDto.fromEntity(userRepository.save(toUpdate));
+	}
+
+	@Override
+	public List<UserDto> findAll() {
+		return userRepository.findAll().stream().map(UserDto::fromEntity).collect(Collectors.toList());
+	}
+
+	@Override
+	public UserDto addFriends(String id, final Set<String> friendIds) {
+		Optional<User> optionalFriend = userRepository.findById(id);
+
+		if (!optionalFriend.isPresent()) {
+			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client.update"),
+					ErrorCodes.CLIENT_NOT_VALID);
+		}
+		User toUpdateFriend = optionalFriend.get();
+
+		// Finding existing role entities
+		List<User> friendsToAdd = friendIds.stream().map(friendId -> userRepository.findById(friendId))
+				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
+
+		toUpdateFriend.getFriends().addAll(friendsToAdd);
+
+		return UserDto.fromEntity(userRepository.save(toUpdateFriend));
+	}
+
+	@Override
+	public UserDto removeFriends(String id, Set<String> friendIds) {
+		Optional<User> optionalFriend = userRepository.findById(id);
+
+		if (!optionalFriend.isPresent()) {
+			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client.update"),
+					ErrorCodes.CLIENT_NOT_VALID);
+		}
+		User toUpdate = optionalFriend.get();
+
+		// Finding existing role entities
+		List<User> friendsToRemove = friendIds.stream().map(friendId -> userRepository.findById(friendId ))
+				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
+
+		toUpdate.getFriends().removeAll(friendsToRemove);
+
+		return UserDto.fromEntity(userRepository.save(toUpdate));
+	}
+	
+	// TODO ajout et suppression de list de booking
 }

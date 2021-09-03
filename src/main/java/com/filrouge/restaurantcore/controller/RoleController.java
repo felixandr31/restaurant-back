@@ -25,7 +25,7 @@ import com.filrouge.restaurantcore.service.IRoleService;
  * @author Hermann
  *
  */
-@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
+@CrossOrigin(origins = {"http://localhost:8080","http://localhost:4200"}, maxAge = 3600)
 @RestController
 @RequestMapping("/role/*")
 public class RoleController {
@@ -36,7 +36,9 @@ public class RoleController {
 	@GetMapping(value = "/roles")
 	public ResponseEntity<Collection<RoleDto>> findAll() {
 		Collection<RoleDto> roles = roleService.findAll();
-		return new ResponseEntity<Collection<RoleDto>>(roles, HttpStatus.FOUND);
+		return new ResponseEntity<Collection<RoleDto>>(roles, HttpStatus.OK);
+		
+		//TODO findByName
 	}
 
 	@PostMapping(value = "/create")
@@ -46,4 +48,6 @@ public class RoleController {
 		RoleDto roleCreated = roleService.save(roleDto);
 		return new ResponseEntity<RoleDto>(roleCreated, HttpStatus.CREATED);
 	}
+	
+	
 }

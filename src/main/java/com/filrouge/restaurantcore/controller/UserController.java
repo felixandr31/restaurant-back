@@ -18,7 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.filrouge.restaurantcore.dto.UserDto;
-import com.filrouge.restaurantcore.service.IClientService;
+import com.filrouge.restaurantcore.service.IUserService;
+
 
 
 
@@ -28,13 +29,13 @@ import com.filrouge.restaurantcore.service.IClientService;
  * @author Hermann
  *
  */
-@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
+@CrossOrigin(origins = {"http://localhost:8080","http://localhost:4200"}, maxAge = 3600)
 @RestController
 @RequestMapping("/user/*")
 public class UserController {
 
 	@Autowired
-	IClientService clientService;
+	IUserService userService;
 
 	/**
 	 * Search all Clients.
@@ -43,8 +44,8 @@ public class UserController {
 	 */
 	@GetMapping(value = "/users")
 	public ResponseEntity<Collection<UserDto>> findAll() {
-		Collection<UserDto> clients = clientService.findAll();
-		return new ResponseEntity<Collection<UserDto>>(clients, HttpStatus.FOUND);
+ 		Collection<UserDto> users = userService.findAll();
+		return new ResponseEntity<Collection<UserDto>>(users, HttpStatus.FOUND);
 	}
 
 	/**
@@ -56,16 +57,16 @@ public class UserController {
 	@Transactional
 	public ResponseEntity<UserDto> save(@RequestBody UserDto userDto) {
 
-		UserDto userCreated = clientService.save(userDto);
-		Optional<UserDto> userFind = clientService.findById(userCreated.getId());
+		UserDto userCreated = userService.save(userDto);
+		Optional<UserDto> userFind = userService.findById(userCreated.getId());
 		return new ResponseEntity<UserDto>(userFind.get(), HttpStatus.CREATED);
 	}
 
 	/**
-	 * Update of an administrator (without these associations)
-	 * @param  id the client's identifier
+	 * Update of an user (without these associations)
+	 * @param  id the user's identifier
 	 * @param userDto the data to update
-	 * @return the updated Client
+	 * @return the updated user
 	 */
 	@PutMapping("/update/{id}")
 	@Transactional
@@ -73,8 +74,8 @@ public class UserController {
 			@RequestBody UserDto userDto) {
 
 		userDto.setId(id);
-		UserDto clientUpdate = clientService.update(userDto);
-		return new ResponseEntity<UserDto>(clientUpdate, HttpStatus.CREATED);
+		UserDto userUpdate = userService.update(userDto);
+		return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
 	}
 
 	/**
@@ -88,8 +89,8 @@ public class UserController {
 	public ResponseEntity<UserDto> addRoles(@PathVariable String id,
 			@RequestBody Set<String> roleIds) {
 
-		UserDto clientUpdate = clientService.addRoles(id, roleIds);
-		return new ResponseEntity<UserDto>(clientUpdate, HttpStatus.CREATED);
+		UserDto userUpdate = userService.addRoles(id, roleIds);
+		return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
 	}
 
 	/**
@@ -103,8 +104,38 @@ public class UserController {
 	public ResponseEntity<UserDto> removeRoles(@PathVariable String id,
 			@RequestBody Set<String> roleIds) {
 
-		UserDto clientUpdate = clientService.removeRoles(id, roleIds);
-		return new ResponseEntity<UserDto>(clientUpdate, HttpStatus.CREATED);
+		UserDto userUpdate = userService.removeRoles(id, roleIds);
+		return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
+	}
+	
+	/**
+	 * Adding a friend to the User.
+	 * @param id the user's 
+	 * @param friendIds the identifiers of the friends to add
+	 * @return updated User
+	 */
+	@PostMapping("/addfriends/{id}")
+	@Transactional
+	public ResponseEntity<UserDto> addFriends(@PathVariable String id,
+			@RequestBody Set<String> friendIds) {
+
+		UserDto friendUpdate = userService.addFriends(id, friendIds);
+		return new ResponseEntity<UserDto>(friendUpdate, HttpStatus.CREATED);
+	}
+	
+	/**
+	 * Removal of a friend from the client.
+	 * @param id the client's identifier
+	 * @param friendIds the identifiers of the friends to be deleted
+	 * @return the updated client
+	 */
+	@PostMapping("/removefriends/{id}")
+	@Transactional
+	public ResponseEntity<UserDto> removeFriends(@PathVariable String id,
+			@RequestBody Set<String> friendIds) {
+
+		UserDto friendUpdate = userService.removeFriends(id, friendIds);
+		return new ResponseEntity<UserDto>(friendUpdate, HttpStatus.CREATED);
 	}
 }
 
