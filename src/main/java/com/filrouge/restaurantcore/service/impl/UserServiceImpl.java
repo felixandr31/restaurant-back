@@ -43,15 +43,12 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public UserDto save(final UserDto dto) {
+		
+		//TODO initialiser un User avec un role client par defaut
+		//findByName name = client
 
-		UserDto userDto = UserDto.fromEntity(userRepository.save(UserDto.toEntity(dto)));
-		/**if (dto.getRoles().size() > 0) {
-
-			Set<String> roleIds = dto.getRoles().stream().map(role -> role.getId()).collect(Collectors.toSet());
-
-			userDto = addRoles(userDto.getId(), roleIds);
-		}*/
-		return userDto;
+		return UserDto.fromEntity(userRepository.save(UserDto.toEntity(dto)));
+		
 
 	}
 
@@ -62,6 +59,9 @@ public class UserServiceImpl implements IUserService {
 			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client"),
 					ErrorCodes.CLIENT_NOT_FOUND, errors);
 		}
+		// TODO attribut à mettre à jour: 
+		// - nom
+
 		return UserDto.fromEntity(userRepository.save(UserDto.toEntity(dto)));
 	}
 
@@ -136,7 +136,7 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public UserDto addFriends(String id, Set<String> friendIds) {
+	public UserDto addFriends(String id, final Set<String> friendIds) {
 		Optional<User> optionalFriend = userRepository.findById(id);
 
 		if (!optionalFriend.isPresent()) {
@@ -146,7 +146,7 @@ public class UserServiceImpl implements IUserService {
 		User toUpdateFriend = optionalFriend.get();
 
 		// Finding existing role entities
-		List<User> friendsToAdd = friendIds.stream().map(friendsId -> userRepository.findById(friendsId))
+		List<User> friendsToAdd = friendIds.stream().map(friendId -> userRepository.findById(friendId))
 				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
 
 		toUpdateFriend.getFriends().addAll(friendsToAdd);
@@ -172,4 +172,6 @@ public class UserServiceImpl implements IUserService {
 
 		return UserDto.fromEntity(userRepository.save(toUpdate));
 	}
+	
+	// TODO ajout et suppression de list de booking
 }
