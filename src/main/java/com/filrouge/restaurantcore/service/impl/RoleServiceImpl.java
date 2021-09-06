@@ -8,10 +8,16 @@ import org.springframework.stereotype.Service;
 
 import com.filrouge.restaurantcore.dao.IRoleRepository;
 import com.filrouge.restaurantcore.dto.RoleDto;
+
+import com.filrouge.restaurantcore.entity.Role;
+
 import com.filrouge.restaurantcore.exception.EntityNotFoundException;
 import com.filrouge.restaurantcore.exception.ErrorCodes;
-
+import com.filrouge.restaurantcore.exception.InvalidEntityException;
 import com.filrouge.restaurantcore.service.IRoleService;
+import com.filrouge.restaurantcore.validator.RoleValidator;
+import com.filrouge.restaurantcore.validator.UserValidator;
+
 
 
 @Service
@@ -51,7 +57,7 @@ public class RoleServiceImpl implements IRoleService {
 	}
 
 	@Override
-	public void deleteById(String id) {
+	public void deleteRoleById(String id) {
 		if (id == null) {
 			return;
 		}
@@ -59,8 +65,32 @@ public class RoleServiceImpl implements IRoleService {
 	}
 
 	@Override
-	public RoleDto getByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public RoleDto findByName(String name) {
+		if (name == null) {
+			return null;
+		}
+		return roleRepository.findByName(name);
+
+	}
+	
+	@Override
+	public RoleDto update(final RoleDto dto) {
+		List<String> errors = RoleValidator.validate(dto);
+		if (!errors.isEmpty()) {
+			throw new InvalidEntityException("le ROLE n'est pas valide", ErrorCodes.ROLE_NOT_VALID,
+					errors);
+		}
+
+		Optional<Role> optionalRole = roleRepository.findById(dto.getId());
+
+		if (!optionalRole.isPresent()) {
+			throw new InvalidEntityException("Le ROLE n'existe pas", ErrorCodes.ROLE_NOT_VALID);
+		}
+
+		// Ne mettre à jour que ce dont on a besoin
+		Role toUpdate = optionalRole.get();
+		toUpdate.setName(dto.getName());
+
+		return RoleDto.fromEntity(roleRepository.save(toUpdate));
 	}
 }

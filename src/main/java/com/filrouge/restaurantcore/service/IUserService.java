@@ -6,6 +6,7 @@ import java.util.Set;
 
 import com.filrouge.restaurantcore.dto.UserDto;
 
+
 public interface IUserService {
 	
 	/**
@@ -17,13 +18,6 @@ public interface IUserService {
 		UserDto save(UserDto dto);
 
 	
-	/**
-	 * Updating a Client without these associations.
-	 * 
-	 * @param dto the DTO
-	 * @return the DTO following the creation
-	 */
-	UserDto update(UserDto dto);
 
 	/**
 	 * 
@@ -52,8 +46,10 @@ public interface IUserService {
 	 * deletion  client by his identifier.
 	 * 
 	 * @param ID identifier
+	 * @return 
+	 * @return 
 	 */
-	void deleteById(String id);
+	 void deleteUserById(String id);
 
 	/**
 	 * Add roles of the client. Identifiers of roles not found
@@ -95,6 +91,15 @@ public interface IUserService {
 	 * @return the friends's DTO with these Friend.
 	 */
 	UserDto removeFriends(String id, Set<String> roleIds);
+	
+	
+	/**
+	 * Mise à jour du role 
+	 * 
+	 * @param dto le DTO
+	 * @return le DTO suite à la création
+	 */
+	UserDto update(UserDto dto);
 }
 	
 	

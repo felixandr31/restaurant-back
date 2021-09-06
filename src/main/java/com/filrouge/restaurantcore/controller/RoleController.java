@@ -7,14 +7,21 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.filrouge.restaurantcore.dto.RoleDto;
+
 import com.filrouge.restaurantcore.service.IRoleService;
+
 
 
 
@@ -32,6 +39,7 @@ public class RoleController {
 
 	@Autowired
 	IRoleService roleService;
+	
 
 	@GetMapping(value = "/roles")
 	public ResponseEntity<Collection<RoleDto>> findAll() {
@@ -48,6 +56,35 @@ public class RoleController {
 		RoleDto roleCreated = roleService.save(roleDto);
 		return new ResponseEntity<RoleDto>(roleCreated, HttpStatus.CREATED);
 	}
+	
+	@GetMapping(value = "/rolename")
+	public ResponseEntity <RoleDto> findByName(@RequestParam(value = "name", required = true) String name) {
+		RoleDto role = roleService.findByName(name);
+		return new ResponseEntity<RoleDto>(role, HttpStatus.OK);
+
+	}
+	
+	 @DeleteMapping("/delete/{id}")
+	 public void deleteRoleById(@PathVariable("id") String id){
+	        this.roleService.deleteRoleById(id);
+	    }
+	 
+	 /**
+		 * Mise à jour du role
+		 * @param id l'identifiant du Role
+		 * @param roleDto les données à mettre à jour
+		 * @return le role mis à jour
+		 */
+		@PutMapping("/update/{id}")
+		@Transactional
+		public ResponseEntity<RoleDto> update(@PathVariable String id,
+				@RequestBody RoleDto roleDto) {
+
+			roleDto.setId(id);
+			RoleDto roleUpdate = roleService.update(roleDto);
+			return new ResponseEntity<RoleDto>(roleUpdate, HttpStatus.CREATED);
+		}
+
 	
 	
 }
