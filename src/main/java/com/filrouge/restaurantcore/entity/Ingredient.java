@@ -37,8 +37,8 @@ public class Ingredient extends AbstractEntity {
 	/**
 	 * price of ingredient
 	 */
-	@Field("price")
-	private BigDecimal price;
+	@Field("purchasePrice")
+	private BigDecimal purchasePrice;
 
 	/**
 	 * ingredientRecipe

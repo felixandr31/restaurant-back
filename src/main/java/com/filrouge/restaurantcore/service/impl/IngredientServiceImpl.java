@@ -34,8 +34,7 @@ public class IngredientServiceImpl implements IIngredientService {
 
 	@Override
 	public IngredientDto save(IngredientDto dto) {
-		// TODO Auto-generated method stub
-		return null;
+		return IngredientDto.fromEntity(ingredientRepository.save(IngredientDto.toEntity(dto)));
 	}
 
 }
