@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.service.IUserService;
+
 
 
 
@@ -45,7 +47,7 @@ public class UserController {
 	@GetMapping(value = "/users")
 	public ResponseEntity<Collection<UserDto>> findAll() {
  		Collection<UserDto> users = userService.findAll();
-		return new ResponseEntity<Collection<UserDto>>(users, HttpStatus.FOUND);
+		return new ResponseEntity<Collection<UserDto>>(users, HttpStatus.OK);
 	}
 
 	/**
@@ -62,21 +64,6 @@ public class UserController {
 		return new ResponseEntity<UserDto>(userFind.get(), HttpStatus.CREATED);
 	}
 
-	/**
-	 * Update of an user (without these associations)
-	 * @param  id the user's identifier
-	 * @param userDto the data to update
-	 * @return the updated user
-	 */
-	@PutMapping("/update/{id}")
-	@Transactional
-	public ResponseEntity<UserDto> update(@PathVariable String id,
-			@RequestBody UserDto userDto) {
-
-		userDto.setId(id);
-		UserDto userUpdate = userService.update(userDto);
-		return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
-	}
 
 	/**
 	 * Adding a role to the User.
@@ -137,5 +124,28 @@ public class UserController {
 		UserDto friendUpdate = userService.removeFriends(id, friendIds);
 		return new ResponseEntity<UserDto>(friendUpdate, HttpStatus.CREATED);
 	}
-}
+	
+	 @DeleteMapping("/delete/{id}")
+	 public void deleteUserById(@PathVariable("id") String id){
+	        this.userService.deleteUserById(id);
+	    }
+	 
+	 /**
+		 * Mise à jour d'un administrateur (sans ces associations)
+		 * @param id l'identifiant du User
+		 * @param userDto les données à mettre à jour
+		 * @return l'administrateur mis à jour
+		 */
+		@PutMapping("/update/{id}")
+		@Transactional
+		public ResponseEntity<UserDto> update(@PathVariable String id,
+				@RequestBody UserDto userDto) {
 
+			userDto.setId(id);
+			UserDto userUpdate = userService.update(userDto);
+			return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
+		}
+
+
+	 
+}

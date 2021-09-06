@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.filrouge.restaurantcore.dao.IRoleRepository;
 import com.filrouge.restaurantcore.dao.IUserRepository;
+
 import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.entity.Role;
 import com.filrouge.restaurantcore.entity.User;
@@ -18,6 +19,7 @@ import com.filrouge.restaurantcore.exception.InvalidEntityException;
 import com.filrouge.restaurantcore.service.IUserService;
 import com.filrouge.restaurantcore.util.MessagesUtil;
 import com.filrouge.restaurantcore.validator.UserValidator;
+
 
 @Service
 public class UserServiceImpl implements IUserService {
@@ -46,24 +48,14 @@ public class UserServiceImpl implements IUserService {
 		
 		//TODO initialiser un User avec un role client par defaut
 		//findByName name = client
+		
+		
 
 		return UserDto.fromEntity(userRepository.save(UserDto.toEntity(dto)));
 		
 
 	}
 
-	@Override
-	public UserDto update(UserDto dto) {
-		List<String> errors = UserValidator.validate(dto);
-		if (!errors.isEmpty()) {
-			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client"),
-					ErrorCodes.CLIENT_NOT_FOUND, errors);
-		}
-		// TODO attribut à mettre à jour: 
-		// - nom
-
-		return UserDto.fromEntity(userRepository.save(UserDto.toEntity(dto)));
-	}
 
 	@Override
 	public Optional<UserDto> findById(String id) {
@@ -84,7 +76,7 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public void deleteById(String id) {
+	public void deleteUserById(String id) {
 		if (id == null) {
 			return;
 		}
@@ -143,6 +135,7 @@ public class UserServiceImpl implements IUserService {
 			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client.update"),
 					ErrorCodes.CLIENT_NOT_VALID);
 		}
+		
 		User toUpdateFriend = optionalFriend.get();
 
 		// Finding existing role entities
@@ -172,6 +165,34 @@ public class UserServiceImpl implements IUserService {
 
 		return UserDto.fromEntity(userRepository.save(toUpdate));
 	}
+
+	@Override
+	public UserDto update(final UserDto dto) {
+		List<String> errors = UserValidator.validate(dto);
+		if (!errors.isEmpty()) {
+			throw new InvalidEntityException("le User n'est pas valide", ErrorCodes.USER_NOT_VALID,
+					errors);
+		}
+
+		Optional<User> optionalUser = userRepository.findById(dto.getId());
+
+		if (!optionalUser.isPresent()) {
+			throw new InvalidEntityException("Le User n'existe pas", ErrorCodes.USER_NOT_VALID);
+		}
+
+		// Ne mettre à jour que ce dont on a besoin
+		User toUpdate = optionalUser.get();
+		toUpdate.setFirstName(dto.getFirstName());
+		toUpdate.setLastName(dto.getLastName());
+		toUpdate.setEmail(dto.getEmail());
+
+		return UserDto.fromEntity(userRepository.save(toUpdate));
+	}
+
+
+
 	
 	// TODO ajout et suppression de list de booking
+	
+	
 }
