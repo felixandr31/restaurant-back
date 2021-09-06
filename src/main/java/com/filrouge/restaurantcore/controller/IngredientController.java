@@ -47,7 +47,6 @@ public class IngredientController {
 	@PostMapping(value = "/create")
 	@Transactional
 	public ResponseEntity<IngredientDto> save(@RequestBody IngredientDto ingredientDto) {
-
 		IngredientDto ingredientCreated = ingredientService.save(ingredientDto);
 		return new ResponseEntity<IngredientDto>(ingredientCreated, HttpStatus.CREATED);
 	}
