@@ -22,7 +22,12 @@ public interface IRestaurantService {
 	 * @return le DTO suite à la création
 	 */
 	RestaurantDto save(RestaurantDto dto);
-	RestaurantDto addUsers(String id, final Set<String> userIds);
+	
+	
+	RestaurantDto addUsers(String id, final Set<String> employeeIds);
+	
+	
+	RestaurantDto removeUsers(String id, Set<String> userIds);
 	/**
 	 * Update d'un restaurant sans ces associations.
 	 * 
