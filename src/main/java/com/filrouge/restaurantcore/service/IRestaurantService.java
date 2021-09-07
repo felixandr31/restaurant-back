@@ -28,6 +28,12 @@ public interface IRestaurantService {
 	
 	
 	RestaurantDto removeUsers(String id, Set<String> userIds);
+	
+	
+	
+	
+	
+	RestaurantDto addStocks(String id, final Set<String> stockIds);
 	/**
 	 * Update d'un restaurant sans ces associations.
 	 * 
