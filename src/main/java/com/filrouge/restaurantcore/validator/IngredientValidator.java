@@ -34,7 +34,7 @@ public class IngredientValidator {
 			errors.add("quantity is required");
 		}
 
-		if (dto.getPrice() != null && !StringUtils.hasLength(dto.getPrice().toString())) {
+		if (dto.getPurchasePrice() != null && !StringUtils.hasLength(dto.getPurchasePrice().toString())) {
 			errors.add("quantity is required");
 		}
 
