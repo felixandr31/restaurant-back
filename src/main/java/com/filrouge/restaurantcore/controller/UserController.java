@@ -1,6 +1,7 @@
 package com.filrouge.restaurantcore.controller;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -21,17 +22,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.service.IUserService;
 
-
-
-
-
 /**
  * REST role management services.
  * 
  * @author Hermann
  *
  */
-@CrossOrigin(origins = {"http://localhost:8080","http://localhost:4200"}, maxAge = 3600)
+@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200" }, maxAge = 3600)
 @RestController
 @RequestMapping("/user/*")
 public class UserController {
@@ -46,12 +43,13 @@ public class UserController {
 	 */
 	@GetMapping(value = "/users")
 	public ResponseEntity<Collection<UserDto>> findAll() {
- 		Collection<UserDto> users = userService.findAll();
+		Collection<UserDto> users = userService.findAll();
 		return new ResponseEntity<Collection<UserDto>>(users, HttpStatus.OK);
 	}
 
 	/**
 	 * création d'un utilisateur avec leurs roles si existe;
+	 * 
 	 * @param UserDto the client to create.
 	 * @return Created Client.
 	 */
@@ -64,17 +62,16 @@ public class UserController {
 		return new ResponseEntity<UserDto>(userFind.get(), HttpStatus.CREATED);
 	}
 
-
 	/**
 	 * Adding a role to the User.
-	 * @param id the user's 
+	 * 
+	 * @param id      the user's
 	 * @param roleIds the identifiers of the roles to add
 	 * @return updated User
 	 */
 	@PostMapping("/addroles/{id}")
 	@Transactional
-	public ResponseEntity<UserDto> addRoles(@PathVariable String id,
-			@RequestBody Set<String> roleIds) {
+	public ResponseEntity<UserDto> addRoles(@PathVariable String id, @RequestBody Set<String> roleIds) {
 
 		UserDto userUpdate = userService.addRoles(id, roleIds);
 		return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
@@ -82,70 +79,99 @@ public class UserController {
 
 	/**
 	 * Removal of a role from the client.
-	 * @param id the client's identifier
+	 * 
+	 * @param id      the client's identifier
 	 * @param roleIds the identifiers of the roles to be deleted
 	 * @return the updated client
 	 */
 	@PostMapping("/removeroles/{id}")
 	@Transactional
-	public ResponseEntity<UserDto> removeRoles(@PathVariable String id,
-			@RequestBody Set<String> roleIds) {
+	public ResponseEntity<UserDto> removeRoles(@PathVariable String id, @RequestBody Set<String> roleIds) {
 
 		UserDto userUpdate = userService.removeRoles(id, roleIds);
 		return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
 	}
-	
+
 	/**
 	 * Adding a friend to the User.
-	 * @param id the user's 
+	 * 
+	 * @param id        the user's
 	 * @param friendIds the identifiers of the friends to add
 	 * @return updated User
 	 */
 	@PostMapping("/addfriends/{id}")
 	@Transactional
-	public ResponseEntity<UserDto> addFriends(@PathVariable String id,
-			@RequestBody Set<String> friendIds) {
+	public ResponseEntity<UserDto> addFriends(@PathVariable String id, @RequestBody Set<String> friendIds) {
 
 		UserDto friendUpdate = userService.addFriends(id, friendIds);
 		return new ResponseEntity<UserDto>(friendUpdate, HttpStatus.CREATED);
 	}
-	
+
 	/**
 	 * Removal of a friend from the client.
-	 * @param id the client's identifier
+	 * 
+	 * @param id        the client's identifier
 	 * @param friendIds the identifiers of the friends to be deleted
 	 * @return the updated client
 	 */
 	@PostMapping("/removefriends/{id}")
 	@Transactional
-	public ResponseEntity<UserDto> removeFriends(@PathVariable String id,
-			@RequestBody Set<String> friendIds) {
+	public ResponseEntity<UserDto> removeFriends(@PathVariable String id, @RequestBody Set<String> friendIds) {
 
 		UserDto friendUpdate = userService.removeFriends(id, friendIds);
 		return new ResponseEntity<UserDto>(friendUpdate, HttpStatus.CREATED);
 	}
-	
-	 @DeleteMapping("/delete/{id}")
-	 public void deleteUserById(@PathVariable("id") String id){
-	        this.userService.deleteUserById(id);
-	    }
-	 
-	 /**
-		 * Mise à jour d'un administrateur (sans ces associations)
-		 * @param id l'identifiant du User
-		 * @param userDto les données à mettre à jour
-		 * @return l'administrateur mis à jour
-		 */
-		@PutMapping("/update/{id}")
-		@Transactional
-		public ResponseEntity<UserDto> update(@PathVariable String id,
-				@RequestBody UserDto userDto) {
 
-			userDto.setId(id);
-			UserDto userUpdate = userService.update(userDto);
-			return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
+	@DeleteMapping("/delete/{id}")
+	public void deleteUserById(@PathVariable("id") String id) {
+		this.userService.deleteUserById(id);
+	}
+
+	/**
+	 * Mise à jour d'un administrateur (sans ces associations)
+	 * 
+	 * @param id      l'identifiant du User
+	 * @param userDto les données à mettre à jour
+	 * @return l'administrateur mis à jour
+	 */
+	@PutMapping("/update/{id}")
+	@Transactional
+	public ResponseEntity<UserDto> update(@PathVariable String id, @RequestBody UserDto userDto) {
+
+		userDto.setId(id);
+		UserDto userUpdate = userService.update(userDto);
+		return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
+	}
+
+	@GetMapping("/{email}")
+	public ResponseEntity<List<UserDto>> findByEmail(@PathVariable String email) {
+		List<UserDto> users = userService.findByEmail(email);
+		return new ResponseEntity<List<UserDto>>(users, HttpStatus.OK);
+	}
+
+	@GetMapping("/{firstName}/{lastName}")
+	public ResponseEntity<List<UserDto>> findByFirstNameAndLastName(@PathVariable("firstName") String firstName,
+			@PathVariable("lastName") String lastName) {
+		List<UserDto> users = userService.findByFirstNameAndLastName(firstName, lastName);
+		return new ResponseEntity<List<UserDto>>(users, HttpStatus.OK);
+	}
+
+	@PostMapping("/login/")
+	public ResponseEntity<UserDto> findByLastNameAndPassword(@RequestBody String lastName,
+			@RequestBody String password) {
+		List<UserDto> users = userService.findByLastNameAndPassword(lastName, password);
+		String hachpassword ="";
+		for (UserDto user : users) {
+			if (user.getLastName() == lastName && user.getPassword() == password) {
+                 user.getPassword().hashCode();
+				return new ResponseEntity<UserDto>(user, HttpStatus.ACCEPTED);
+
+			}
 		}
+		
+		return new ResponseEntity<UserDto>(HttpStatus.NOT_FOUND);
+	}
 
+//}
 
-	 
 }

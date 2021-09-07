@@ -20,7 +20,6 @@ import com.filrouge.restaurantcore.service.IUserService;
 import com.filrouge.restaurantcore.util.MessagesUtil;
 import com.filrouge.restaurantcore.validator.UserValidator;
 
-
 @Service
 public class UserServiceImpl implements IUserService {
 
@@ -45,17 +44,13 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public UserDto save(final UserDto dto) {
-		
-		//TODO initialiser un User avec un role client par defaut
-		//findByName name = client
-		
-		
+
+		// TODO initialiser un User avec un role client par defaut
+		// findByName name = client
 
 		return UserDto.fromEntity(userRepository.save(UserDto.toEntity(dto)));
-		
 
 	}
-
 
 	@Override
 	public Optional<UserDto> findById(String id) {
@@ -135,7 +130,7 @@ public class UserServiceImpl implements IUserService {
 			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client.update"),
 					ErrorCodes.CLIENT_NOT_VALID);
 		}
-		
+
 		User toUpdateFriend = optionalFriend.get();
 
 		// Finding existing role entities
@@ -158,7 +153,7 @@ public class UserServiceImpl implements IUserService {
 		User toUpdate = optionalFriend.get();
 
 		// Finding existing role entities
-		List<User> friendsToRemove = friendIds.stream().map(friendId -> userRepository.findById(friendId ))
+		List<User> friendsToRemove = friendIds.stream().map(friendId -> userRepository.findById(friendId))
 				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
 
 		toUpdate.getFriends().removeAll(friendsToRemove);
@@ -170,8 +165,7 @@ public class UserServiceImpl implements IUserService {
 	public UserDto update(final UserDto dto) {
 		List<String> errors = UserValidator.validate(dto);
 		if (!errors.isEmpty()) {
-			throw new InvalidEntityException("le User n'est pas valide", ErrorCodes.USER_NOT_VALID,
-					errors);
+			throw new InvalidEntityException("le User n'est pas valide", ErrorCodes.USER_NOT_VALID, errors);
 		}
 
 		Optional<User> optionalUser = userRepository.findById(dto.getId());
@@ -189,10 +183,26 @@ public class UserServiceImpl implements IUserService {
 		return UserDto.fromEntity(userRepository.save(toUpdate));
 	}
 
+	@Override
+	public List<UserDto> findByEmail(String email) {
+		List<User> userFind = userRepository.findByEmail(email);
+		return userFind.stream().map(UserDto::fromEntity).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<UserDto> findByLastNameAndPassword(String lastName, String password) {
+		List<User> userFind = userRepository.findByLastNameAndPassword(lastName, password);
+		return userFind.stream().map(UserDto::fromEntity).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<UserDto> findByFirstNameAndLastName(String firstName, String lastName) {
+		List<User> userFind = userRepository.findByFirstNameAndLastName(firstName, lastName);
+		return userFind.stream().map(UserDto::fromEntity).collect(Collectors.toList());
+	}
+	
+	
 
 
-	
-	// TODO ajout et suppression de list de booking
-	
-	
+
 }

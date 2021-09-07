@@ -63,6 +63,12 @@ public class User extends AbstractEntity {
 
 	@DBRef
 	private List<Role> roles;
+	
+	/**
+	 * Restaurant de l'utilisateur
+	 */
+	//@DBRef
+	//private Restaurant restaurant;
 
 	/**
 	 * Friends associated at User

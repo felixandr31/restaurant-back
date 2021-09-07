@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.filrouge.restaurantcore.entity.Restaurant;
 import com.filrouge.restaurantcore.entity.Role;
 import com.filrouge.restaurantcore.entity.User;
 
@@ -32,6 +33,8 @@ public class UserDto {
 		private String password;
 		
 		private String email;
+		
+		//private RestaurantDto restaurant;
 		
 		//@JsonIgnore
 		@Builder.Default
@@ -62,8 +65,13 @@ public class UserDto {
 				for (final User user : entity.getFriends()) {
 					friendsDto.add(UserDto.fromEntity(user));
 				}
-				return UserDto.builder().id(entity.getId()).firstName(entity.getFirstName()).lastName(entity.getLastName())
-						.email(entity.getEmail()).roles(rolesDto).friends(friendsDto).build();
+				return UserDto.builder()
+						.id(entity.getId())
+						.firstName(entity.getFirstName())
+						.lastName(entity.getLastName())
+						.email(entity.getEmail())
+						//.restaurant(RestaurantDto.fromEntity(entity.getRestaurant()))
+						.roles(rolesDto).friends(friendsDto).build();
 						
 			}
 			
@@ -88,6 +96,7 @@ public class UserDto {
 				user.setLastName(dto.getLastName());
 				user.setPassword(dto.getPassword());
 				user.setEmail(dto.getEmail());
+				//user.setRestaurant(RestaurantDto.toEntity(dto.getRestaurant()));
 				
 				final List<Role> roles = dto.getRoles()
 				        .stream()

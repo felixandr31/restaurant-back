@@ -48,7 +48,7 @@ public interface IRoleService {
  * @return
  */
 
-	RoleDto findByName(String name);
+	List<RoleDto> findByName(String name);
 	
 	/**
 	 * Mise à jour du Role 
@@ -57,6 +57,8 @@ public interface IRoleService {
 	 * @return le DTO suite à la création
 	 */
 	RoleDto update(RoleDto dto);
+	
+	
 }
 	
 

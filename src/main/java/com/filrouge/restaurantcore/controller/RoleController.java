@@ -1,6 +1,7 @@
 package com.filrouge.restaurantcore.controller;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.filrouge.restaurantcore.dto.RoleDto;
-
+import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.service.IRoleService;
 
 
@@ -57,12 +58,11 @@ public class RoleController {
 		return new ResponseEntity<RoleDto>(roleCreated, HttpStatus.CREATED);
 	}
 	
-	@GetMapping(value = "/rolename")
-	public ResponseEntity <RoleDto> findByName(@RequestParam(value = "name", required = true) String name) {
-		RoleDto role = roleService.findByName(name);
-		return new ResponseEntity<RoleDto>(role, HttpStatus.OK);
-
-	}
+	@GetMapping("/{name}")
+    public ResponseEntity<List<RoleDto>> findByName(@PathVariable("name") String name) {
+         List<RoleDto> roles = roleService.findByName(name);
+        return new ResponseEntity<List<RoleDto>>(roles, HttpStatus.OK);
+    }
 	
 	 @DeleteMapping("/delete/{id}")
 	 public void deleteRoleById(@PathVariable("id") String id){
