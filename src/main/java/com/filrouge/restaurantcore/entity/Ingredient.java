@@ -2,8 +2,6 @@ package com.filrouge.restaurantcore.entity;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Embedded;
-
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -22,11 +20,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Document(collection = "ingredient")
 public class Ingredient extends AbstractEntity {
+
+	public Ingredient() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * name
@@ -39,11 +41,5 @@ public class Ingredient extends AbstractEntity {
 	 */
 	@Field("purchasePrice")
 	private BigDecimal purchasePrice;
-
-	/**
-	 * ingredientRecipe
-	 */
-	@Embedded
-	private IngredientRecipe ingredientRecipe;
 
 }

@@ -33,7 +33,7 @@ public class IngredientDto {
 
 	public static IngredientDto fromEntity(Ingredient entity) {
 		if (entity == null) {
-			// TODO THROW AN EXCEPTION
+			
 			return null;
 		}
 		return IngredientDto.builder().id(entity.getId()).name(entity.getName()).purchasePrice(entity.getPurchasePrice()).build();
@@ -48,7 +48,7 @@ public class IngredientDto {
 
 	public static Ingredient toEntity(IngredientDto dto) {
 		if (dto == null) {
-			// TODO THROW AN EXCEPTION
+			
 			return null;
 		}
 		Ingredient ingredient = new Ingredient();

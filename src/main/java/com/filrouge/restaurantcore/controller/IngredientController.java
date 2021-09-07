@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.filrouge.restaurantcore.dto.IngredientDto;
-import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.service.IIngredientService;
 
 /**
