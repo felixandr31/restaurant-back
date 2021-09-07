@@ -64,28 +64,10 @@ public class RestaurantServiceImpl implements IRestaurantService {
 		}
 		return Optional.of(restaurantRepository.findById(id).map(RestaurantDto::fromEntity))
 				.orElseThrow(() -> new EntityNotFoundException(
-						"Aucun Administrator avec l'ID = " + id + " n' ete trouve dans la BDD",
+						"Aucun Restaurant avec l'ID = " + id + " n' ete trouve dans la BDD",
 						ErrorCodes.RESTAURANT_NOT_FOUND));
 	}
 
-//	@Override
-//	public RestaurantDto addUsers(String id, final Set<String> employeeIds) {
-//		Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(id);
-//
-////		if (!optionalRestaurant.isPresent()) {
-////			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client.update"),
-////					ErrorCodes.CLIENT_NOT_VALID);
-////		}
-//		Restaurant toUpdateRestaurant = optionalRestaurant.get();
-//
-//		// Finding existing role entities
-//	List<User> employeesToAdd = employeeIds.stream().map(employeeId -> userRepository.findById(employeeId))
-//			.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
-//
-//		toUpdateRestaurant.getEmployees().addAll(employeesToAdd);
-//
-//		return RestaurantDto.fromEntity(restaurantRepository.save(toUpdateRestaurant));
-//	}
 
 	@Override
 	public RestaurantDto addUsers(String id, final Set<String> employeeIds) {
@@ -96,7 +78,7 @@ public class RestaurantServiceImpl implements IRestaurantService {
 		}
 		Restaurant toUpdate = optionalRestaurant.get();
 
-		// Recherche des entités role existantes
+		// Recherche des entités employee existantes
 		List<User> employeesToAdd = employeeIds.stream()
 				.map(employeeId -> userRepository.findById(employeeId))
 				.map(Optional::get)
@@ -168,14 +150,6 @@ public class RestaurantServiceImpl implements IRestaurantService {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	@Override
 	public RestaurantDto update(RestaurantDto dto) {
@@ -210,5 +184,11 @@ public class RestaurantServiceImpl implements IRestaurantService {
 			return;
 		}
 		restaurantRepository.deleteById(id);
+	}
+
+	@Override
+	public List<RestaurantDto> findByName(String name) {
+		List<Restaurant> restaurantfind = restaurantRepository.findByName(name);
+		return restaurantfind.stream().map(RestaurantDto::fromEntity).collect(Collectors.toList());
 	}
 }

@@ -1,6 +1,8 @@
 package com.filrouge.restaurantcore.controller;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +58,18 @@ public class RestaurantController {
 
 		RestaurantDto restaurantCreated = restaurantService.save(restaurantDto);
 		return new ResponseEntity<RestaurantDto>(restaurantCreated, HttpStatus.CREATED);
+	}
+
+	@GetMapping("restaurantsid/{id}")
+	public ResponseEntity<Optional<RestaurantDto>> findById(@PathVariable("id") String id) {
+		Optional<RestaurantDto> restaurantfind = restaurantService.findById(id);
+		return new ResponseEntity<Optional<RestaurantDto>>(restaurantfind, HttpStatus.OK);
+	}
+
+	@GetMapping("restaurantsname/{name}")
+	public ResponseEntity<List<RestaurantDto>> findByName(@PathVariable("name") String name) {
+		List<RestaurantDto> restaurantfind = restaurantService.findByName(name);
+		return new ResponseEntity<List<RestaurantDto>>(restaurantfind, HttpStatus.OK);
 	}
 
 	/**
