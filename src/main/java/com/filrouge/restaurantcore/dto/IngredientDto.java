@@ -54,7 +54,7 @@ public class IngredientDto {
 		Ingredient ingredient = new Ingredient();
 		ingredient.setId(dto.getId());
 		ingredient.setName(dto.getName());
-		ingredient.setPrice(dto.getPurchasePrice());
+		ingredient.setPurchasePrice(dto.getPurchasePrice());
 		return ingredient;
 	}
 
