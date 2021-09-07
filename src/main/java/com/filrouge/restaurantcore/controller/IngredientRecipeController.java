@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.filrouge.restaurantcore.dto.IngredientDto;
 import com.filrouge.restaurantcore.dto.IngredientRecipeDto;
+import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.service.IIngredientRecipeService;
 
 /**
@@ -47,10 +49,7 @@ public class IngredientRecipeController {
 		return new ResponseEntity<Optional<IngredientRecipeDto>>(ingredientRecipes, HttpStatus.OK);
 	}
 	
-	 @DeleteMapping("/delete/{id}")
-	 public void deleteIngredientById(@PathVariable("id") String id){
-	        this.ingredientRecipeService.deleteIngredientRecipeById(id);
-	    }
+
 	 
 	@PostMapping(value = "/create")
 	@Transactional
@@ -58,5 +57,20 @@ public class IngredientRecipeController {
 		IngredientRecipeDto ingredientRecipeCreated = ingredientRecipeService.save(ingredientRecipeDto);
 		return new ResponseEntity<IngredientRecipeDto>(ingredientRecipeCreated, HttpStatus.CREATED);
 	}
+	
+	@PutMapping("/update/{id}")
+	@Transactional
+	public ResponseEntity<IngredientRecipeDto> update(@PathVariable String id,
+			@RequestBody IngredientRecipeDto ingredientRecipeDto) {
+
+		ingredientRecipeDto.setId(id);
+		IngredientRecipeDto ingredientRecipeUpdate = ingredientRecipeService.update(ingredientRecipeDto);
+		return new ResponseEntity<IngredientRecipeDto>(ingredientRecipeUpdate, HttpStatus.CREATED);
+	}
+	
+	 @DeleteMapping("/delete/{id}")
+	 public void deleteIngredientById(@PathVariable("id") String id){
+	        this.ingredientRecipeService.deleteIngredientRecipeById(id);
+	    }
 
 }
