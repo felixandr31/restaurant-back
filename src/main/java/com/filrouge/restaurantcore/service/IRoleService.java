@@ -3,7 +3,10 @@ package com.filrouge.restaurantcore.service;
 import java.util.List;
 import java.util.Optional;
 
+
+
 import com.filrouge.restaurantcore.dto.RoleDto;
+import com.filrouge.restaurantcore.dto.UserDto;
 
 public interface IRoleService {
 
@@ -37,14 +40,24 @@ public interface IRoleService {
 	 * 
 	 * @param id L'identifiant
 	 */
-	void deleteById(String id);
+	void deleteRoleById(String id);
 
 /**
- * Recherche un User par son nom
+ * Recherche Role par son nom
  * @param name
  * @return
  */
-	RoleDto getByName(final String name);
+
+	RoleDto findByName(String name);
+	
+	/**
+	 * Mise à jour du Role 
+	 * 
+	 * @param dto le DTO
+	 * @return le DTO suite à la création
+	 */
+	RoleDto update(RoleDto dto);
+}
 	
 
-}
+
