@@ -1,8 +1,11 @@
 package com.filrouge.restaurantcore.entity;
 
 import java.math.BigDecimal;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Embedded;
 
@@ -10,7 +13,10 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+
+
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -20,8 +26,9 @@ import lombok.EqualsAndHashCode;
  * @author sslimani
  *
  */
-@Data
 
+@Data
+@Builder
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Document(collection = "restaurant")
@@ -55,7 +62,7 @@ public class Restaurant extends AbstractEntity {
 	 * Les informations des employés dans un sous document.
 	 */
 	@DBRef
-	private List<User> employees;
+	private Set<User> employees;
 
 	/**
 	 * Informations of tables dans un sous document.
@@ -91,7 +98,7 @@ public class Restaurant extends AbstractEntity {
 	 * Constructor
 	 */
 	public Restaurant() {
-		this.employees = new ArrayList<User>(0);
+		this.employees = new HashSet<User>(0);
 		this.tables = new ArrayList<Table>(0);
 		this.purchases = new ArrayList<Purchase>(0);
 		this.recipes = new ArrayList<Recipe>(0);

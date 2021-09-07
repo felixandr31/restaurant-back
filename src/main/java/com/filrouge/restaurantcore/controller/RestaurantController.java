@@ -17,16 +17,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.filrouge.restaurantcore.dto.RestaurantDto;
-
 import com.filrouge.restaurantcore.service.IRestaurantService;
 
 /**
  * Services REST de gestion des restaurants.
  * 
  * @author sslimani
- *
+ * 
  */
-@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
+
+@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200" }, maxAge = 3600)
 @RestController
 @RequestMapping("/restaurant/*")
 public class RestaurantController {
@@ -60,55 +60,54 @@ public class RestaurantController {
 
 	/**
 	 * Update of restaurant (without these associations)
-	 * @param  id restaurant identifier
+	 * 
+	 * @param id            restaurant identifier
 	 * @param restaurantDto the data to update
 	 * @return the updated restaurant
 	 */
 	@PutMapping("/update/{id}")
 	@Transactional
-	public ResponseEntity<RestaurantDto> update(@PathVariable String id,
-			@RequestBody RestaurantDto restaurantDto) {
+	public ResponseEntity<RestaurantDto> update(@PathVariable String id, @RequestBody RestaurantDto restaurantDto) {
 
 		restaurantDto.setId(id);
-		//TODO users
-		//stars
+		// TODO users
+		// stars
 		RestaurantDto restaurantUpdate = restaurantService.update(restaurantDto);
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
-    
-	
+
 	/**
 	 * Adding a role to the User.
-	 * @param id the user's 
+	 * 
+	 * @param id      the user's
 	 * @param roleIds the identifiers of the roles to add
 	 * @return updated User
 	 */
 	@PostMapping("/addusers/{id}")
 	@Transactional
-	public ResponseEntity<RestaurantDto> addUsers(@PathVariable String id,
-			@RequestBody Set<String> userIds) {
+	public ResponseEntity<RestaurantDto> addUsers(@PathVariable String id, @RequestBody Set<String> employeesIds) {
 
-		RestaurantDto restaurantUpdate = restaurantService.addUsers(id, userIds);
+		RestaurantDto restaurantUpdate = restaurantService.addUsers(id, employeesIds);
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
+
 	/**
 	 * Removal of a user from a restaurant.
-	 * @param id the restaurant's identifier
+	 * 
+	 * @param id      the restaurant's identifier
 	 * @param userIds the identifiers of the users to be deleted
 	 * @return the updated restaurant
 	 */
 	@PostMapping("/removeusers/{id}")
 	@Transactional
-	public ResponseEntity<RestaurantDto> removeUsers(@PathVariable String id,
-			@RequestBody Set<String> userIds) {
+	public ResponseEntity<RestaurantDto> removeUsers(@PathVariable String id, @RequestBody Set<String> userIds) {
 
 		RestaurantDto restaurantUpdate = restaurantService.removeUsers(id, userIds);
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
-	
 
-	// ajout/ suppression recette 
+	// ajout/ suppression recette
 	// ajout/ suppression table
 	// ajout/ suppression stock
-	// 
+	//
 }
