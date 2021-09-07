@@ -2,7 +2,9 @@ package com.filrouge.restaurantcore.dto;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.filrouge.restaurantcore.entity.Purchase;
@@ -24,12 +26,12 @@ import lombok.Data;
 @Data
 @Builder
 public class RestaurantDto {
-     
+
 	/**
 	 * Id
 	 */
 	private String id;
-	
+
 	/**
 	 * Name.
 	 */
@@ -55,20 +57,19 @@ public class RestaurantDto {
 	 */
 	private BigDecimal budget;
 
-	
-
 	// @Builder.Default permet de surcharger la construction de la collection de
 	// lombok
 	@Builder.Default
 	private List<TableDto> tables = new ArrayList<TableDto>(0);
 	@Builder.Default
-	private List<UserDto> employees = new ArrayList<UserDto>(0);
+	private Set<UserDto> employees = new HashSet<UserDto>(0);
 	@Builder.Default
 	private List<PurchaseDto> purchases = new ArrayList<PurchaseDto>(0);
 	@Builder.Default
 	private List<RecipeDto> recipes = new ArrayList<RecipeDto>(0);
 	@Builder.Default
 	private List<StockDto> stocks = new ArrayList<StockDto>(0);
+
 	/**
 	 * Transform entity into DTO.
 	 * 
@@ -85,7 +86,7 @@ public class RestaurantDto {
 			tablesDTO.add(TableDto.fromEntity(table));
 		}
 
-		final List<UserDto> employeesDTO = new ArrayList<UserDto>(entity.getEmployees().size());
+		final Set<UserDto> employeesDTO = new HashSet<UserDto>(entity.getEmployees().size());
 		for (final User employee : entity.getEmployees()) {
 			employeesDTO.add(UserDto.fromEntity(employee));
 		}
@@ -99,7 +100,7 @@ public class RestaurantDto {
 		for (final Recipe recipe : entity.getRecipes()) {
 			recipesDTO.add(RecipeDto.fromEntity(recipe));
 		}
-		
+
 		final List<StockDto> stocksDTO = new ArrayList<StockDto>(entity.getStocks().size());
 		for (final Stock stock : entity.getStocks()) {
 			stocksDTO.add(StockDto.fromEntity(stock));
@@ -107,9 +108,8 @@ public class RestaurantDto {
 
 		return RestaurantDto.builder().name(entity.getName()).address(AddressDto.fromEntity(entity.getAddress()))
 				.stars(entity.getStars()).budget(entity.getBudget())
-				.coordinates(CoordinatesDto.fromEntity(entity.getCoordinates()))
-				.stocks(stocksDTO).tables(tablesDTO).employees(employeesDTO)
-				.purchases(purchasesDTO).recipes(recipesDTO).build();
+				.coordinates(CoordinatesDto.fromEntity(entity.getCoordinates())).stocks(stocksDTO).tables(tablesDTO)
+				.employees(employeesDTO).purchases(purchasesDTO).recipes(recipesDTO).build();
 	}
 
 	/**
@@ -128,10 +128,10 @@ public class RestaurantDto {
 		restaurant.setAddress(AddressDto.toEntity(dto.getAddress()));
 		restaurant.setStars(dto.getStars());
 		restaurant.setCoordinates(CoordinatesDto.toEntity(dto.getCoordinates()));
-		
+
 		restaurant.setBudget(dto.getBudget());
 
-		final List<User> employees = dto.getEmployees().stream().map(UserDto::toEntity).collect(Collectors.toList());
+		final Set<User> employees = dto.getEmployees().stream().map(UserDto::toEntity).collect(Collectors.toSet());
 		restaurant.setEmployees(employees);
 
 		final List<Table> tables = dto.getTables().stream().map(TableDto::toEntity).collect(Collectors.toList());
@@ -143,7 +143,7 @@ public class RestaurantDto {
 
 		final List<Recipe> recipes = dto.getRecipes().stream().map(RecipeDto::toEntity).collect(Collectors.toList());
 		restaurant.setRecipes(recipes);
-		
+
 		final List<Stock> stocks = dto.getStocks().stream().map(StockDto::toEntity).collect(Collectors.toList());
 		restaurant.setStocks(stocks);
 
