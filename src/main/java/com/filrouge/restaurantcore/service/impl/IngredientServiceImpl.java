@@ -20,11 +20,8 @@ import com.filrouge.restaurantcore.validator.IngredientValidator;
 @Service
 public class IngredientServiceImpl implements IIngredientService {
 	
-
-
 		// DAOs
 		private IIngredientRepository ingredientRepository;
-		
 		
 		
 		/**
