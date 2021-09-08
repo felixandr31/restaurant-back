@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.filrouge.restaurantcore.dto.RecipeDto;
 import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.service.IUserService;
 
@@ -121,7 +122,10 @@ public class UserController {
 		UserDto friendUpdate = userService.removeFriends(id, friendIds);
 		return new ResponseEntity<UserDto>(friendUpdate, HttpStatus.CREATED);
 	}
-
+/**
+ * 
+ * @param id
+ */
 	@DeleteMapping("/delete/{id}")
 	public void deleteUserById(@PathVariable("id") String id) {
 		this.userService.deleteUserById(id);
@@ -172,6 +176,14 @@ public class UserController {
 		
 		return new ResponseEntity<UserDto>(HttpStatus.NOT_FOUND);
 	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Optional<UserDto>> findById(@PathVariable("id") String id) {
+		Optional<UserDto> userIdFind = userService.findById(id);
+		return new ResponseEntity<Optional<UserDto>>(userIdFind , HttpStatus.OK);
+	}
+	
+	
 
 //}
 

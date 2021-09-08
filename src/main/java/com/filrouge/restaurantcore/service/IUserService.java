@@ -34,7 +34,7 @@ public interface IUserService {
 	 * 
 	 * @return the DTOs of the clients.
 	 */
-	List<UserDto> findAll();
+	List<UserDto>findAll();
 
 	/**
 	 * Research the managers.
