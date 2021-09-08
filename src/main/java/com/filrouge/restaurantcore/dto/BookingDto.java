@@ -1,7 +1,9 @@
 package com.filrouge.restaurantcore.dto;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,6 +40,11 @@ public class BookingDto {
 	/**
 	 * Hour.
 	 */
+//	Date date = new Date();   // given date
+//	Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
+//	calendar.setTime(date);   // assigns calendar to given date 
+//	calendar.get(Calendar.HOUR_OF_DAY); // gets hour in 24h format
+//	
 	private Hour hour;
 
 	/**
@@ -80,7 +87,7 @@ public class BookingDto {
 				clientsDTO.add(UserDto.fromEntity(client));
 			}
 			
-			return BookingDto.builder().day(entity.getDay()).hour(entity.getHour())
+			return BookingDto.builder().id(entity.getId()).day(entity.getDay()).hour(entity.getHour())
 					.table(TableDto.fromEntity(entity.getTable())).orders(ordersDTO).clients(clientsDTO).build();
 		}
 
@@ -96,6 +103,7 @@ public class BookingDto {
 			}
 			
 			final Booking booking = new Booking();
+			booking.setId(dto.getId());
 			booking.setDay(dto.getDay());
 			booking.setHour(dto.getHour());
 			booking.setTable(TableDto.toEntity(dto.getTable()));

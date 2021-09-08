@@ -106,7 +106,7 @@ public class RestaurantDto {
 			stocksDTO.add(StockDto.fromEntity(stock));
 		}
 
-		return RestaurantDto.builder().name(entity.getName()).address(AddressDto.fromEntity(entity.getAddress()))
+		return RestaurantDto.builder().id(entity.getId()).name(entity.getName()).address(AddressDto.fromEntity(entity.getAddress()))
 				.stars(entity.getStars()).budget(entity.getBudget())
 				.coordinates(CoordinatesDto.fromEntity(entity.getCoordinates())).stocks(stocksDTO).tables(tablesDTO)
 				.employees(employeesDTO).purchases(purchasesDTO).recipes(recipesDTO).build();
@@ -124,11 +124,11 @@ public class RestaurantDto {
 		}
 
 		final Restaurant restaurant = new Restaurant();
+		restaurant.setId(dto.getId());
 		restaurant.setName(dto.getName());
 		restaurant.setAddress(AddressDto.toEntity(dto.getAddress()));
 		restaurant.setStars(dto.getStars());
 		restaurant.setCoordinates(CoordinatesDto.toEntity(dto.getCoordinates()));
-
 		restaurant.setBudget(dto.getBudget());
 
 		final Set<User> employees = dto.getEmployees().stream().map(UserDto::toEntity).collect(Collectors.toSet());
