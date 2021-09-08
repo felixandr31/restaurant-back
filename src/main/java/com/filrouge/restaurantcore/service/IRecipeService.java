@@ -4,8 +4,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import com.filrouge.restaurantcore.dto.IngredientRecipeDto;
 import com.filrouge.restaurantcore.dto.RecipeDto;
-import com.filrouge.restaurantcore.dto.UserDto;
+
 
 public interface IRecipeService {
 	
@@ -55,11 +56,11 @@ public interface IRecipeService {
 	 * Add IngredienRecipe of the Recipe. Identifiers of IngredienRecipe not found
      * are ignored
 	 * 
-	 * @param ID      identifier of client.
-	 * @param roleIds the identifier of roles
+	 * @param ID      identifier of Recipe.
+	 * @param ingredientrecipeIds the identifier of ingredientrecipe
 	 * @return the client's DTO with these roles.
 	 */
-	UserDto addRoles(String id, Set<String> roleIds);
+	RecipeDto addIngredientRecipe(String idRecipe, Set<IngredientRecipeDto> ingredientRecipeDto);
 	
 	/**
 	 * Removal of Recipe IngredientRecipe. Identifiers of I not found
@@ -70,7 +71,7 @@ public interface IRecipeService {
      * @return the client's DTO with these roles.
 	 * 
 	 */
-	UserDto removeRoles(String id, Set<String> roleIds);
+	RecipeDto removeRoles(String id, Set<String> ingredientIds);
 }
 	
 

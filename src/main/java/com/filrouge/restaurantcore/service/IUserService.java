@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import com.filrouge.restaurantcore.dto.UserDto;
+import com.filrouge.restaurantcore.entity.User;
 
 
 public interface IUserService {
@@ -100,6 +101,32 @@ public interface IUserService {
 	 * @return le DTO suite à la création
 	 */
 	UserDto update(UserDto dto);
+	
+	/**
+	 * 
+	 * @param email
+	 * @return
+	 */
+	
+	List<UserDto> findByEmail(String email);
+	  
+	/**
+	 * 
+	 * @param lastname
+	 * @param password
+	 * @return
+	 */
+	List<UserDto> findByLastNameAndPassword( String lastName, String password);
+	  
+	  /**
+	   * 
+	   * @param firstname
+	   * @param lastname
+	   * @return
+	   */
+	List<UserDto> findByFirstNameAndLastName(String firstName, String lastName);
+
+	
 }
 	
 	

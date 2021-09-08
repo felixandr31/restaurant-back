@@ -37,6 +37,22 @@ public interface IIngredientRecipeService {
 	Optional<IngredientRecipeDto> findById(String id);
 	
 	/**
+	 * Création of a ingredientRecipe.
+	 * 
+	 * @param dto the DTO
+	 * @return the DTO following the ingredientRecipe
+	 */
+	IngredientRecipeDto save(IngredientRecipeDto dto);
+	
+	/**
+	 * Mise à jour du Role 
+	 * 
+	 * @param dto le DTO
+	 * @return le DTO suite à la création
+	 */
+	IngredientRecipeDto update(IngredientRecipeDto ingredientRecipeDto);
+	
+	/**
 	 * Removal of an ingredientRecipe. 
 	 * @param id The ingredientRecipe identifier.
      * @return the ingredientRecipe's DTO.
@@ -44,12 +60,6 @@ public interface IIngredientRecipeService {
 	 */
 	void deleteIngredientRecipeById(String id);
 	
-	/**
-	 * Création of a ingredientRecipe.
-	 * 
-	 * @param dto the DTO
-	 * @return the DTO following the ingredientRecipe
-	 */
-	IngredientRecipeDto save(IngredientRecipeDto dto);
+
 	
 }

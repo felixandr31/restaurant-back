@@ -19,47 +19,46 @@ import com.filrouge.restaurantcore.validator.IngredientValidator;
 
 @Service
 public class IngredientServiceImpl implements IIngredientService {
-	
-		// DAOs
-		private IIngredientRepository ingredientRepository;
-		
-		
-		/**
-		 * Constructor.
-		 * @param ingredientRepository the roles DTO.
-		 */
-		public IngredientServiceImpl(IIngredientRepository ingredientRepository) {
-			super();
-			this.ingredientRepository = ingredientRepository;
-		}
+
+	// DAOs
+	private IIngredientRepository ingredientRepository;
+
+	/**
+	 * Constructor.
+	 * 
+	 * @param ingredientRepository the roles DTO.
+	 */
+	public IngredientServiceImpl(IIngredientRepository ingredientRepository) {
+		super();
+		this.ingredientRepository = ingredientRepository;
+	}
 
 	@Override
 	public List<IngredientDto> findAll() {
 		return ingredientRepository.findAll().stream().map(IngredientDto::fromEntity).collect(Collectors.toList());
 	}
-	
+
 	@Override
 	public Optional<IngredientDto> findById(String id) {
 		if (id == null) {
 			return null;
 		}
-		return Optional.of(ingredientRepository.findById(id).map(IngredientDto::fromEntity)).orElseThrow(() -> new EntityNotFoundException(
-				"Aucun Ingredient avec l'ID = " + id + " n' est trouve dans la BDD", ErrorCodes.ROLE_NOT_FOUND));
+		return Optional.of(ingredientRepository.findById(id).map(IngredientDto::fromEntity))
+				.orElseThrow(() -> new EntityNotFoundException(
+						"Aucun Ingredient avec l'ID = " + id + " n' est trouve dans la BDD",
+						ErrorCodes.ROLE_NOT_FOUND));
 	}
 
 	@Override
 	public IngredientDto save(IngredientDto dto) {
 		return IngredientDto.fromEntity(ingredientRepository.save(IngredientDto.toEntity(dto)));
 	}
-	
-	
 
 	@Override
 	public IngredientDto update(IngredientDto ingredientDto) {
 		List<String> errors = IngredientValidator.validate(ingredientDto);
 		if (!errors.isEmpty()) {
-			throw new InvalidEntityException("le ROLE n'est pas valide", ErrorCodes.ROLE_NOT_VALID,
-					errors);
+			throw new InvalidEntityException("le ROLE n'est pas valide", ErrorCodes.ROLE_NOT_VALID, errors);
 		}
 
 		Optional<Ingredient> optionalIngredient = ingredientRepository.findById(ingredientDto.getId());
@@ -83,5 +82,4 @@ public class IngredientServiceImpl implements IIngredientService {
 		ingredientRepository.deleteById(id);
 	}
 
-	
 }
