@@ -1,1 +1,0 @@
-package com.filrouge.restaurantcore.dto.auth;

@@ -22,7 +22,7 @@ public class IngredientDto {
 
 	private String name;
 
-	private BigDecimal price;
+	private BigDecimal purchasePrice;
 
 	/**
 	 * Transform the entity into a DTO.
@@ -33,10 +33,10 @@ public class IngredientDto {
 
 	public static IngredientDto fromEntity(Ingredient entity) {
 		if (entity == null) {
-			// TODO THROW AN EXCEPTION
+			
 			return null;
 		}
-		return IngredientDto.builder().id(entity.getId()).name(entity.getName()).price(entity.getPrice()).build();
+		return IngredientDto.builder().id(entity.getId()).name(entity.getName()).purchasePrice(entity.getPurchasePrice()).build();
 	}
 
 	/**
@@ -48,13 +48,13 @@ public class IngredientDto {
 
 	public static Ingredient toEntity(IngredientDto dto) {
 		if (dto == null) {
-			// TODO THROW AN EXCEPTION
+			
 			return null;
 		}
 		Ingredient ingredient = new Ingredient();
 		ingredient.setId(dto.getId());
 		ingredient.setName(dto.getName());
-		ingredient.setPrice(dto.getPrice());
+		ingredient.setPurchasePrice(dto.getPurchasePrice());
 		return ingredient;
 	}
 

@@ -1,11 +1,15 @@
 package com.filrouge.restaurantcore.dao;
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d98e6705b0ce00c8b2b8bb3cda30bef15d59e7f5
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.filrouge.restaurantcore.entity.IngredientRecipe;
 
+<<<<<<< HEAD
 
 
 public interface IIngredientRecipeRepository extends MongoRepository<IngredientRecipe, String>{
@@ -15,4 +19,16 @@ public interface IIngredientRecipeRepository extends MongoRepository<IngredientR
 	
 	
 
+=======
+/**
+ * Personalized DAO services for Ingredient.
+ * @author FAndre
+ *
+ */
+
+public interface IIngredientRecipeRepository extends MongoRepository<IngredientRecipe, String> {
+	
+
+
+>>>>>>> d98e6705b0ce00c8b2b8bb3cda30bef15d59e7f5
 }
