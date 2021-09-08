@@ -161,9 +161,10 @@ public class UserController {
 			@RequestBody String password) {
 		List<UserDto> users = userService.findByLastNameAndPassword(lastName, password);
 		String hachpassword ="";
+		
 		for (UserDto user : users) {
 			if (user.getLastName() == lastName && user.getPassword() == password) {
-                 user.getPassword().hashCode();
+                 user.setPassword(hachpassword);
 				return new ResponseEntity<UserDto>(user, HttpStatus.ACCEPTED);
 
 			}
