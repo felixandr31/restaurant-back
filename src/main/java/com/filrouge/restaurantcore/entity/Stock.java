@@ -25,6 +25,10 @@ import lombok.NoArgsConstructor;
 
 public class Stock extends AbstractEntity {
 	/**
+	 * Id
+	 */
+	private String id;
+	/**
 	 * Ingredient
 	 */
 	@DBRef

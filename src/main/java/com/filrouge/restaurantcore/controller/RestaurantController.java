@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -104,6 +105,19 @@ public class RestaurantController {
 		RestaurantDto restaurantUpdate = restaurantService.addUsers(id, employeesIds);
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
+    /**
+     * Adding a stock to the restauarant
+     * @param id
+     * @param stocksIds
+     * @return
+     */
+	@PostMapping("/addstocks/{id}")
+	@Transactional
+	public ResponseEntity<RestaurantDto> addStocks(@PathVariable String id, @RequestBody Set<String> stocksIds) {
+
+		RestaurantDto restaurantUpdate = restaurantService.addStocks(id, stocksIds);
+		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
+	}
 
 	/**
 	 * Removal of a user from a restaurant.
@@ -112,16 +126,50 @@ public class RestaurantController {
 	 * @param userIds the identifiers of the users to be deleted
 	 * @return the updated restaurant
 	 */
-	@PostMapping("/removeusers/{id}")
+	@DeleteMapping("/removeusers/{id}")
 	@Transactional
 	public ResponseEntity<RestaurantDto> removeUsers(@PathVariable String id, @RequestBody Set<String> userIds) {
 
 		RestaurantDto restaurantUpdate = restaurantService.removeUsers(id, userIds);
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
+    
+	
+	@DeleteMapping("/removestocks/{id}")
+	@Transactional
+	public ResponseEntity<RestaurantDto> removeStocks(@PathVariable String id, @RequestBody Set<String> stockIds) {
 
+		RestaurantDto restaurantUpdate = restaurantService.removeStocks(id, stockIds);
+		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
+	}
+	
+	/**
+	 * Adding a table to the Restaurant.
+	 * 
+	 * @param id      the user's
+	 * @param roleIds the identifiers of the roles to add
+	 * @return updated User
+	 */
+	@PostMapping("/addtables/{id}")
+	@Transactional
+	public ResponseEntity<RestaurantDto> addTable(@PathVariable String id, @RequestBody Set<String> tablesIds) {
+
+		RestaurantDto restaurantUpdate = restaurantService.addUsers(id, tablesIds);
+		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
+	}
+	
+	@DeleteMapping("/removetables/{id}")
+	@Transactional
+	public ResponseEntity<RestaurantDto> removeTables(@PathVariable String id, @RequestBody Set<String> tableIds) {
+
+		RestaurantDto restaurantUpdate = restaurantService.removeStocks(id, tableIds);
+		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
+	}
+	
+	
+	
 	// ajout/ suppression recette
-	// ajout/ suppression table
-	// ajout/ suppression stock
-	//
+	
+	
+	
 }

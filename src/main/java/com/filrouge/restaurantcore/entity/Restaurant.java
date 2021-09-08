@@ -33,7 +33,11 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Document(collection = "restaurant")
 public class Restaurant extends AbstractEntity {
-
+	/**
+	 * Id
+	 */
+     private String id;
+     
 	/**
 	 * Name.
 	 */
