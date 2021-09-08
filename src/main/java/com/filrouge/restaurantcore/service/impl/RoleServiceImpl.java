@@ -8,15 +8,15 @@ import org.springframework.stereotype.Service;
 
 import com.filrouge.restaurantcore.dao.IRoleRepository;
 import com.filrouge.restaurantcore.dto.RoleDto;
-
+import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.entity.Role;
-
+import com.filrouge.restaurantcore.entity.User;
 import com.filrouge.restaurantcore.exception.EntityNotFoundException;
 import com.filrouge.restaurantcore.exception.ErrorCodes;
 import com.filrouge.restaurantcore.exception.InvalidEntityException;
 import com.filrouge.restaurantcore.service.IRoleService;
 import com.filrouge.restaurantcore.validator.RoleValidator;
-import com.filrouge.restaurantcore.validator.UserValidator;
+
 
 
 
@@ -65,12 +65,9 @@ public class RoleServiceImpl implements IRoleService {
 	}
 
 	@Override
-	public RoleDto findByName(String name) {
-		if (name == null) {
-			return null;
-		}
-		return roleRepository.findByName(name);
-
+	public List<RoleDto> findByName(String name) {
+		List<Role> roleFind = roleRepository.findByName(name);
+		return roleFind.stream().map(RoleDto::fromEntity).collect(Collectors.toList());
 	}
 	
 	@Override
