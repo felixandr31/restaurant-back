@@ -26,7 +26,10 @@ import lombok.Data;
 @Data
 @Builder
 public class BookingDto {
-
+/**
+ * Id
+ */
+	private String id;
 	/**
 	 * Day.
 	 */

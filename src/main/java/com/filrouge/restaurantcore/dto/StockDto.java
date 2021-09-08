@@ -16,6 +16,12 @@ import lombok.Data;
 @Data
 @Builder
 public class StockDto {
+	
+	/**
+	 * Id
+	 */
+	private String id;
+	
 	/**
 	 * Ingredient
 	 */
@@ -35,7 +41,7 @@ public class StockDto {
 		if (entity == null) {
 			return null;
 		}
-		return StockDto.builder().ingredient(IngredientDto.fromEntity(entity.getIngredient()))
+		return StockDto.builder().id(entity.getId()).ingredient(IngredientDto.fromEntity(entity.getIngredient()))
 				.quantity(entity.getQuantity()).build();
 	}
 
