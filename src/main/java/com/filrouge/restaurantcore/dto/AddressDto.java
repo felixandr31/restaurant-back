@@ -16,6 +16,11 @@ import lombok.Data;
 @Data
 @Builder
 public class AddressDto {
+	
+	/**
+	 * Address.
+	 */
+	private String id;
 	/**
 	 * Address.
 	 */
