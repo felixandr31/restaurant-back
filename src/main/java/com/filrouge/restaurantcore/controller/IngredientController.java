@@ -66,8 +66,8 @@ public class IngredientController {
 	 
 	 /**
 		 * Mise à jour d'un administrateur (sans ces associations)
-		 * @param id l'identifiant du User
-		 * @param userDto les données à mettre à jour
+		 * @param id l'identifiant du Ingredient
+		 * @param ingredientDto les données à mettre à jour
 		 * @return l'administrateur mis à jour
 		 */
 		@PutMapping("/update/{id}")
