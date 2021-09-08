@@ -51,7 +51,7 @@ public class AddressDto {
 		if (entity == null) {
 			return null;
 		}
-		return AddressDto.builder().streetName(entity.getStreetName()).city(entity.getCity())
+		return AddressDto.builder().id(entity.getId()).streetName(entity.getStreetName()).city(entity.getCity())
 				.zipCode(entity.getZipCode()).country(entity.getCountry()).build();
 	}
 
@@ -66,6 +66,7 @@ public class AddressDto {
 			return null;
 		}
 		final Address address = new Address();
+		address.setId(dto.getId());
 		address.setStreetName(dto.getStreetName());
 		address.setCity(dto.getCity());
 		address.setZipCode(dto.getZipCode());
