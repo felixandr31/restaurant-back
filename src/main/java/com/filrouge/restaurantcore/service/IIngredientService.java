@@ -48,7 +48,7 @@ public interface IIngredientService {
 	void deleteIngredientById(String id);
 	
 	/**
-	 * Mise à jour du Role 
+	 * Mise à jour du Ingredient
 	 * 
 	 * @param dto le DTO
 	 * @return le DTO suite à la création
