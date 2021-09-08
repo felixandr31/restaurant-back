@@ -91,6 +91,11 @@ public class RestaurantController {
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
 
+	@DeleteMapping("/delete/{id}")
+	public void deleteRestaurantById(@PathVariable("id") String id) {
+		this.restaurantService.deleteById(id);
+	}
+
 	/**
 	 * Adding a role to the User.
 	 * 
@@ -105,12 +110,14 @@ public class RestaurantController {
 		RestaurantDto restaurantUpdate = restaurantService.addUsers(id, employeesIds);
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
-    /**
-     * Adding a stock to the restauarant
-     * @param id
-     * @param stocksIds
-     * @return
-     */
+
+	/**
+	 * Adding a stock to the restauarant
+	 * 
+	 * @param id
+	 * @param stocksIds
+	 * @return
+	 */
 	@PostMapping("/addstocks/{id}")
 	@Transactional
 	public ResponseEntity<RestaurantDto> addStocks(@PathVariable String id, @RequestBody Set<String> stocksIds) {
@@ -133,8 +140,7 @@ public class RestaurantController {
 		RestaurantDto restaurantUpdate = restaurantService.removeUsers(id, userIds);
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
-    
-	
+
 	@DeleteMapping("/removestocks/{id}")
 	@Transactional
 	public ResponseEntity<RestaurantDto> removeStocks(@PathVariable String id, @RequestBody Set<String> stockIds) {
@@ -142,7 +148,7 @@ public class RestaurantController {
 		RestaurantDto restaurantUpdate = restaurantService.removeStocks(id, stockIds);
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
-	
+
 	/**
 	 * Adding a table to the Restaurant.
 	 * 
@@ -154,10 +160,10 @@ public class RestaurantController {
 	@Transactional
 	public ResponseEntity<RestaurantDto> addTable(@PathVariable String id, @RequestBody Set<String> tablesIds) {
 
-		RestaurantDto restaurantUpdate = restaurantService.addUsers(id, tablesIds);
+		RestaurantDto restaurantUpdate = restaurantService.addTables(id, tablesIds);
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
-	
+
 	@DeleteMapping("/removetables/{id}")
 	@Transactional
 	public ResponseEntity<RestaurantDto> removeTables(@PathVariable String id, @RequestBody Set<String> tableIds) {
@@ -165,11 +171,23 @@ public class RestaurantController {
 		RestaurantDto restaurantUpdate = restaurantService.removeStocks(id, tableIds);
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
-	
-	
-	
+
+	@PostMapping("/addrecipes/{id}")
+	@Transactional
+	public ResponseEntity<RestaurantDto> addRecipe(@PathVariable String id, @RequestBody Set<String> recipesIds) {
+
+		RestaurantDto restaurantUpdate = restaurantService.addRecipes(id, recipesIds);
+		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
+	}
+
+	@DeleteMapping("/removerecipes/{id}")
+	@Transactional
+	public ResponseEntity<RestaurantDto> removerecipes(@PathVariable String id, @RequestBody Set<String> recipeIds) {
+
+		RestaurantDto restaurantUpdate = restaurantService.removeRecipes(id, recipeIds);
+		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
+	}
+
 	// ajout/ suppression recette
-	
-	
-	
+
 }
