@@ -58,7 +58,7 @@ public class PurchaseDto {
 		for (final Order order : entity.getOrders()) {
 			ordersDTO.add(OrderDto.fromEntity(order));
 		}
-		return PurchaseDto.builder().date(entity.getDate()).orders(ordersDTO).build();
+		return PurchaseDto.builder().id(entity.getId()).date(entity.getDate()).orders(ordersDTO).build();
 	}
 
 	/**
