@@ -6,6 +6,8 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Service;
+
 import com.filrouge.restaurantcore.dao.IIngredientRecipeRepository;
 import com.filrouge.restaurantcore.dao.IIngredientRepository;
 import com.filrouge.restaurantcore.dao.IRecipeRepository;
@@ -21,6 +23,8 @@ import com.filrouge.restaurantcore.service.IRecipeService;
 import com.filrouge.restaurantcore.util.MessagesUtil;
 import com.filrouge.restaurantcore.validator.RecipeValidator;
 
+
+@Service
 public class RecipeServiceImpl implements IRecipeService {
 
 	private static final MessagesUtil MESSAGE_UTILS = MessagesUtil.getInstance("message");
@@ -73,12 +77,12 @@ public class RecipeServiceImpl implements IRecipeService {
 
 	@Override
 	public Optional<RecipeDto> findById(String id) {
-
 		if (id == null) {
 			return null;
 		}
-		return Optional.of(recipeRepository.findById(id).map(RecipeDto::fromEntity)).orElseThrow(
-				() -> new EntityNotFoundException("Aucun Crcipe avec l'ID = " + id + " n' ete trouve dans la BDD",
+		return Optional.of(recipeRepository.findById(id).map(RecipeDto::fromEntity))
+				.orElseThrow(() -> new EntityNotFoundException(
+						"Aucun Recipe avec l'ID = " + id + " n' ete trouve dans la BDD",
 						ErrorCodes.RECIPE_NOT_FOUND));
 	}
 
@@ -103,7 +107,7 @@ public class RecipeServiceImpl implements IRecipeService {
 	}
 
 	@Override
-	public RecipeDto addIngredientRecipe(String idRecipe, Set<IngredientRecipeDto> ingredientRecipeDto) {
+	public RecipeDto addIngredientRecipe(String idRecipe, Set<IngredientRecipeDto>ingredientRecipeDto) {
 		Optional<Recipe> optionalRecipe = recipeRepository.findById(idRecipe);
 		if (!optionalRecipe.isPresent()) {
 			throw new InvalidEntityException("Le Recipe n'existe pas", ErrorCodes.RECIPE_NOT_VALID);
@@ -129,5 +133,13 @@ public class RecipeServiceImpl implements IRecipeService {
 		toUpdate.getIngredientsRecipe().addAll(toAdd);
 		return RecipeDto.fromEntity(recipeRepository.save(toUpdate));
 	}
+	
+	@Override
+	public List<RecipeDto> findByName(String name) {
+		List<Recipe> recipeFind = recipeRepository.findByName(name);
+		return recipeFind.stream().map(RecipeDto::fromEntity).collect(Collectors.toList());
+	}
+	
+	
 
 }

@@ -48,6 +48,7 @@ public class User extends AbstractEntity {
 	 * password of user
 	 */
 	@Field("password")
+	@NonNull
 	private String password;
 
 	/**
