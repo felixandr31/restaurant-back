@@ -72,6 +72,16 @@ public interface IRecipeService {
 	 * 
 	 */
 	RecipeDto removeRoles(String id, Set<String> ingredientIds);
+	
+	/**
+	 * 
+	 * @param name
+	 * @return
+	 */
+	 List<RecipeDto> findByName(String name);
+
+
+	
 }
 	
 

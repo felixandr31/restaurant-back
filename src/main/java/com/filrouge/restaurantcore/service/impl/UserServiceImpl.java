@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.filrouge.restaurantcore.dao.IRoleRepository;
 import com.filrouge.restaurantcore.dao.IUserRepository;
-
+import com.filrouge.restaurantcore.dto.RestaurantDto;
 import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.entity.Role;
 import com.filrouge.restaurantcore.entity.User;
@@ -54,15 +54,14 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public Optional<UserDto> findById(String id) {
-
 		if (id == null) {
 			return null;
 		}
-		return Optional.of(userRepository.findById(id).map(UserDto::fromEntity)).orElseThrow(
-				() -> new EntityNotFoundException("Aucun Client avec l'ID = " + id + " n' ete trouve dans la BDD",
-						ErrorCodes.CLIENT_NOT_FOUND));
+		return Optional.of(userRepository.findById(id).map(UserDto::fromEntity))
+				.orElseThrow(() -> new EntityNotFoundException(
+						"Aucun User avec l'ID = " + id + " n' ete trouve dans la BDD",
+						ErrorCodes.USER_NOT_FOUND));
 	}
-
 	@Override
 	public List<UserDto> findAllUsers() {
 		// TODO Auto-generated method stub

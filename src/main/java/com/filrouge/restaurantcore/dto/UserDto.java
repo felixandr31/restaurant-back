@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.filrouge.restaurantcore.entity.Restaurant;
+
 import com.filrouge.restaurantcore.entity.Role;
 import com.filrouge.restaurantcore.entity.User;
 
@@ -23,8 +23,7 @@ public class UserDto {
 	
 	
 	
-	 private String id;
-	 
+	    private String id;
 	
 		private String firstName;
 		
@@ -70,6 +69,7 @@ public class UserDto {
 						.firstName(entity.getFirstName())
 						.lastName(entity.getLastName())
 						.email(entity.getEmail())
+						.password(entity.getPassword())
 						//.restaurant(RestaurantDto.fromEntity(entity.getRestaurant()))
 						.roles(rolesDto).friends(friendsDto).build();
 						
