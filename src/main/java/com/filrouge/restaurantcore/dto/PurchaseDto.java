@@ -26,6 +26,10 @@ import lombok.Data;
 @Builder
 public class PurchaseDto {
 	/**
+	 * Id
+	 */
+     private String id;
+	/**
 	 * Date
 	 */
 	private Instant date;

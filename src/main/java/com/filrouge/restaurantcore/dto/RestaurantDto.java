@@ -68,7 +68,7 @@ public class RestaurantDto {
 	@Builder.Default
 	private List<RecipeDto> recipes = new ArrayList<RecipeDto>(0);
 	@Builder.Default
-	private List<StockDto> stocks = new ArrayList<StockDto>(0);
+	private Set<StockDto> stocks = new HashSet<StockDto>(0);
 
 	/**
 	 * Transform entity into DTO.
@@ -101,7 +101,7 @@ public class RestaurantDto {
 			recipesDTO.add(RecipeDto.fromEntity(recipe));
 		}
 
-		final List<StockDto> stocksDTO = new ArrayList<StockDto>(entity.getStocks().size());
+		final Set<StockDto> stocksDTO = new HashSet<StockDto>(entity.getStocks().size());
 		for (final Stock stock : entity.getStocks()) {
 			stocksDTO.add(StockDto.fromEntity(stock));
 		}
@@ -144,7 +144,7 @@ public class RestaurantDto {
 		final List<Recipe> recipes = dto.getRecipes().stream().map(RecipeDto::toEntity).collect(Collectors.toList());
 		restaurant.setRecipes(recipes);
 
-		final List<Stock> stocks = dto.getStocks().stream().map(StockDto::toEntity).collect(Collectors.toList());
+		final Set<Stock> stocks = dto.getStocks().stream().map(StockDto::toEntity).collect(Collectors.toSet());
 		restaurant.setStocks(stocks);
 
 		return restaurant;
