@@ -24,7 +24,7 @@ import com.filrouge.restaurantcore.service.IRestaurantService;
 import com.filrouge.restaurantcore.validator.RestaurantValidator;
 
 /**
- * Services métier de gestion des rôles.
+ * Services métier de gestion des restaurants.
  * 
  * @author sslimani
  *
@@ -42,7 +42,7 @@ public class RestaurantServiceImpl implements IRestaurantService {
 	/**
 	 * Constructeur.
 	 * 
-	 * @param roleRepository le DAO des rôles.
+	 * @param roleRepository le DAO des restaurants.
 	 */
 	public RestaurantServiceImpl(IRestaurantRepository restaurantRepository, IUserRepository userRepository,
 			IStockRepository stockRepository) {
