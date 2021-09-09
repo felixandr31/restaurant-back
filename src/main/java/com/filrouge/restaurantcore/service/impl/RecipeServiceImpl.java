@@ -14,9 +14,11 @@ import com.filrouge.restaurantcore.dao.IRecipeRepository;
 import com.filrouge.restaurantcore.dto.IngredientDto;
 import com.filrouge.restaurantcore.dto.IngredientRecipeDto;
 import com.filrouge.restaurantcore.dto.RecipeDto;
+
 import com.filrouge.restaurantcore.entity.Ingredient;
 import com.filrouge.restaurantcore.entity.IngredientRecipe;
 import com.filrouge.restaurantcore.entity.Recipe;
+
 import com.filrouge.restaurantcore.exception.EntityNotFoundException;
 import com.filrouge.restaurantcore.exception.ErrorCodes;
 import com.filrouge.restaurantcore.exception.InvalidEntityException;
@@ -41,12 +43,12 @@ public class RecipeServiceImpl implements IRecipeService {
 	 * @param userepository The DTO of user
 	 */
 
-	public RecipeServiceImpl(IRecipeRepository recipeRepository, IIngredientRepository ingredientRepository) {
+	public RecipeServiceImpl(IRecipeRepository recipeRepository, IIngredientRepository ingredientRepository, IIngredientRecipeRepository ingredientRecipeRepository) {
 		super();
 		this.recipeRepository = recipeRepository;
 		this.ingredientRepository = ingredientRepository;
 		this.ingredientRecipeRepository = ingredientRecipeRepository;
-	}
+			}
 
 	@Override
 	public RecipeDto save(RecipeDto dto) {
@@ -100,13 +102,29 @@ public class RecipeServiceImpl implements IRecipeService {
 	}
 
 	@Override
-	public RecipeDto removeRoles(String id, Set<String> ingredientIds) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public RecipeDto removeIngredientRecipes(String id, Set<String> ingredientRecipeIds) {
+	
+		Optional<Recipe> optionalRecipe = recipeRepository.findById(id);
+		System.out.println(ingredientRecipeRepository);
+		System.out.println(ingredientRepository);
+		if (!optionalRecipe.isPresent()) {
+			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.recipe.update"),
+					ErrorCodes.RECIPE_NOT_VALID);
+		}
+		Recipe toUpdate = optionalRecipe.get();
 
+		// Finding existing role entities	
+		List<IngredientRecipe> ingredientRecipeToRemove = ingredientRecipeIds.stream()
+				.map(ingredientRecipeId -> ingredientRecipeRepository.findById(ingredientRecipeId))
+				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
+		
+		toUpdate.getIngredientsRecipe().removeAll(ingredientRecipeToRemove);
+
+		return RecipeDto.fromEntity(recipeRepository.save(toUpdate));
+	}
+	
 	@Override
-	public RecipeDto addIngredientRecipe(String idRecipe, Set<IngredientRecipeDto> ingredientRecipeDto) {
+	public RecipeDto addIngredientRecipes(String idRecipe, Set<IngredientRecipeDto> ingredientRecipeDto) {
 		Optional<Recipe> optionalRecipe = recipeRepository.findById(idRecipe);
 		if (!optionalRecipe.isPresent()) {
 			throw new InvalidEntityException("Le Recipe n'existe pas", ErrorCodes.RECIPE_NOT_VALID);
