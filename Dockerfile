@@ -2,7 +2,7 @@ FROM gradle:6.9.0 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle
 RUN gradle build --no-daemon --stacktrace
-RUN ls src
+RUN ls
 
 FROM openjdk:8-jre-slim
 
