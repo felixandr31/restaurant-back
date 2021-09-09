@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.data.mongodb.core.aggregation.DateOperators.Hour;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -22,7 +21,7 @@ import lombok.EqualsAndHashCode;
 
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Document(collection = "Booking")
+@Document(collection = "booking")
 @Data
 public class Booking extends AbstractEntity {
 
@@ -36,7 +35,7 @@ public class Booking extends AbstractEntity {
 	 * Hour.
 	 */
 	@Field("hour")
-	private Hour hour;
+	private String hour;
 
 	@DBRef
 	private List<User> clients;

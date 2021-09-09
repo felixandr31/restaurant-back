@@ -22,17 +22,21 @@ public interface IRestaurantService {
 	RestaurantDto save(RestaurantDto dto);
 
 	RestaurantDto addUsers(String id, final Set<String> employeeIds);
-	
+
 	RestaurantDto removeUsers(String id, Set<String> userIds);
-	
+
 	RestaurantDto removeStocks(String id, Set<String> stockIds);
 
 	RestaurantDto addStocks(String id, final Set<String> stockIds);
 
 	RestaurantDto addTables(String id, final Set<String> tableIds);
-	
+
 	RestaurantDto removeTables(String id, final Set<String> tableIds);
-	
+
+	RestaurantDto addRecipes(String id, final Set<String> recipeIds);
+
+	RestaurantDto removeRecipes(String id, Set<String> recipeIds);
+
 	/**
 	 * Update d'un restaurant sans ces associations.
 	 * 
