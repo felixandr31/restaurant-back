@@ -60,7 +60,7 @@ public interface IRecipeService {
 	 * @param ingredientrecipeIds the identifier of ingredientrecipe
 	 * @return the client's DTO with these roles.
 	 */
-	RecipeDto addIngredientRecipe(String idRecipe, Set<IngredientRecipeDto> ingredientRecipeDto);
+	RecipeDto addIngredientRecipes(String idRecipe, Set<IngredientRecipeDto> ingredientRecipeDto);
 	
 	/**
 	 * Removal of Recipe IngredientRecipe. Identifiers of I not found
@@ -71,7 +71,7 @@ public interface IRecipeService {
      * @return the client's DTO with these roles.
 	 * 
 	 */
-	RecipeDto removeRoles(String id, Set<String> ingredientIds);
+	RecipeDto removeIngredientRecipes(String id, Set<String> ingredientRecipeIds);
 	
 	/**
 	 * 

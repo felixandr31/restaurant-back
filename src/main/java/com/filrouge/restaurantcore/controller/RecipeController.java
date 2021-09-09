@@ -104,7 +104,22 @@ public class RecipeController {
 	@Transactional
 	public ResponseEntity<RecipeDto> addIngredientRecipe(@PathVariable String id, @RequestBody Set<IngredientRecipeDto> ingredientRecipeDto) {
 
-		RecipeDto recipeUpdate = recipeService.addIngredientRecipe(id, ingredientRecipeDto);
+		RecipeDto recipeUpdate = recipeService.addIngredientRecipes(id, ingredientRecipeDto);
+		return new ResponseEntity<RecipeDto>(recipeUpdate, HttpStatus.CREATED);
+	}
+	
+	/**
+	 * Removal of a ingredientRecipe from the client.
+	 * 
+	 * @param id      the client's identifier
+	 * @param roleIds the identifiers of the roles to be deleted
+	 * @return the updated client
+	 */
+	@PostMapping("/removeingredientrecipes/{id}")
+	@Transactional
+	public ResponseEntity<RecipeDto> removeIngredientRecipes(@PathVariable String id, @RequestBody Set<String> ingredientRecipeIds) {
+
+		RecipeDto recipeUpdate = recipeService.removeIngredientRecipes(id, ingredientRecipeIds);
 		return new ResponseEntity<RecipeDto>(recipeUpdate, HttpStatus.CREATED);
 	}
 

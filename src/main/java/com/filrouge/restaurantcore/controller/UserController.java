@@ -46,9 +46,13 @@ public class UserController {
 	@GetMapping(value = "/users")
 	public ResponseEntity<Collection<UserDto>> findAll() {
 		Collection<UserDto> users = userService.findAll();
-		String hachpassword = "";
+		String hachPassword = "";
+		String hachEmail = "";
+		
 		for (UserDto user : users) {
-			user.setPassword(hachpassword);
+			user.setPassword(hachPassword);
+			user.setEmail(hachEmail);
+			
 		}
 		return new ResponseEntity<Collection<UserDto>>(users, HttpStatus.OK);
 	}
