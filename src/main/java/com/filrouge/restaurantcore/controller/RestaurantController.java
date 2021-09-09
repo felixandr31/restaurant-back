@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.filrouge.restaurantcore.dto.RestaurantDto;
+import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.service.IRestaurantService;
+import com.filrouge.restaurantcore.service.IUserService;
 
 /**
  * Services REST de gestion des restaurants.
@@ -35,6 +37,7 @@ import com.filrouge.restaurantcore.service.IRestaurantService;
 public class RestaurantController {
 	@Autowired
 	IRestaurantService restaurantService;
+	IUserService userService;
 
 	/**
 	 * Search all Restaurants.
@@ -47,6 +50,15 @@ public class RestaurantController {
 		return new ResponseEntity<Collection<RestaurantDto>>(restaurants, HttpStatus.OK);
 	}
 
+	
+//	@GetMapping(value = "/usersrestaurant/{userId}")
+//	public ResponseEntity<Collection<RestaurantDto>> findByUserId(@PathVariable ("userId") String userId){
+//		//Optional<UserDto> userDto = userService.findById(userDto.);
+//		
+//		List<RestaurantDto> restaurantsOfUserX = restaurantService.findAll();
+//		return new ResponseEntity<Collection<RestaurantDto>>(restaurantsOfUserX, HttpStatus.OK);
+//	}
+	
 	/**
 	 * Create restaurant
 	 * 

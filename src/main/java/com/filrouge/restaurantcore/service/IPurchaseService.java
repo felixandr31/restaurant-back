@@ -2,21 +2,19 @@ package com.filrouge.restaurantcore.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import com.filrouge.restaurantcore.dto.PurchaseDto;
 
 public interface IPurchaseService {
-	
-	
-	
-	
+
 	/**
 	 * Research of all purchases.
 	 * 
 	 * @return the DTOs of the purchase.
 	 */
 	List<PurchaseDto> findAll();
-	
+
 	/**
 	 * 
 	 * Search an purchase by ID
@@ -25,8 +23,7 @@ public interface IPurchaseService {
 	 * @return the DTO found according to its identifier.
 	 */
 	Optional<PurchaseDto> findById(String id);
-	
-	
+
 	/**
 	 * Création of a purchase.
 	 * 
@@ -34,16 +31,16 @@ public interface IPurchaseService {
 	 * @return the DTO following the purchase
 	 */
 	PurchaseDto save(PurchaseDto dto);
-	
-	
+
 	/**
-	 * Removal of an purchase. 
+	 * Removal of an purchase.
+	 * 
 	 * @param id The purchase identifier.
-     * @return the purchase's DTO.
+	 * @return the purchase's DTO.
 	 * 
 	 */
 	void deletePurchaseById(String id);
-	
+
 	/**
 	 * Mise à jour du Purchase
 	 * 
@@ -51,6 +48,8 @@ public interface IPurchaseService {
 	 * @return le DTO suite à la création
 	 */
 	PurchaseDto update(PurchaseDto purchaseDto);
-	
 
+	PurchaseDto addOrders(String id, final Set<String> orderIds);
+
+	PurchaseDto removeOrders(String id, Set<String> orderIds);
 }
