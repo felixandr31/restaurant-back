@@ -2,6 +2,7 @@ package com.filrouge.restaurantcore.controller;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
@@ -45,6 +46,10 @@ public class UserController {
 	@GetMapping(value = "/users")
 	public ResponseEntity<Collection<UserDto>> findAll() {
 		Collection<UserDto> users = userService.findAll();
+		String hachpassword = "";
+		for (UserDto user : users) {
+			user.setPassword(hachpassword);
+		}
 		return new ResponseEntity<Collection<UserDto>>(users, HttpStatus.OK);
 	}
 
@@ -160,14 +165,15 @@ public class UserController {
 		return new ResponseEntity<List<UserDto>>(users, HttpStatus.OK);
 	}
 
-	@PostMapping("/login/")
-	public ResponseEntity<UserDto> findByLastNameAndPassword(@RequestBody String lastName,
-			@RequestBody String password) {
+	@PostMapping("/login")
+	public ResponseEntity<UserDto> findByLastNameAndPassword(@RequestBody Map<String, String> json) {
+		String lastName = json.get("lastName");
+		String password = json.get("password");
 		List<UserDto> users = userService.findByLastNameAndPassword(lastName, password);
 		String hachpassword ="";
 		
 		for (UserDto user : users) {
-			if (user.getLastName() == lastName && user.getPassword() == password) {
+			if (user.getLastName().equals(lastName) && user.getPassword().equals(password)) {
                  user.setPassword(hachpassword);
 				return new ResponseEntity<UserDto>(user, HttpStatus.ACCEPTED);
 
