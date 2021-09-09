@@ -77,6 +77,18 @@ public class RestaurantServiceImpl implements IRestaurantService {
 						ErrorCodes.RESTAURANT_NOT_FOUND));
 	}
 
+//	@Override
+//	public List<RestaurantDto> findByUserId(String id) {
+//		return restaurantRepository.findByUserId(id).stream().map(RestaurantDto::fromEntity)
+//				.collect(Collectors.toList());
+//	}
+
+//	@Override
+//	public List<RestaurantDto> findByUserId(String id) {
+//		return restaurantRepository.findByUserId(id).stream().map(RestaurantDto::fromEntity)
+//		.collect(Collectors.toList());
+//	}
+
 	@Override
 	public RestaurantDto addUsers(String id, final Set<String> employeeIds) {
 		Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(id);

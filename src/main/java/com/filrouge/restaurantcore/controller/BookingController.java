@@ -38,7 +38,7 @@ public class BookingController {
 	 * 
 	 * @return Ingredients of the DTO.
 	 */
-	@GetMapping(value = "/reservations")
+	@GetMapping(value = "/bookings")
 	public ResponseEntity<Collection<BookingDto>> findAll() {
 		Collection<BookingDto> bookings = bookingService.findAll();
 		return new ResponseEntity<Collection<BookingDto>>(bookings, HttpStatus.OK);
@@ -55,13 +55,13 @@ public class BookingController {
 		BookingDto reservationCreated = bookingService.save(bookingDto);
 		return new ResponseEntity<BookingDto>(reservationCreated, HttpStatus.CREATED);
 	}
-
+	
 	@GetMapping(value = "/{tableId}")
-	public ResponseEntity<Collection<BookingDto>> findByTable(@PathVariable("tableId") String tableId) {
-		List<BookingDto> bookingsOfTableX = bookingService.findByTable(tableId);
-		return new ResponseEntity<Collection<BookingDto>>(bookingsOfTableX, HttpStatus.OK);
-	}
-
+    public ResponseEntity<Collection<BookingDto>> findByTable(@PathVariable("tableId") String tableId) {
+        List<BookingDto> bookingsOfTableX = bookingService.findByTable(tableId);
+        return new ResponseEntity<Collection<BookingDto>>(bookingsOfTableX, HttpStatus.OK);
+    }
+	
 	@PostMapping("/addorders/{id}")
 	@Transactional
 	public ResponseEntity<BookingDto> addOrders(@PathVariable String id, @RequestBody Set<String> ordersIds) {
@@ -69,5 +69,6 @@ public class BookingController {
 		BookingDto bookingUpdate = bookingService.addOrders(id, ordersIds);
 		return new ResponseEntity<BookingDto>(bookingUpdate, HttpStatus.CREATED);
 	}
+	
 
 }

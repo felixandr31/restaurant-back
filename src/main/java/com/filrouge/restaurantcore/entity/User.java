@@ -1,9 +1,7 @@
 package com.filrouge.restaurantcore.entity;
 
 import java.util.ArrayList;
-
 import java.util.List;
-
 
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -58,18 +56,21 @@ public class User extends AbstractEntity {
 	@NonNull
 	private String email;
 
+	@DBRef
+	private List<Restaurant> restaurants;
+
 	/**
 	 * roles associated with the user
 	 */
 
 	@DBRef
 	private List<Role> roles;
-	
+
 	/**
 	 * Restaurant de l'utilisateur
 	 */
-	//@DBRef
-	//private Restaurant restaurant;
+	// @DBRef
+	// private Restaurant restaurant;
 
 	/**
 	 * Friends associated at User
@@ -85,6 +86,6 @@ public class User extends AbstractEntity {
 	public User() {
 		this.roles = new ArrayList<Role>(0);
 		this.friends = new ArrayList<User>(0);
-	}
+		this.restaurants = new ArrayList<Restaurant>(0);	}
 
 }
