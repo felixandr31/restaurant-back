@@ -1,6 +1,6 @@
 FROM gradle:6.9.0 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
-WORKDIR /home/gradle
+WORKDIR /home/gradle/src
 RUN gradle build --no-daemon --stacktrace
 RUN ls
 
