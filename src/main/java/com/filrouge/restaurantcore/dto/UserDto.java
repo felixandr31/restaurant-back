@@ -103,6 +103,9 @@ public class UserDto {
 		final List<Role> roles = dto.getRoles().stream().map(RoleDto::toEntity).collect(Collectors.toList());
 		user.setRoles(roles);
 
+		if (dto.getRestaurants() == null) {
+			dto.setRestaurants(new ArrayList<RestaurantDto>());
+		}
 		final List<Restaurant> restaurants = dto.getRestaurants().stream().map(RestaurantDto::toEntity)
 				.collect(Collectors.toList());
 		user.setRestaurants(restaurants);
