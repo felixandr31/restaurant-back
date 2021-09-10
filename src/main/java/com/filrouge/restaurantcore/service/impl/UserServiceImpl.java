@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.filrouge.restaurantcore.dao.IRoleRepository;
 import com.filrouge.restaurantcore.dao.IUserRepository;
-import com.filrouge.restaurantcore.dto.RestaurantDto;
 import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.entity.Role;
 import com.filrouge.restaurantcore.entity.User;
@@ -199,9 +198,15 @@ public class UserServiceImpl implements IUserService {
 		List<User> userFind = userRepository.findByFirstNameAndLastName(firstName, lastName);
 		return userFind.stream().map(UserDto::fromEntity).collect(Collectors.toList());
 	}
+
+//	@Override
+//	public List<BookingDto> findAllBookings() {
+//		// TODO Auto-generated method stub
+//		return userRepository.findAll().stream().map(BookingDto::fromEntity).collect(Collectors.toList());
+//	}
 	
 	
 
+	}
+	
 
-
-}
