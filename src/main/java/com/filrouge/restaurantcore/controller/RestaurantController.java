@@ -54,8 +54,8 @@ public class RestaurantController {
 //	@GetMapping(value = "/usersrestaurant/{userId}")
 //	public ResponseEntity<Collection<RestaurantDto>> findByUserId(@PathVariable ("userId") String userId){
 //		//Optional<UserDto> userDto = userService.findById(userDto.);
-//		
-//		List<RestaurantDto> restaurantsOfUserX = restaurantService.findAll();
+//		String
+//		List<RestaurantDto> restaurantsOfUserX = restaurantService.findByUserId(employees.id)
 //		return new ResponseEntity<Collection<RestaurantDto>>(restaurantsOfUserX, HttpStatus.OK);
 //	}
 	
@@ -200,6 +200,6 @@ public class RestaurantController {
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
 
-	// ajout/ suppression recette
+
 
 }

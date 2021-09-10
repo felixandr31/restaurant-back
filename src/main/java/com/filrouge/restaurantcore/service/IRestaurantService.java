@@ -54,7 +54,7 @@ public interface IRestaurantService {
 	Optional<RestaurantDto> findById(String id);
 
 	List<RestaurantDto> findByName(String name);
-	//List<RestaurantDto> findByUserId(String id);
+//	List<RestaurantDto> findByUserId(String id);
 
 	/**
 	 * Recherche de l'ensemble des restaurants.
