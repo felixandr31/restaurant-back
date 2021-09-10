@@ -77,16 +77,11 @@ public class RestaurantServiceImpl implements IRestaurantService {
 						ErrorCodes.RESTAURANT_NOT_FOUND));
 	}
 
-//	@Override
+//    @Override
 //	public List<RestaurantDto> findByUserId(String id) {
-//		return restaurantRepository.findByUserId(id).stream().map(RestaurantDto::fromEntity)
+//
+//	return restaurantRepository.findByUserId(id).stream().map(RestaurantDto::fromEntity)
 //				.collect(Collectors.toList());
-//	}
-
-//	@Override
-//	public List<RestaurantDto> findByUserId(String id) {
-//		return restaurantRepository.findByUserId(id).stream().map(RestaurantDto::fromEntity)
-//		.collect(Collectors.toList());
 //	}
 
 	@Override
