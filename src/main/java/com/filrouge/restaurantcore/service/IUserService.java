@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import com.filrouge.restaurantcore.dto.BookingDto;
 import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.entity.User;
 

@@ -40,7 +40,7 @@ public class Recipe extends AbstractEntity {
 	/**
 	 * the craftion price
 	 */
-	@NonNull
+	
 	@Field("craftingPrice")
 	private BigInteger craftingPrice;
 

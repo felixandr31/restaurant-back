@@ -144,6 +144,7 @@ public class RecipeServiceImpl implements IRecipeService {
 				ingredientRecipeRepository.save(ing);
 				//toAdd.add(ing);
 			}
+			
 		}
 		// if (ingredient.isPresent()) {
 //				IngredientRecipe ing = new IngredientRecipe();
