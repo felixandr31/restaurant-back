@@ -2,9 +2,9 @@ FROM gradle:6.9.0 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN ls
-ENTRYPOINT ["gradle"]
-CMD ["build", "--stacktrace"]
-#RUN gradle build --no-daemon --stacktrace
+#ENTRYPOINT ["gradle"]
+#CMD ["build", "--stacktrace"]
+RUN gradle build --no-daemon --stacktrace
 RUN ls
 
 FROM openjdk:8-jre-slim
