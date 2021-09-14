@@ -69,4 +69,6 @@ public interface IRestaurantService {
 	 * @param id L'identifiant
 	 */
 	void deleteById(String id);
+	
+	RestaurantDto findByTableId(String id);
 }

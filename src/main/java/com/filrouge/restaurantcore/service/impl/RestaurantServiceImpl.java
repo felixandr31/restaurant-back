@@ -265,4 +265,20 @@ public class RestaurantServiceImpl implements IRestaurantService {
 		return restaurantfind.stream().map(RestaurantDto::fromEntity).collect(Collectors.toList());
 	}
 
+	@Override
+	public RestaurantDto findByTableId(String id) {
+		List<Restaurant> restaurants = restaurantRepository.findAll();
+
+		for (Restaurant resto : restaurants) {
+			List<Table> tables = resto.getTables();
+			for (Table table : tables) {
+				if (table.getId().equals(id)) {
+					RestaurantDto answer = RestaurantDto.fromEntity(resto);
+					return RestaurantDto.fromEntity(resto);
+				}
+			}
+		}
+		return null;
+	}
+
 }
