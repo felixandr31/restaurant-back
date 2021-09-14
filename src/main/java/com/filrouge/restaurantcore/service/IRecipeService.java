@@ -26,7 +26,7 @@ public interface IRecipeService {
 	 * @return the DTO following the creation
 	 */
 	RecipeDto update(RecipeDto dto);
-
+	
 	/**
 	 * 
 	 * Search a Recipe by ID
@@ -61,6 +61,7 @@ public interface IRecipeService {
 	 * @return the client's DTO with these roles.
 	 */
 	RecipeDto addIngredientRecipes(String idRecipe, Set<IngredientRecipeDto> ingredientRecipeDto);
+	
 	
 	/**
 	 * Removal of Recipe IngredientRecipe. Identifiers of I not found
