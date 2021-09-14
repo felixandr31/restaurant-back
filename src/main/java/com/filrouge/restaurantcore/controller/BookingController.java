@@ -69,4 +69,10 @@ public class BookingController {
 		BookingDto bookingUpdate = bookingService.addOrders(id, ordersIds);
 		return new ResponseEntity<BookingDto>(bookingUpdate, HttpStatus.CREATED);
 	}
+	
+	@GetMapping("/bookings/{id}")
+	public ResponseEntity<BookingDto> findById(@PathVariable String id){
+		BookingDto booking = bookingService.findById(id);
+		return new ResponseEntity<BookingDto>(booking, HttpStatus.OK);
+	}
 }

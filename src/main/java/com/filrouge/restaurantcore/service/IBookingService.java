@@ -1,6 +1,7 @@
 package com.filrouge.restaurantcore.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import com.filrouge.restaurantcore.dto.BookingDto;
@@ -16,4 +17,5 @@ public interface IBookingService {
 	BookingDto addOrders(String id, final Set<String> orderIds);
 	BookingDto removeOrders(String id, Set<String> orderIds);
 	List<BookingDto> findByTable(String id);
+	BookingDto findById(String id);
 }
