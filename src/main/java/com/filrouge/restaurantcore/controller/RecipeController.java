@@ -109,7 +109,6 @@ public class RecipeController {
 	}
 	
 
-	}
 	
 	/**
 	 * Removal of a ingredientRecipe from the client.
