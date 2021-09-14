@@ -24,10 +24,7 @@ import lombok.NoArgsConstructor;
 @Document(collection = "stock")
 
 public class Stock extends AbstractEntity {
-	/**
-	 * Id
-	 */
-	private String id;
+
 	/**
 	 * Ingredient
 	 */

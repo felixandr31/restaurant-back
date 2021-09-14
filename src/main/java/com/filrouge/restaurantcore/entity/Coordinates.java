@@ -20,10 +20,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @Document(collection = "coordinates")
 public class Coordinates extends AbstractEntity {
-/**
- * Id
- */
-	private String id;
+
 	/**
 	 * Latitude
 	 */
