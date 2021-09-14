@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.filrouge.restaurantcore.dto.RestaurantDto;
-import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.service.IRestaurantService;
 import com.filrouge.restaurantcore.service.IUserService;
 
@@ -50,7 +49,6 @@ public class RestaurantController {
 		return new ResponseEntity<Collection<RestaurantDto>>(restaurants, HttpStatus.OK);
 	}
 
-	
 //	@GetMapping(value = "/usersrestaurant/{userId}")
 //	public ResponseEntity<Collection<RestaurantDto>> findByUserId(@PathVariable ("userId") String userId){
 //		//Optional<UserDto> userDto = userService.findById(userDto.);
@@ -58,7 +56,7 @@ public class RestaurantController {
 //		List<RestaurantDto> restaurantsOfUserX = restaurantService.findByUserId(employees.id)
 //		return new ResponseEntity<Collection<RestaurantDto>>(restaurantsOfUserX, HttpStatus.OK);
 //	}
-	
+
 	/**
 	 * Create restaurant
 	 * 
@@ -199,7 +197,5 @@ public class RestaurantController {
 		RestaurantDto restaurantUpdate = restaurantService.removeRecipes(id, recipeIds);
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
-
-
 
 }

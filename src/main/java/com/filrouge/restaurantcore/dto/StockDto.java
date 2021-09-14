@@ -16,12 +16,12 @@ import lombok.Data;
 @Data
 @Builder
 public class StockDto {
-	
+
 	/**
 	 * Id
 	 */
 	private String id;
-	
+
 	/**
 	 * Ingredient
 	 */
@@ -56,6 +56,7 @@ public class StockDto {
 			return null;
 		}
 		final Stock stock = new Stock();
+		stock.setId(dto.getId());
 		stock.setIngredient(IngredientDto.toEntity(dto.getIngredient()));
 		stock.setQuantity(dto.getQuantity());
 		return stock;
