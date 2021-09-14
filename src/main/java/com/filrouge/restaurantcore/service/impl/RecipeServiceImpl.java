@@ -146,18 +146,16 @@ public class RecipeServiceImpl implements IRecipeService {
 			}
 			
 		}
-		// if (ingredient.isPresent()) {
-//				IngredientRecipe ing = new IngredientRecipe();
-//				//ing.setIngredient(ingredient);
-//				ing.setQuantity(ingRecipeDto.getQuantity());
-//				ingredientRecipeRepository.save(ing);
-//				toAdd.add(ing);
 
-		// }
+		
 
 		toUpdate.setIngredientsRecipe(toAdd);
 		return RecipeDto.fromEntity(recipeRepository.save(toUpdate));
 	}
+	
+	
+
+	
 
 	
 
@@ -168,5 +166,8 @@ public class RecipeServiceImpl implements IRecipeService {
 		List<Recipe> recipeFind = recipeRepository.findByName(name);
 		return recipeFind.stream().map(RecipeDto::fromEntity).collect(Collectors.toList());
 	}
+
+
+	
 
 }
