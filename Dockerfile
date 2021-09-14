@@ -1,6 +1,9 @@
-FROM gradle:6.9.0 AS build
+FROM gradle:6.9.1-jdk8 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
+RUN ls
+#ENTRYPOINT ["gradle"]
+#CMD ["build", "--stacktrace"]
 RUN gradle build --no-daemon --stacktrace
 RUN ls
 
