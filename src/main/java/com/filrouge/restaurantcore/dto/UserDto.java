@@ -51,7 +51,7 @@ public class UserDto {
 
 	// @JsonIgnore
 	@Builder.Default
-	private List<BookingDto> bookings = new ArrayList<BookingDto>();
+	private List<String> bookings = new ArrayList<String>();
 
 	/**
 	 * Transform the entity into a DTO.
@@ -73,9 +73,9 @@ public class UserDto {
 			friendsDto.add(UserDto.fromEntity(user));
 		}
 
-		final List<BookingDto> bookingsDto = new ArrayList<BookingDto>(entity.getBookings().size());
-		for (final Booking booking : entity.getBookings()) {
-			bookingsDto.add(BookingDto.fromEntity(booking));
+		final List<String> bookingsDto = new ArrayList<String>(entity.getBookings().size());
+		for (final String booking : entity.getBookings()) {
+			bookingsDto.add(booking);
 		}
 
 		final List<RestaurantDto> restaurantsDto = new ArrayList<RestaurantDto>(entity.getRestaurants().size());
@@ -126,8 +126,7 @@ public class UserDto {
 		final List<User> friends = dto.getFriends().stream().map(UserDto::toEntity).collect(Collectors.toList());
 		user.setFriends(friends);
 
-		final List<Booking> bookings = dto.getBookings().stream().map(BookingDto::toEntity)
-				.collect(Collectors.toList());
+		final List<String> bookings = dto.getBookings();
 		user.setBookings(bookings);
 		
 		return user;
