@@ -197,5 +197,11 @@ public class RestaurantController {
 		RestaurantDto restaurantUpdate = restaurantService.removeRecipes(id, recipeIds);
 		return new ResponseEntity<RestaurantDto>(restaurantUpdate, HttpStatus.CREATED);
 	}
+	
+	@GetMapping("/tables/{id}")
+	public ResponseEntity<RestaurantDto> findByTableId(@PathVariable String id) {
+		RestaurantDto restaurant = restaurantService.findByTableId(id);
+		return new ResponseEntity<RestaurantDto>(restaurant, HttpStatus.OK);
+	}
 
 }
