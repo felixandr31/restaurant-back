@@ -7,9 +7,11 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.filrouge.restaurantcore.dao.IBookingRepository;
 import com.filrouge.restaurantcore.dao.IRoleRepository;
 import com.filrouge.restaurantcore.dao.IUserRepository;
 import com.filrouge.restaurantcore.dto.UserDto;
+import com.filrouge.restaurantcore.entity.Booking;
 import com.filrouge.restaurantcore.entity.Role;
 import com.filrouge.restaurantcore.entity.User;
 import com.filrouge.restaurantcore.exception.EntityNotFoundException;
@@ -28,6 +30,7 @@ public class UserServiceImpl implements IUserService {
 
 	private IUserRepository userRepository;
 	private IRoleRepository roleRepository;
+	private IBookingRepository bookingRepository;
 
 	/**
 	 * Constructor
@@ -35,10 +38,11 @@ public class UserServiceImpl implements IUserService {
 	 * @param userepository The DTO of user
 	 */
 
-	public UserServiceImpl(IUserRepository userRepository, IRoleRepository roleRepository) {
+	public UserServiceImpl(IUserRepository userRepository, IRoleRepository roleRepository,IBookingRepository bookingRepository) {
 		super();
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
+		this.bookingRepository = bookingRepository;
 	}
 
 	@Override
@@ -197,6 +201,17 @@ public class UserServiceImpl implements IUserService {
 	public List<UserDto> findByFirstNameAndLastName(String firstName, String lastName) {
 		List<User> userFind = userRepository.findByFirstNameAndLastName(firstName, lastName);
 		return userFind.stream().map(UserDto::fromEntity).collect(Collectors.toList());
+	}
+
+	@Override
+	public UserDto addBooking(String id, String bookingId) {
+		
+		Optional<User> optionalUser = userRepository.findById(id);
+
+		User toUpdate = optionalUser.get();	
+		toUpdate.getBookings().add(bookingId);
+
+		return UserDto.fromEntity(userRepository.save(toUpdate));
 	}
 
 //	@Override

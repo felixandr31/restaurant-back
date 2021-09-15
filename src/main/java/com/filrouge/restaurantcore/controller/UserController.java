@@ -30,7 +30,8 @@ import com.filrouge.restaurantcore.service.IUserService;
  * @author Hermann
  *
  */
-@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200" }, maxAge = 3600)
+@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200" }, 
+maxAge = 3600)
 @RestController
 @RequestMapping("/user/*")
 public class UserController {
@@ -192,6 +193,18 @@ public class UserController {
 	public ResponseEntity<Optional<UserDto>> findById(@PathVariable("id") String id) {
 		Optional<UserDto> userIdFind = userService.findById(id);
 		return new ResponseEntity<Optional<UserDto>>(userIdFind , HttpStatus.OK);
+	}
+	
+	@PostMapping("/bookings/{id}")
+	public ResponseEntity<UserDto> addBooking(
+			@PathVariable("id") String id, 
+			@RequestBody String bookingId) {
+		
+		
+		UserDto bookingUpdate = userService.addBooking(id, bookingId);
+
+
+		return new ResponseEntity<UserDto>(bookingUpdate, HttpStatus.CREATED);
 	}
 	
 	

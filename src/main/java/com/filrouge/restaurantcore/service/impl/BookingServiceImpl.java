@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 import com.filrouge.restaurantcore.dao.IBookingRepository;
 import com.filrouge.restaurantcore.dao.IOrderRepository;
 import com.filrouge.restaurantcore.dto.BookingDto;
+import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.entity.Booking;
 import com.filrouge.restaurantcore.entity.Order;
+import com.filrouge.restaurantcore.exception.EntityNotFoundException;
 import com.filrouge.restaurantcore.exception.ErrorCodes;
 import com.filrouge.restaurantcore.exception.InvalidEntityException;
 import com.filrouge.restaurantcore.service.IBookingService;
@@ -91,4 +93,13 @@ public class BookingServiceImpl implements IBookingService {
     public List<BookingDto> findByTable(String id) {
         return bookingRepository.findByTable(id).stream().map(BookingDto::fromEntity).collect(Collectors.toList());
     }
+
+	@Override
+	public BookingDto findById(String id) {
+		if (id.isEmpty()) {
+			return null;
+		}
+		return bookingRepository.findById(id).map(BookingDto::fromEntity).get();
+				
+	}
 }

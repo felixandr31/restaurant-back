@@ -3,9 +3,14 @@ package com.filrouge.restaurantcore.service;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.filrouge.restaurantcore.dto.BookingDto;
+import com.filrouge.restaurantcore.dto.RestaurantDto;
 import com.filrouge.restaurantcore.dto.UserDto;
+import com.filrouge.restaurantcore.entity.Booking;
+import com.filrouge.restaurantcore.entity.Restaurant;
+import com.filrouge.restaurantcore.entity.Table;
 import com.filrouge.restaurantcore.entity.User;
 
 
@@ -126,8 +131,9 @@ public interface IUserService {
 	   * @return
 	   */
 	List<UserDto> findByFirstNameAndLastName(String firstName, String lastName);
-
 	
+	
+	UserDto addBooking(String id, String bookingId);
 }
 	
 	
