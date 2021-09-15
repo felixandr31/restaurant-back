@@ -109,7 +109,8 @@ public class UserController {
 	 * @param friendIds the identifiers of the friends to add
 	 * @return updated User
 	 */
-	@PostMapping("/addfriends/{id}")
+	@PostMapping("/addfr"
+			+ "iends/{id}")
 	@Transactional
 	public ResponseEntity<UserDto> addFriends(@PathVariable String id, @RequestBody Set<String> friendIds) {
 
@@ -169,7 +170,7 @@ public class UserController {
 		return new ResponseEntity<List<UserDto>>(users, HttpStatus.OK);
 	}
 
-	@PostMapping("/login")
+	@PostMapping("/login/")
 	public ResponseEntity<UserDto> findByLastNameAndPassword(@RequestBody Map<String, String> json) {
 		String lastName = json.get("lastName");
 		String password = json.get("password");
