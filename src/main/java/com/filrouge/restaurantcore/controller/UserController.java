@@ -156,7 +156,7 @@ public class UserController {
 		return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
 	}
 
-	@GetMapping("/{email}")
+	@GetMapping("userEmail/{email}")
 	public ResponseEntity<List<UserDto>> findByEmail(@PathVariable String email) {
 		List<UserDto> users = userService.findByEmail(email);
 		return new ResponseEntity<List<UserDto>>(users, HttpStatus.OK);
@@ -187,7 +187,7 @@ public class UserController {
 		return new ResponseEntity<UserDto>(HttpStatus.NOT_FOUND);
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("userId/{id}")
 	public ResponseEntity<Optional<UserDto>> findById(@PathVariable("id") String id) {
 		Optional<UserDto> userIdFind = userService.findById(id);
 		return new ResponseEntity<Optional<UserDto>>(userIdFind , HttpStatus.OK);

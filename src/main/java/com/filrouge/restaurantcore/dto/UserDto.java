@@ -51,7 +51,10 @@ public class UserDto {
 
 	// @JsonIgnore
 	@Builder.Default
-	private List<BookingDto> bookings = new ArrayList<BookingDto>();
+	private List<String> bookingId = new ArrayList<String>();
+	
+	//@Builder.Default
+	//private List<BookingDto> bookings = new ArrayList<BookingDto>();
 
 	/**
 	 * Transform the entity into a DTO.
@@ -72,10 +75,14 @@ public class UserDto {
 		for (final User user : entity.getFriends()) {
 			friendsDto.add(UserDto.fromEntity(user));
 		}
+		//final List<BookingDto> bookingsDto = new ArrayList<BookingDto>(entity.getBookings().size());
+		//for (final Booking booking : entity.getBookings()) {
+			//bookingsDto.add(BookingDto.fromEntity(booking));
+		//}
 
-		final List<BookingDto> bookingsDto = new ArrayList<BookingDto>(entity.getBookings().size());
-		for (final Booking booking : entity.getBookings()) {
-			bookingsDto.add(BookingDto.fromEntity(booking));
+		final List<String> bookingsId = new ArrayList<String>(entity.getBookingsId().size());
+		for (final String bookingId : entity.getBookingsId()) {
+			bookingsId.add(entity.getId());
 		}
 
 		final List<RestaurantDto> restaurantsDto = new ArrayList<RestaurantDto>(entity.getRestaurants().size());
@@ -84,7 +91,7 @@ public class UserDto {
 		}
 		return UserDto.builder().id(entity.getId()).restaurants(restaurantsDto).firstName(entity.getFirstName())
 				.lastName(entity.getLastName()).email(entity.getEmail()).password(entity.getPassword())
-				.restaurantId(entity.getRestaurantId()).roles(rolesDto).bookings(bookingsDto).friends(friendsDto)
+				.restaurantId(entity.getRestaurantId()).roles(rolesDto).bookingId(bookingsId).friends(friendsDto)
 				.build();
 
 	}
@@ -126,9 +133,11 @@ public class UserDto {
 		final List<User> friends = dto.getFriends().stream().map(UserDto::toEntity).collect(Collectors.toList());
 		user.setFriends(friends);
 
-		final List<Booking> bookings = dto.getBookings().stream().map(BookingDto::toEntity)
+		final List<String> bookings = dto.getBookingId().stream()
 				.collect(Collectors.toList());
-		user.setBookings(bookings);
+		user.setBookingsId(bookings);
+		//final List<Booking> bookings = dto.getBookings().stream().map(BookingDto::toEntity).collect(Collectors.toList());
+        //user.setBookings(bookings);
 		
 		return user;
 	}

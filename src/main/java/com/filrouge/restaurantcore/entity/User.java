@@ -61,6 +61,9 @@ public class User extends AbstractEntity {
 	@Field("email")
 	@NonNull
 	private String email;
+	
+	@Field
+	private List<String> bookingsId;
 
 	@DBRef
 	private List<Restaurant> restaurants;
@@ -84,8 +87,10 @@ public class User extends AbstractEntity {
 	@DBRef
 	private List<User> friends;
 	
-	@DBRef
-	private List<Booking> bookings;
+
+	
+//	    @DBRef
+//		private List<Booking> bookings;
 
 	/**
 	 * constructor NoArgs
@@ -95,6 +100,8 @@ public class User extends AbstractEntity {
 		this.roles = new ArrayList<Role>(0);
 		this.friends = new ArrayList<User>(0);
 		this.restaurants = new ArrayList<Restaurant>(0);
-		this.bookings = new ArrayList<Booking>(0);}
+		this.bookingsId = new ArrayList<String>(0);
+		//this.bookings = new ArrayList<Booking>(0);
+		}
 
 }

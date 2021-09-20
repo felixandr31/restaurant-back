@@ -30,12 +30,15 @@ public interface IRestaurantService {
 	RestaurantDto addStocks(String id, final Set<String> stockIds);
 
 	RestaurantDto addTables(String id, final Set<String> tableIds);
+	
+	
 
 	RestaurantDto removeTables(String id, final Set<String> tableIds);
 
 	RestaurantDto addRecipes(String id, final Set<String> recipeIds);
 
 	RestaurantDto removeRecipes(String id, Set<String> recipeIds);
+	
 
 	/**
 	 * Update d'un restaurant sans ces associations.
