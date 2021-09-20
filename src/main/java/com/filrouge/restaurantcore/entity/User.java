@@ -80,10 +80,16 @@ public class User extends AbstractEntity {
 	/**
 	 * Friends associated at User
 	 */
-
-	@DBRef
-	private List<User> friends;
 	
+	
+	/**
+	 * User ids of current User's friends
+	 */
+	private List<String> friends;
+	
+	/**
+	 * Booking ids of User
+	 */
 	private List<String> bookings;
 
 	/**
@@ -92,7 +98,7 @@ public class User extends AbstractEntity {
 
 	public User() {
 		this.roles = new ArrayList<Role>(0);
-		this.friends = new ArrayList<User>(0);
+		this.friends = new ArrayList<String>(0);
 		this.restaurants = new ArrayList<Restaurant>(0);
 		this.bookings = new ArrayList<String>(0);}
 

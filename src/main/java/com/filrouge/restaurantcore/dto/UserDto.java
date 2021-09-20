@@ -43,7 +43,7 @@ public class UserDto {
 
 	// @JsonIgnore
 	@Builder.Default
-	private List<UserDto> friends = new ArrayList<UserDto>();
+	private List<String> friends = new ArrayList<String>();
 
 	// @JsonIgnore
 	@Builder.Default
@@ -68,9 +68,9 @@ public class UserDto {
 		for (final Role role : entity.getRoles()) {
 			rolesDto.add(RoleDto.fromEntity(role));
 		}
-		final List<UserDto> friendsDto = new ArrayList<UserDto>(entity.getFriends().size());
-		for (final User user : entity.getFriends()) {
-			friendsDto.add(UserDto.fromEntity(user));
+		final List<String> friendsDto = new ArrayList<String>(entity.getFriends().size());
+		for (final String user : entity.getFriends()) {
+			friendsDto.add(user);
 		}
 
 		final List<String> bookingsDto = new ArrayList<String>(entity.getBookings().size());
@@ -123,7 +123,7 @@ public class UserDto {
 				.collect(Collectors.toList());
 		user.setRestaurants(restaurants);
 
-		final List<User> friends = dto.getFriends().stream().map(UserDto::toEntity).collect(Collectors.toList());
+		final List<String> friends = dto.getFriends();
 		user.setFriends(friends);
 
 		final List<String> bookings = dto.getBookings();

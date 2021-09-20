@@ -76,7 +76,7 @@ public interface IUserService {
 	 * @param friendsIds the identifier of friends
 	 * @return the friends's DTO with these Friend.
 	 */
-	UserDto addFriends(String id, Set<String> FriendsIds);
+	UserDto addFriends(String id, String FriendsId);
 	
 	/**
 	 * Removal of client roles. Identifiers of roles not found
@@ -97,7 +97,7 @@ public interface IUserService {
 	 * @param friendsIds the identifier of friends
 	 * @return the friends's DTO with these Friend.
 	 */
-	UserDto removeFriends(String id, Set<String> roleIds);
+	UserDto removeFriends(String id, String friendId);
 	
 	
 	/**
