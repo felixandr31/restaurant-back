@@ -47,10 +47,6 @@ public class UserDto {
 
 	// @JsonIgnore
 	@Builder.Default
-	private List<RestaurantDto> restaurants = new ArrayList<RestaurantDto>();
-
-	// @JsonIgnore
-	@Builder.Default
 	private List<String> bookings = new ArrayList<String>();
 
 	/**
@@ -78,11 +74,8 @@ public class UserDto {
 			bookingsDto.add(booking);
 		}
 
-		final List<RestaurantDto> restaurantsDto = new ArrayList<RestaurantDto>(entity.getRestaurants().size());
-		for (final Restaurant restaurant : entity.getRestaurants()) {
-			restaurantsDto.add(RestaurantDto.fromEntity(restaurant));
-		}
-		return UserDto.builder().id(entity.getId()).restaurants(restaurantsDto).firstName(entity.getFirstName())
+
+		return UserDto.builder().id(entity.getId()).firstName(entity.getFirstName())
 				.lastName(entity.getLastName()).email(entity.getEmail()).password(entity.getPassword())
 				.restaurantId(entity.getRestaurantId()).roles(rolesDto).bookings(bookingsDto).friends(friendsDto)
 				.build();
@@ -115,13 +108,6 @@ public class UserDto {
 
 		final List<Role> roles = dto.getRoles().stream().map(RoleDto::toEntity).collect(Collectors.toList());
 		user.setRoles(roles);
-
-		if (dto.getRestaurants() == null) {
-			dto.setRestaurants(new ArrayList<RestaurantDto>());
-		}
-		final List<Restaurant> restaurants = dto.getRestaurants().stream().map(RestaurantDto::toEntity)
-				.collect(Collectors.toList());
-		user.setRestaurants(restaurants);
 
 		final List<String> friends = dto.getFriends();
 		user.setFriends(friends);
