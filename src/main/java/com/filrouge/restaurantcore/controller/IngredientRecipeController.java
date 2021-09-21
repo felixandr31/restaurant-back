@@ -54,8 +54,8 @@ public class IngredientRecipeController {
 	@PostMapping(value = "/create")
 	@Transactional
 	public ResponseEntity<IngredientRecipeDto> save(@RequestBody IngredientRecipeDto ingredientRecipeDto) {
-		IngredientRecipeDto ingredientRecipeCreated = ingredientRecipeService.save(ingredientRecipeDto);
-		return new ResponseEntity<IngredientRecipeDto>(ingredientRecipeCreated, HttpStatus.CREATED);
+		Optional<IngredientRecipeDto> ingredientRecipeCreated = ingredientRecipeService.save(ingredientRecipeDto);
+		return new ResponseEntity<IngredientRecipeDto>(ingredientRecipeCreated.get(), HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/update/{id}")
