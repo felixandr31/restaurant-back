@@ -110,8 +110,7 @@ public class UserController {
 	 * @param friendIds the identifiers of the friends to add
 	 * @return updated User
 	 */
-	@PostMapping("/addfr"
-			+ "iends/{id}")
+	@PostMapping("/addfriends/{id}")
 	@Transactional
 	public ResponseEntity<UserDto> addFriends(@PathVariable String id, @RequestBody String friendId) {
 
