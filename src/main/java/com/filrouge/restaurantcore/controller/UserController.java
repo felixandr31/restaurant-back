@@ -30,7 +30,8 @@ import com.filrouge.restaurantcore.service.IUserService;
  * @author Hermann
  *
  */
-@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200" }, maxAge = 3600)
+@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200" }, 
+maxAge = 3600)
 @RestController
 @RequestMapping("/user/*")
 public class UserController {
@@ -111,9 +112,9 @@ public class UserController {
 	 */
 	@PostMapping("/addfriends/{id}")
 	@Transactional
-	public ResponseEntity<UserDto> addFriends(@PathVariable String id, @RequestBody Set<String> friendIds) {
+	public ResponseEntity<UserDto> addFriends(@PathVariable String id, @RequestBody String friendId) {
 
-		UserDto friendUpdate = userService.addFriends(id, friendIds);
+		UserDto friendUpdate = userService.addFriends(id, friendId);
 		return new ResponseEntity<UserDto>(friendUpdate, HttpStatus.CREATED);
 	}
 
@@ -126,9 +127,9 @@ public class UserController {
 	 */
 	@PostMapping("/removefriends/{id}")
 	@Transactional
-	public ResponseEntity<UserDto> removeFriends(@PathVariable String id, @RequestBody Set<String> friendIds) {
+	public ResponseEntity<UserDto> removeFriends(@PathVariable String id, @RequestBody String friendId) {
 
-		UserDto friendUpdate = userService.removeFriends(id, friendIds);
+		UserDto friendUpdate = userService.removeFriends(id, friendId);
 		return new ResponseEntity<UserDto>(friendUpdate, HttpStatus.CREATED);
 	}
 /**
@@ -187,10 +188,22 @@ public class UserController {
 		return new ResponseEntity<UserDto>(HttpStatus.NOT_FOUND);
 	}
 	
-	@GetMapping("userId/{id}")
+	@GetMapping("/users/{id}")
 	public ResponseEntity<Optional<UserDto>> findById(@PathVariable("id") String id) {
 		Optional<UserDto> userIdFind = userService.findById(id);
 		return new ResponseEntity<Optional<UserDto>>(userIdFind , HttpStatus.OK);
+	}
+	
+	@PostMapping("/bookings/{id}")
+	public ResponseEntity<UserDto> addBooking(
+			@PathVariable("id") String id, 
+			@RequestBody String bookingId) {
+		
+		
+		UserDto bookingUpdate = userService.addBooking(id, bookingId);
+
+
+		return new ResponseEntity<UserDto>(bookingUpdate, HttpStatus.CREATED);
 	}
 	
 	

@@ -43,18 +43,11 @@ public class UserDto {
 
 	// @JsonIgnore
 	@Builder.Default
-	private List<UserDto> friends = new ArrayList<UserDto>();
+	private List<String> friends = new ArrayList<String>();
 
 	// @JsonIgnore
 	@Builder.Default
-	private List<RestaurantDto> restaurants = new ArrayList<RestaurantDto>();
-
-	// @JsonIgnore
-	@Builder.Default
-	private List<String> bookingId = new ArrayList<String>();
-	
-	//@Builder.Default
-	//private List<BookingDto> bookings = new ArrayList<BookingDto>();
+	private List<String> bookings = new ArrayList<String>();
 
 	/**
 	 * Transform the entity into a DTO.
@@ -71,27 +64,20 @@ public class UserDto {
 		for (final Role role : entity.getRoles()) {
 			rolesDto.add(RoleDto.fromEntity(role));
 		}
-		final List<UserDto> friendsDto = new ArrayList<UserDto>(entity.getFriends().size());
-		for (final User user : entity.getFriends()) {
-			friendsDto.add(UserDto.fromEntity(user));
-		}
-		//final List<BookingDto> bookingsDto = new ArrayList<BookingDto>(entity.getBookings().size());
-		//for (final Booking booking : entity.getBookings()) {
-			//bookingsDto.add(BookingDto.fromEntity(booking));
-		//}
-
-		final List<String> bookingsId = new ArrayList<String>(entity.getBookingsId().size());
-		for (final String bookingId : entity.getBookingsId()) {
-			bookingsId.add(entity.getId());
+		final List<String> friendsDto = new ArrayList<String>(entity.getFriends().size());
+		for (final String user : entity.getFriends()) {
+			friendsDto.add(user);
 		}
 
-		final List<RestaurantDto> restaurantsDto = new ArrayList<RestaurantDto>(entity.getRestaurants().size());
-		for (final Restaurant restaurant : entity.getRestaurants()) {
-			restaurantsDto.add(RestaurantDto.fromEntity(restaurant));
+		final List<String> bookingsDto = new ArrayList<String>(entity.getBookings().size());
+		for (final String booking : entity.getBookings()) {
+			bookingsDto.add(booking);
 		}
-		return UserDto.builder().id(entity.getId()).restaurants(restaurantsDto).firstName(entity.getFirstName())
+
+
+		return UserDto.builder().id(entity.getId()).firstName(entity.getFirstName())
 				.lastName(entity.getLastName()).email(entity.getEmail()).password(entity.getPassword())
-				.restaurantId(entity.getRestaurantId()).roles(rolesDto).bookingId(bookingsId).friends(friendsDto)
+				.restaurantId(entity.getRestaurantId()).roles(rolesDto).bookings(bookingsDto).friends(friendsDto)
 				.build();
 
 	}
@@ -123,21 +109,11 @@ public class UserDto {
 		final List<Role> roles = dto.getRoles().stream().map(RoleDto::toEntity).collect(Collectors.toList());
 		user.setRoles(roles);
 
-		if (dto.getRestaurants() == null) {
-			dto.setRestaurants(new ArrayList<RestaurantDto>());
-		}
-		final List<Restaurant> restaurants = dto.getRestaurants().stream().map(RestaurantDto::toEntity)
-				.collect(Collectors.toList());
-		user.setRestaurants(restaurants);
-
-		final List<User> friends = dto.getFriends().stream().map(UserDto::toEntity).collect(Collectors.toList());
+		final List<String> friends = dto.getFriends();
 		user.setFriends(friends);
 
-		final List<String> bookings = dto.getBookingId().stream()
-				.collect(Collectors.toList());
-		user.setBookingsId(bookings);
-		//final List<Booking> bookings = dto.getBookings().stream().map(BookingDto::toEntity).collect(Collectors.toList());
-        //user.setBookings(bookings);
+		final List<String> bookings = dto.getBookings();
+		user.setBookings(bookings);
 		
 		return user;
 	}

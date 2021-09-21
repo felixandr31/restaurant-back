@@ -143,7 +143,7 @@ public class RestaurantDto {
 
 		final List<Recipe> recipes = dto.getRecipes().stream().map(RecipeDto::toEntity).collect(Collectors.toList());
 		restaurant.setRecipes(recipes);
-
+		
 		final Set<Stock> stocks = dto.getStocks().stream().map(StockDto::toEntity).collect(Collectors.toSet());
 		restaurant.setStocks(stocks);
 
