@@ -50,7 +50,7 @@ public class User extends AbstractEntity {
 	private String password;
 	
 	/**
-	 * 
+	 * The restaurant employing the user
 	 */
 	@Field("restaurantId")
 	private String restaurantId;
@@ -62,28 +62,21 @@ public class User extends AbstractEntity {
 	@NonNull
 	private String email;
 
-	@DBRef
-	private List<Restaurant> restaurants;
-
 	/**
 	 * roles associated with the user
 	 */
 
 	@DBRef
 	private List<Role> roles;
-
-	/**
-	 * Restaurant de l'utilisateur
-	 */
 	
-
 	/**
-	 * Friends associated at User
+	 * User ids of current User's friends
 	 */
-
-	@DBRef
-	private List<User> friends;
+	private List<String> friends;
 	
+	/**
+	 * Booking ids of User
+	 */
 	private List<String> bookings;
 
 	/**
@@ -92,8 +85,6 @@ public class User extends AbstractEntity {
 
 	public User() {
 		this.roles = new ArrayList<Role>(0);
-		this.friends = new ArrayList<User>(0);
-		this.restaurants = new ArrayList<Restaurant>(0);
+		this.friends = new ArrayList<String>(0);
 		this.bookings = new ArrayList<String>(0);}
-
 }
