@@ -170,7 +170,7 @@ public class UserController {
 		return new ResponseEntity<List<UserDto>>(users, HttpStatus.OK);
 	}
 
-	@PostMapping("/login")
+	@PostMapping("/login/")
 	public ResponseEntity<UserDto> findByLastNameAndPassword(@RequestBody Map<String, String> json) {
 		String lastName = json.get("lastName");
 		String password = json.get("password");

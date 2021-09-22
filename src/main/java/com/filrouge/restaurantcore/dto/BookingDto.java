@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import com.filrouge.restaurantcore.entity.Booking;
 import com.filrouge.restaurantcore.entity.Order;
 import com.filrouge.restaurantcore.entity.User;
@@ -41,6 +43,21 @@ public class BookingDto {
 	 */
 
 	private TableDto table;
+	
+	/**
+	 * Check status for order
+	 */
+	private boolean isOrdered;
+	
+	/**
+	 * Check served status
+	 */
+	private boolean isServed;
+	
+	/**
+	 * Check paid status
+	 */
+	private boolean isPayed;
 
 	/**
 	 * Informations of orders.
@@ -74,7 +91,7 @@ public class BookingDto {
 		}
 
 		return BookingDto.builder().id(entity.getId()).day(entity.getDay()).hour(entity.getHour())
-				.table(TableDto.fromEntity(entity.getTable())).orders(ordersDTO).clients(clientsDTO).build();
+				.table(TableDto.fromEntity(entity.getTable())).orders(ordersDTO).isOrdered(entity.isOrdered()).isServed(entity.isServed()).isPayed(entity.isPayed()).clients(clientsDTO).build();
 	}
 
 	/**
@@ -93,6 +110,9 @@ public class BookingDto {
 		booking.setDay(dto.getDay());
 		booking.setHour(dto.getHour());
 		booking.setTable(TableDto.toEntity(dto.getTable()));
+		booking.setOrdered(dto.isOrdered());
+		booking.setServed(dto.isServed());
+		booking.setPayed(dto.isPayed());
 
 		final List<Order> orders = dto.getOrders().stream().map(OrderDto::toEntity).collect(Collectors.toList());
 		booking.setOrders(orders);

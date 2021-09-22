@@ -13,6 +13,7 @@ import com.filrouge.restaurantcore.dto.BookingDto;
 import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.entity.Booking;
 import com.filrouge.restaurantcore.entity.Order;
+import com.filrouge.restaurantcore.entity.Role;
 import com.filrouge.restaurantcore.exception.EntityNotFoundException;
 import com.filrouge.restaurantcore.exception.ErrorCodes;
 import com.filrouge.restaurantcore.exception.InvalidEntityException;
@@ -34,11 +35,11 @@ public class BookingServiceImpl implements IBookingService {
 	 * 
 	 * @param bookingService
 	 */
-	public BookingServiceImpl(IBookingRepository bookingRepository,IOrderRepository orderRepository) {
+	public BookingServiceImpl(IBookingRepository bookingRepository, IOrderRepository orderRepository) {
 		super();
 		this.bookingRepository = bookingRepository;
 		this.orderRepository = orderRepository;
-	
+
 	}
 
 	@Override
@@ -51,7 +52,7 @@ public class BookingServiceImpl implements IBookingService {
 	public List<BookingDto> findAll() {
 		return bookingRepository.findAll().stream().map(BookingDto::fromEntity).collect(Collectors.toList());
 	}
-	
+
 	@Override
 	public BookingDto addOrders(String id, final Set<String> orderIds) {
 		Optional<Booking> optionalBooking = bookingRepository.findById(id);
@@ -79,7 +80,6 @@ public class BookingServiceImpl implements IBookingService {
 		}
 		Booking toUpdate = optionalBooking.get();
 
-
 		// Finding existing user entities
 		Set<Order> ordersToRemove = orderIds.stream().map(orderId -> orderRepository.findById(orderId))
 				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toSet());
@@ -88,11 +88,11 @@ public class BookingServiceImpl implements IBookingService {
 
 		return BookingDto.fromEntity(bookingRepository.save(toUpdate));
 	}
-	
+
 	@Override
-    public List<BookingDto> findByTable(String id) {
-        return bookingRepository.findByTable(id).stream().map(BookingDto::fromEntity).collect(Collectors.toList());
-    }
+	public List<BookingDto> findByTable(String id) {
+		return bookingRepository.findByTable(id).stream().map(BookingDto::fromEntity).collect(Collectors.toList());
+	}
 
 	@Override
 	public BookingDto findById(String id) {
@@ -100,6 +100,13 @@ public class BookingServiceImpl implements IBookingService {
 			return null;
 		}
 		return bookingRepository.findById(id).map(BookingDto::fromEntity).get();
-				
+
 	}
+
+//	@Override
+//	public BookingDto findByIsPayed(Boolean isPayed) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
 }

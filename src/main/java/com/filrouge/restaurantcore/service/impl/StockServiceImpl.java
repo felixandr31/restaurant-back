@@ -39,6 +39,7 @@ public class StockServiceImpl implements IStockService {
 		return stockRepository.findAll().stream().map(StockDto::fromEntity).collect(Collectors.toList());
 	}
 
+
 	/**
 	 * Find stock by id
 	 * 
@@ -55,4 +56,6 @@ public class StockServiceImpl implements IStockService {
 						"Aucun Stock avec l'ID = " + id + " n' ete trouve dans la BDD",
 						ErrorCodes.STOCK_NOT_FOUND));
 	}
+	
+	
 }
