@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import com.filrouge.restaurantcore.dao.IIngredientRepository;
 import com.filrouge.restaurantcore.dto.IngredientDto;
 import com.filrouge.restaurantcore.dto.RoleDto;
+import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.entity.Ingredient;
 import com.filrouge.restaurantcore.entity.Role;
+import com.filrouge.restaurantcore.entity.User;
 import com.filrouge.restaurantcore.exception.EntityNotFoundException;
 import com.filrouge.restaurantcore.exception.ErrorCodes;
 import com.filrouge.restaurantcore.exception.InvalidEntityException;
@@ -50,8 +52,22 @@ public class IngredientServiceImpl implements IIngredientService {
 	}
 
 	@Override
+	public Optional<IngredientDto> findByName(String name) {
+		Optional<Ingredient> ingredientFind = ingredientRepository.findByName(name);
+		return ingredientFind.map(IngredientDto::fromEntity);
+	}
+
+	@Override
 	public IngredientDto save(IngredientDto dto) {
-		return IngredientDto.fromEntity(ingredientRepository.save(IngredientDto.toEntity(dto)));
+		Optional<Ingredient> ing = ingredientRepository.findByName(dto.getName());
+		boolean isIngredient = ing.isPresent();
+		if (isIngredient) {
+			 IngredientDto emptyIng = IngredientDto.fromEntity(new Ingredient());
+			return emptyIng;
+		} else {
+			return IngredientDto.fromEntity(ingredientRepository.save(IngredientDto.toEntity(dto)));
+		}
+		
 	}
 
 	@Override

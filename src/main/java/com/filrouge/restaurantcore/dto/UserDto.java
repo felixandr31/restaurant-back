@@ -77,7 +77,7 @@ public class UserDto {
 
 		return UserDto.builder().id(entity.getId()).firstName(entity.getFirstName())
 				.lastName(entity.getLastName()).email(entity.getEmail()).password(entity.getPassword())
-				.restaurantId(entity.getRestaurantId()).roles(rolesDto).bookings(bookingsDto).friends(friendsDto)
+				.restaurantId(entity.getRestaurantId()).roles(rolesDto).bookingId(bookingsId).friends(friendsDto)
 				.build();
 
 	}
