@@ -61,6 +61,9 @@ public class User extends AbstractEntity {
 	@Field("email")
 	@NonNull
 	private String email;
+	
+	@Field
+	private List<String> bookingsId;
 
 	/**
 	 * roles associated with the user
