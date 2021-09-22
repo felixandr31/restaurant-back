@@ -3,6 +3,7 @@ package com.filrouge.restaurantcore.controller;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -75,4 +76,12 @@ public class BookingController {
 		BookingDto booking = bookingService.findById(id);
 		return new ResponseEntity<BookingDto>(booking, HttpStatus.OK);
 	}
+	
+	@GetMapping("/bookingsIsPayed")
+	public ResponseEntity<Collection<BookingDto>> findAllPaidBookings() {
+		Collection<BookingDto> bookings = bookingService.findAll().stream().filter(booking -> booking.isPayed()).collect(Collectors.toList());				
+		return new ResponseEntity<Collection<BookingDto>>(bookings, HttpStatus.OK);
+	}
+		
+		
 }

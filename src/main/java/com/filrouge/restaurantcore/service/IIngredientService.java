@@ -2,16 +2,10 @@ package com.filrouge.restaurantcore.service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-
 import com.filrouge.restaurantcore.dto.IngredientDto;
-import com.filrouge.restaurantcore.dto.RoleDto;
-import com.filrouge.restaurantcore.dto.UserDto;
+
 
 public interface IIngredientService {
-	
-	
-	
 	
 	/**
 	 * Research of all ingredients.
@@ -29,6 +23,15 @@ public interface IIngredientService {
 	 */
 	Optional<IngredientDto> findById(String id);
 	
+	/**
+	 * 
+	 * Search an ingredient by name
+	 * 
+	 * @param name identifier
+	 * @return the DTO found according to its name identifier.
+	 */
+	Optional<IngredientDto> findByName(String name);
+	
 	
 	/**
 	 * Création of a ingredient.
@@ -38,6 +41,13 @@ public interface IIngredientService {
 	 */
 	IngredientDto save(IngredientDto dto);
 	
+	/**
+	 * Mise à jour du Ingredient
+	 * 
+	 * @param dto le DTO
+	 * @return le DTO suite à la création
+	 */
+	IngredientDto update(IngredientDto ingredientDto);
 	
 	/**
 	 * Removal of an ingredient. 
@@ -46,14 +56,6 @@ public interface IIngredientService {
 	 * 
 	 */
 	void deleteIngredientById(String id);
-	
-	/**
-	 * Mise à jour du Ingredient
-	 * 
-	 * @param dto le DTO
-	 * @return le DTO suite à la création
-	 */
-	IngredientDto update(IngredientDto ingredientDto);
 	
 
 }

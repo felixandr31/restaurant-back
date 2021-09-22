@@ -18,4 +18,5 @@ public interface IBookingService {
 	BookingDto removeOrders(String id, Set<String> orderIds);
 	List<BookingDto> findByTable(String id);
 	BookingDto findById(String id);
+//	BookingDto findByIsPayed(Boolean isPayed);
 }

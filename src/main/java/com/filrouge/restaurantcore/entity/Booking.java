@@ -51,6 +51,25 @@ public class Booking extends AbstractEntity {
 	 */
 	@DBRef
 	private List<Order> orders;
+	
+	/**
+	 * Check status for order
+	 */
+	@Field("isOrdered")
+	private boolean isOrdered;
+	
+	/**
+	 * Check served status
+	 */
+	@Field("isServed")
+	private boolean isServed;
+	
+	/**
+	 * Check paid status
+	 */
+	@Field("isPayed")
+	private boolean isPayed;
+	
 
 	public Booking() {
 		this.clients = new ArrayList<User>(0);

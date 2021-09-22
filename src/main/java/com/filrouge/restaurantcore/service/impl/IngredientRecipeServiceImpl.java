@@ -37,10 +37,7 @@ public class IngredientRecipeServiceImpl implements IIngredientRecipeService {
 
 	@Override
 	public List<IngredientRecipeDto> findAll() {
-		
-		List<IngredientRecipe> list = ingredientRecipeRepository.findAll();
-		List<IngredientRecipeDto> list2= list.stream().map(IngredientRecipeDto::fromEntity).collect(Collectors.toList());
-		return list2;
+		return ingredientRecipeRepository.findAll().stream().map(IngredientRecipeDto::fromEntity).collect(Collectors.toList());
 	}
 
 	@Override
@@ -51,12 +48,14 @@ public class IngredientRecipeServiceImpl implements IIngredientRecipeService {
 		return Optional.of(ingredientRecipeRepository.findById(id).map(IngredientRecipeDto::fromEntity)).orElseThrow(() -> new EntityNotFoundException(
 				"Aucun Ingredient avec l'ID = " + id + " n' est trouve dans la BDD", ErrorCodes.ROLE_NOT_FOUND));
 	}
-	
-	
-	
+
 	@Override
-	public IngredientRecipeDto save(IngredientRecipeDto dto) {
-		return IngredientRecipeDto.fromEntity(ingredientRecipeRepository.save(IngredientRecipeDto.toEntity(dto)));
+	public Optional<IngredientRecipeDto> save(IngredientRecipeDto dto) {
+		Optional<IngredientRecipe> ingRecip = ingredientRecipeRepository.findFirstByQuantityAndIngredient(dto.getQuantity(), dto.getIngredient());
+		if(ingRecip.isPresent()) {
+			return ingRecip.map(IngredientRecipeDto::fromEntity) ;
+		}
+		return Optional.of(IngredientRecipeDto.fromEntity(ingredientRecipeRepository.save(IngredientRecipeDto.toEntity(dto))));
 	}
 	
 	
