@@ -30,7 +30,7 @@ import com.filrouge.restaurantcore.service.IUserService;
  * 
  */
 
-@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200" }, maxAge = 3600)
+@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200", "http://192.168.20.109:4200" }, maxAge = 3600)
 @RestController
 @RequestMapping("/restaurant/*")
 public class RestaurantController {
