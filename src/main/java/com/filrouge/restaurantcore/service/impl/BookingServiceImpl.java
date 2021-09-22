@@ -67,6 +67,7 @@ public class BookingServiceImpl implements IBookingService {
 				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toSet());
 
 		toUpdate.getOrders().addAll(ordersToAdd);
+		toUpdate.setOrdered(true);
 
 		return BookingDto.fromEntity(bookingRepository.save(toUpdate));
 	}
