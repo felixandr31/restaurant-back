@@ -7,9 +7,11 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.filrouge.restaurantcore.dao.IBookingRepository;
 import com.filrouge.restaurantcore.dao.IRoleRepository;
 import com.filrouge.restaurantcore.dao.IUserRepository;
 import com.filrouge.restaurantcore.dto.UserDto;
+import com.filrouge.restaurantcore.entity.Booking;
 import com.filrouge.restaurantcore.entity.Role;
 import com.filrouge.restaurantcore.entity.User;
 import com.filrouge.restaurantcore.exception.EntityNotFoundException;
@@ -28,6 +30,7 @@ public class UserServiceImpl implements IUserService {
 
 	private IUserRepository userRepository;
 	private IRoleRepository roleRepository;
+	private IBookingRepository bookingRepository;
 
 	/**
 	 * Constructor
@@ -35,10 +38,11 @@ public class UserServiceImpl implements IUserService {
 	 * @param userepository The DTO of user
 	 */
 
-	public UserServiceImpl(IUserRepository userRepository, IRoleRepository roleRepository) {
+	public UserServiceImpl(IUserRepository userRepository, IRoleRepository roleRepository,IBookingRepository bookingRepository) {
 		super();
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
+		this.bookingRepository = bookingRepository;
 	}
 
 	@Override
@@ -121,40 +125,32 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public UserDto addFriends(String id, final Set<String> friendIds) {
-		Optional<User> optionalFriend = userRepository.findById(id);
+	public UserDto addFriends(String id, String friendId) {
+		Optional<User> optionalUser = userRepository.findById(id);
 
-		if (!optionalFriend.isPresent()) {
+		if (!optionalUser.isPresent()) {
 			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client.update"),
 					ErrorCodes.CLIENT_NOT_VALID);
 		}
 
-		User toUpdateFriend = optionalFriend.get();
+		User toUpdateFriend = optionalUser.get();
 
-		// Finding existing role entities
-		List<User> friendsToAdd = friendIds.stream().map(friendId -> userRepository.findById(friendId))
-				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
-
-		toUpdateFriend.getFriends().addAll(friendsToAdd);
+		toUpdateFriend.getFriends().add(friendId);
 
 		return UserDto.fromEntity(userRepository.save(toUpdateFriend));
 	}
 
 	@Override
-	public UserDto removeFriends(String id, Set<String> friendIds) {
-		Optional<User> optionalFriend = userRepository.findById(id);
+	public UserDto removeFriends(String id, String friendId) {
+		Optional<User> optionalUser = userRepository.findById(id);
 
-		if (!optionalFriend.isPresent()) {
+		if (!optionalUser.isPresent()) {
 			throw new InvalidEntityException(MESSAGE_UTILS.getMessage("message.validator.client.update"),
 					ErrorCodes.CLIENT_NOT_VALID);
 		}
-		User toUpdate = optionalFriend.get();
+		User toUpdate = optionalUser.get();
 
-		// Finding existing role entities
-		List<User> friendsToRemove = friendIds.stream().map(friendId -> userRepository.findById(friendId))
-				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
-
-		toUpdate.getFriends().removeAll(friendsToRemove);
+		toUpdate.getFriends().remove(friendId);
 
 		return UserDto.fromEntity(userRepository.save(toUpdate));
 	}
@@ -197,6 +193,17 @@ public class UserServiceImpl implements IUserService {
 	public List<UserDto> findByFirstNameAndLastName(String firstName, String lastName) {
 		List<User> userFind = userRepository.findByFirstNameAndLastName(firstName, lastName);
 		return userFind.stream().map(UserDto::fromEntity).collect(Collectors.toList());
+	}
+
+	@Override
+	public UserDto addBooking(String id, String bookingId) {
+		
+		Optional<User> optionalUser = userRepository.findById(id);
+
+		User toUpdate = optionalUser.get();	
+		toUpdate.getBookings().add(bookingId);
+
+		return UserDto.fromEntity(userRepository.save(toUpdate));
 	}
 
 //	@Override

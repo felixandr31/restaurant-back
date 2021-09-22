@@ -103,6 +103,24 @@ public class RestaurantServiceImpl implements IRestaurantService {
 	}
 
 	@Override
+	public RestaurantDto addStocks(String id, final Set<String> stockIds) {
+		Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(id);
+
+//		if (!optionalRestaurant.isPresent()) {
+//			throw new InvalidEntityException("L'admininistrateur n'existe pas", ErrorCodes.ADMINISTRATOR_NOT_VALID);
+//		}
+		Restaurant toUpdate = optionalRestaurant.get();
+
+		// Recherche des entités role existantes
+		List<Stock> stocksToAdd = stockIds.stream().map(stockId -> stockRepository.findById(stockId))
+				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
+
+		toUpdate.getStocks().addAll(stocksToAdd);
+
+		return RestaurantDto.fromEntity(restaurantRepository.save(toUpdate));
+	}
+
+	@Override
 	public RestaurantDto removeUsers(String id, Set<String> userIds) {
 		Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(id);
 
@@ -117,24 +135,6 @@ public class RestaurantServiceImpl implements IRestaurantService {
 				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toSet());
 
 		toUpdate.getEmployees().removeAll(usersToRemove);
-
-		return RestaurantDto.fromEntity(restaurantRepository.save(toUpdate));
-	}
-
-	@Override
-	public RestaurantDto addStocks(String id, final Set<String> stockIds) {
-		Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(id);
-
-//		if (!optionalRestaurant.isPresent()) {
-//			throw new InvalidEntityException("L'admininistrateur n'existe pas", ErrorCodes.ADMINISTRATOR_NOT_VALID);
-//		}
-		Restaurant toUpdate = optionalRestaurant.get();
-
-		// Recherche des entités role existantes
-		Set<Stock> stocksToAdd = stockIds.stream().map(stockId -> stockRepository.findById(stockId))
-				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toSet());
-
-		toUpdate.getStocks().addAll(stocksToAdd);
 
 		return RestaurantDto.fromEntity(restaurantRepository.save(toUpdate));
 	}
@@ -263,6 +263,22 @@ public class RestaurantServiceImpl implements IRestaurantService {
 	public List<RestaurantDto> findByName(String name) {
 		List<Restaurant> restaurantfind = restaurantRepository.findByName(name);
 		return restaurantfind.stream().map(RestaurantDto::fromEntity).collect(Collectors.toList());
+	}
+
+	@Override
+	public RestaurantDto findByTableId(String id) {
+		List<Restaurant> restaurants = restaurantRepository.findAll();
+
+		for (Restaurant resto : restaurants) {
+			List<Table> tables = resto.getTables();
+			for (Table table : tables) {
+				if (table.getId().equals(id)) {
+					RestaurantDto answer = RestaurantDto.fromEntity(resto);
+					return RestaurantDto.fromEntity(resto);
+				}
+			}
+		}
+		return null;
 	}
 
 }

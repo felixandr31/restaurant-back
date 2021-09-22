@@ -82,10 +82,12 @@ public class RecipeDto {
 		recipe.setSellingPrice(dto.getSellingPrice());
 		recipe.setName(dto.getName());
 
-		final Set<IngredientRecipe> ingredientsRecipe = dto.getIngredientsRecipe().stream()
-				.map(IngredientRecipeDto::toEntity).collect(Collectors.toSet());
-		recipe.setIngredientsRecipe(ingredientsRecipe);
-
+		if (dto.getIngredientsRecipe() != null) {
+			final Set<IngredientRecipe> ingredientsRecipe = dto.getIngredientsRecipe().stream()
+					.map(IngredientRecipeDto::toEntity).collect(Collectors.toSet());
+			recipe.setIngredientsRecipe(ingredientsRecipe);
+		}
+		
 		return recipe;
 	}
 

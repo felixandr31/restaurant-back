@@ -26,7 +26,7 @@ import com.filrouge.restaurantcore.service.IBookingService;
  * 
  */
 
-@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200" }, maxAge = 3600)
+@CrossOrigin(origins = {"http://localhost:8080", "http://localhost:4200"}, maxAge = 3600)
 @RestController
 @RequestMapping("/booking/*")
 public class BookingController {
@@ -70,5 +70,9 @@ public class BookingController {
 		return new ResponseEntity<BookingDto>(bookingUpdate, HttpStatus.CREATED);
 	}
 	
-
+	@GetMapping("/bookings/{id}")
+	public ResponseEntity<BookingDto> findById(@PathVariable String id){
+		BookingDto booking = bookingService.findById(id);
+		return new ResponseEntity<BookingDto>(booking, HttpStatus.OK);
+	}
 }
