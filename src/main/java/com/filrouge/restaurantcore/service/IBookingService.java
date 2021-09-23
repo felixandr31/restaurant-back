@@ -19,4 +19,5 @@ public interface IBookingService {
 	List<BookingDto> findByTable(String id);
 	BookingDto findById(String id);
 //	BookingDto findByIsPayed(Boolean isPayed);
+	BookingDto updateBookingStatus(BookingDto dto);
 }

@@ -82,6 +82,14 @@ public class BookingController {
 		Collection<BookingDto> bookings = bookingService.findAll().stream().filter(booking -> booking.isPayed()).collect(Collectors.toList());				
 		return new ResponseEntity<Collection<BookingDto>>(bookings, HttpStatus.OK);
 	}
+	
+	@PostMapping("/updateStatus/{id}")
+	public ResponseEntity<BookingDto> updateBookingStatus(@PathVariable String id, @RequestBody BookingDto bookingDto) {
+		
+		bookingDto.setId(id);
+		BookingDto booking = bookingService.updateBookingStatus(bookingDto);
+		return new ResponseEntity<BookingDto>(booking, HttpStatus.OK);
+	}
 		
 		
 }
