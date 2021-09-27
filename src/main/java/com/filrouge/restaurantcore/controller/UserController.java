@@ -30,7 +30,7 @@ import com.filrouge.restaurantcore.service.IUserService;
  * @author Hermann
  *
  */
-@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200" }, 
+@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200", "http://192.168.20.109:4200" }, 
 maxAge = 3600)
 @RestController
 @RequestMapping("/user/*")
@@ -157,7 +157,7 @@ public class UserController {
 		return new ResponseEntity<UserDto>(userUpdate, HttpStatus.CREATED);
 	}
 
-	@GetMapping("/{email}")
+	@GetMapping("userEmail/{email}")
 	public ResponseEntity<List<UserDto>> findByEmail(@PathVariable String email) {
 		List<UserDto> users = userService.findByEmail(email);
 		return new ResponseEntity<List<UserDto>>(users, HttpStatus.OK);
@@ -170,7 +170,7 @@ public class UserController {
 		return new ResponseEntity<List<UserDto>>(users, HttpStatus.OK);
 	}
 
-	@PostMapping("/login")
+	@PostMapping("/login/")
 	public ResponseEntity<UserDto> findByLastNameAndPassword(@RequestBody Map<String, String> json) {
 		String lastName = json.get("lastName");
 		String password = json.get("password");

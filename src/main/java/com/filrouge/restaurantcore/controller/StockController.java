@@ -1,6 +1,7 @@
 package com.filrouge.restaurantcore.controller;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,7 +25,7 @@ import com.filrouge.restaurantcore.service.IStockService;
  * 
  */
 
-@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200" }, maxAge = 3600)
+@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200", "http://192.168.20.109:4200" }, maxAge = 3600)
 @RestController
 @RequestMapping("/stock/*")
 public class StockController {
@@ -35,7 +36,6 @@ public class StockController {
 	@PostMapping(value = "/create")
 	@Transactional
 	public ResponseEntity<StockDto> save(@RequestBody StockDto stockDto) {
-
 		StockDto stockCreated = stockService.save(stockDto);
 		return new ResponseEntity<StockDto>(stockCreated, HttpStatus.CREATED);
 	}
@@ -65,5 +65,19 @@ public class StockController {
 		stockDto.setId(id);
 		StockDto stockUpdate = stockService.update(stockDto);
 		return new ResponseEntity<StockDto>(stockUpdate, HttpStatus.CREATED);
+
 	}
+	
+	/**
+	 * Get stock by Id.
+	 * 
+	 * @return Stock.
+	 */
+	@GetMapping(value = "/stocksid/{id}")
+	public ResponseEntity<Optional<StockDto>> findById(@PathVariable("id") String id) {
+		Optional<StockDto> stockById = stockService.findById(id);
+		return new ResponseEntity<Optional<StockDto>>(stockById, HttpStatus.OK);
+		
+	}
+	
 }

@@ -29,7 +29,7 @@ import com.filrouge.restaurantcore.service.IIngredientRecipeService;
  * 
  */
 
-@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200" }, maxAge = 3600)
+@CrossOrigin(origins = { "http://localhost:8080", "http://localhost:4200", "http://192.168.20.109:4200" }, maxAge = 3600)
 @RestController
 @RequestMapping("/ingredientrecipe/*")
 public class IngredientRecipeController {
@@ -54,8 +54,8 @@ public class IngredientRecipeController {
 	@PostMapping(value = "/create")
 	@Transactional
 	public ResponseEntity<IngredientRecipeDto> save(@RequestBody IngredientRecipeDto ingredientRecipeDto) {
-		IngredientRecipeDto ingredientRecipeCreated = ingredientRecipeService.save(ingredientRecipeDto);
-		return new ResponseEntity<IngredientRecipeDto>(ingredientRecipeCreated, HttpStatus.CREATED);
+		Optional<IngredientRecipeDto> ingredientRecipeCreated = ingredientRecipeService.save(ingredientRecipeDto);
+		return new ResponseEntity<IngredientRecipeDto>(ingredientRecipeCreated.get(), HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/update/{id}")

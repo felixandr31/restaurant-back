@@ -29,7 +29,7 @@ public interface IIngredientRecipeService {
 	List<IngredientRecipeDto> findAll();
 	
 	/**
-	 * Find a ingredientRecipe by his id.
+	 * Find a ingredientRecipe by its id.
 	 * 
 	 * @param id L'identifiant.
 	 * @return le DTO trouvée selon son identifiant.
@@ -37,15 +37,24 @@ public interface IIngredientRecipeService {
 	Optional<IngredientRecipeDto> findById(String id);
 	
 	/**
+	 * find if an ingredientRecipe exist by finding it with its quantity and ingredient.
+	 * 
+	 * @param quantity quantity.
+	 * @param dto the DTO
+	 * @return true if the IngredientRecipe already exists, or false
+	 */
+//	boolean existsByQuantityAndIngredient  (int quantity, IngredientDto dto);
+	
+	/**
 	 * Création of a ingredientRecipe.
 	 * 
 	 * @param dto the DTO
 	 * @return the DTO following the ingredientRecipe
 	 */
-	IngredientRecipeDto save(IngredientRecipeDto dto);
+	Optional<IngredientRecipeDto> save(IngredientRecipeDto dto);
 	
 	/**
-	 * Mise à jour du Role 
+	 * Mise à jour de IngredientRecipe 
 	 * 
 	 * @param dto le DTO
 	 * @return le DTO suite à la création

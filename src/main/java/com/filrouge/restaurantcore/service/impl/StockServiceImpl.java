@@ -45,6 +45,7 @@ public class StockServiceImpl implements IStockService {
 		return stockRepository.findAll().stream().map(StockDto::fromEntity).collect(Collectors.toList());
 	}
 
+
 	/**
 	 * Find stock by id
 	 * 
@@ -81,6 +82,7 @@ public class StockServiceImpl implements IStockService {
 
 		return StockDto.fromEntity(stockRepository.save(toUpdate));
 	}
+
 	
 	
 }
