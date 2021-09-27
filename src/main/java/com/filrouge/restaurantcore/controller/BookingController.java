@@ -27,7 +27,7 @@ import com.filrouge.restaurantcore.service.IBookingService;
  * 
  */
 
-@CrossOrigin(origins = {"http://localhost:8080", "http://localhost:4200"}, maxAge = 3600)
+@CrossOrigin(origins = {"http://localhost:8080", "http://localhost:4200", "http://192.168.20.109:4200"}, maxAge = 3600)
 @RestController
 @RequestMapping("/booking/*")
 public class BookingController {
@@ -81,6 +81,14 @@ public class BookingController {
 	public ResponseEntity<Collection<BookingDto>> findAllPaidBookings() {
 		Collection<BookingDto> bookings = bookingService.findAll().stream().filter(booking -> booking.isPayed()).collect(Collectors.toList());				
 		return new ResponseEntity<Collection<BookingDto>>(bookings, HttpStatus.OK);
+	}
+	
+	@PostMapping("/updateStatus/{id}")
+	public ResponseEntity<BookingDto> updateBookingStatus(@PathVariable String id, @RequestBody BookingDto bookingDto) {
+		
+		bookingDto.setId(id);
+		BookingDto booking = bookingService.updateBookingStatus(bookingDto);
+		return new ResponseEntity<BookingDto>(booking, HttpStatus.OK);
 	}
 		
 		

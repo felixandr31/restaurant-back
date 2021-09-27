@@ -14,10 +14,13 @@ import com.filrouge.restaurantcore.dto.UserDto;
 import com.filrouge.restaurantcore.entity.Booking;
 import com.filrouge.restaurantcore.entity.Order;
 import com.filrouge.restaurantcore.entity.Role;
+import com.filrouge.restaurantcore.entity.User;
 import com.filrouge.restaurantcore.exception.EntityNotFoundException;
 import com.filrouge.restaurantcore.exception.ErrorCodes;
 import com.filrouge.restaurantcore.exception.InvalidEntityException;
 import com.filrouge.restaurantcore.service.IBookingService;
+import com.filrouge.restaurantcore.validator.BookingValidator;
+import com.filrouge.restaurantcore.validator.UserValidator;
 
 /**
  * Services métier de gestion des reservations.
@@ -47,6 +50,28 @@ public class BookingServiceImpl implements IBookingService {
 
 		return BookingDto.fromEntity(bookingRepository.save(BookingDto.toEntity(dto)));
 	}
+	
+	@Override
+	public BookingDto updateBookingStatus(final BookingDto dto) {
+		List<String> errors = BookingValidator.validate(dto);
+		if (!errors.isEmpty()) {
+			throw new InvalidEntityException("le Booking n'est pas valide", ErrorCodes.BOOKING_NOT_FOUND, errors);
+		}
+
+		Optional<Booking> optionalBooking = bookingRepository.findById(dto.getId());
+
+		if (!optionalBooking.isPresent()) {
+			throw new InvalidEntityException("Le Booking n'existe pas", ErrorCodes.BOOKING_NOT_FOUND);
+		}
+
+		// Ne mettre à jour que ce dont on a besoin
+		Booking toUpdate = optionalBooking.get();
+		toUpdate.setOrdered(dto.isOrdered());
+		toUpdate.setServed(dto.isServed());
+		toUpdate.setPayed(dto.isPayed());
+
+		return BookingDto.fromEntity(bookingRepository.save(toUpdate));
+	}
 
 	@Override
 	public List<BookingDto> findAll() {
@@ -67,6 +92,7 @@ public class BookingServiceImpl implements IBookingService {
 				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toSet());
 
 		toUpdate.getOrders().addAll(ordersToAdd);
+		toUpdate.setOrdered(true);
 
 		return BookingDto.fromEntity(bookingRepository.save(toUpdate));
 	}
