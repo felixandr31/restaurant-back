@@ -21,4 +21,5 @@ public interface IStockService {
 	
 	
 	Optional<StockDto> findById(String id);
+	StockDto update(StockDto dto);
 }

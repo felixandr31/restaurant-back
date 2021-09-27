@@ -111,7 +111,7 @@ public class RestaurantServiceImpl implements IRestaurantService {
 //		}
 		Restaurant toUpdate = optionalRestaurant.get();
 
-		// Recherche des entités role existantes
+		// Recherche des entités stock existantes
 		List<Stock> stocksToAdd = stockIds.stream().map(stockId -> stockRepository.findById(stockId))
 				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
 
@@ -149,7 +149,7 @@ public class RestaurantServiceImpl implements IRestaurantService {
 //		}
 		Restaurant toUpdate = optionalRestaurant.get();
 
-		// Finding existing user entities
+		// Finding existing stock entities
 		Set<Stock> stocksToRemove = stockIds.stream().map(stockId -> stockRepository.findById(stockId))
 				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toSet());
 
@@ -167,7 +167,7 @@ public class RestaurantServiceImpl implements IRestaurantService {
 //		}
 		Restaurant toUpdate = optionalRestaurant.get();
 
-		// Recherche des entités role existantes
+		// Recherche des entités table existantes
 		Set<Table> tablesToAdd = tableIds.stream().map(tableId -> tableRepository.findById(tableId))
 				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toSet());
 
@@ -182,7 +182,7 @@ public class RestaurantServiceImpl implements IRestaurantService {
 
 		Restaurant toUpdate = optionalRestaurant.get();
 
-		// Finding existing user entities
+		// Finding existing table entities
 		Set<Table> tablesToRemove = tableIds.stream().map(tableId -> tableRepository.findById(tableId))
 				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toSet());
 
@@ -200,7 +200,7 @@ public class RestaurantServiceImpl implements IRestaurantService {
 //		}
 		Restaurant toUpdate = optionalRestaurant.get();
 
-		// Recherche des entités role existantes
+		// Recherche des entités recipe existantes
 		Set<Recipe> recipesToAdd = recipeIds.stream().map(recipeId -> recipeRepository.findById(recipeId))
 				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toSet());
 
@@ -215,7 +215,7 @@ public class RestaurantServiceImpl implements IRestaurantService {
 
 		Restaurant toUpdate = optionalRestaurant.get();
 
-		// Finding existing user entities
+		// Finding existing recipe entities
 		Set<Recipe> recipesToRemove = recipeIds.stream().map(recipeId -> recipeRepository.findById(recipeId))
 				.filter(Optional::isPresent).map(Optional::get).collect(Collectors.toSet());
 

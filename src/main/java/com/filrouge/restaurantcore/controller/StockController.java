@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.filrouge.restaurantcore.dto.RestaurantDto;
 import com.filrouge.restaurantcore.dto.StockDto;
 import com.filrouge.restaurantcore.service.IStockService;
 
@@ -51,6 +50,22 @@ public class StockController {
 	public ResponseEntity<Collection<StockDto>> findAll() {
 		Collection<StockDto> stocks = stockService.findAll();
 		return new ResponseEntity<Collection<StockDto>>(stocks, HttpStatus.OK);
+	}
+	
+	/**
+	 * Update a Stock
+	 * @param id
+	 * @param restaurantDto
+	 * @return
+	 */
+	@PutMapping("/update/{id}")
+	@Transactional
+	public ResponseEntity<StockDto> update(@PathVariable String id, @RequestBody StockDto stockDto) {
+
+		stockDto.setId(id);
+		StockDto stockUpdate = stockService.update(stockDto);
+		return new ResponseEntity<StockDto>(stockUpdate, HttpStatus.CREATED);
+
 	}
 	
 	/**
