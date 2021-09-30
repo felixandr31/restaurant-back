@@ -173,6 +173,7 @@ public class UserServiceImpl implements IUserService {
 		toUpdate.setFirstName(dto.getFirstName());
 		toUpdate.setLastName(dto.getLastName());
 		toUpdate.setEmail(dto.getEmail());
+		toUpdate.setRestaurantId(dto.getRestaurantId());
 
 		return UserDto.fromEntity(userRepository.save(toUpdate));
 	}
