@@ -86,6 +86,7 @@ public class IngredientServiceImpl implements IIngredientService {
 		// Ne mettre à jour que ce dont on a besoin
 		Ingredient toUpdate = optionalIngredient.get();
 		toUpdate.setName(ingredientDto.getName());
+		toUpdate.setPurchasePrice(ingredientDto.getPurchasePrice());
 
 		return IngredientDto.fromEntity(ingredientRepository.save(toUpdate));
 	}
