@@ -13,6 +13,7 @@ import com.filrouge.restaurantcore.dao.IStockRepository;
 import com.filrouge.restaurantcore.dao.ITableRepository;
 import com.filrouge.restaurantcore.dao.IUserRepository;
 import com.filrouge.restaurantcore.dto.AddressDto;
+import com.filrouge.restaurantcore.dto.CoordinatesDto;
 import com.filrouge.restaurantcore.dto.RestaurantDto;
 import com.filrouge.restaurantcore.entity.Recipe;
 import com.filrouge.restaurantcore.entity.Restaurant;
@@ -242,6 +243,8 @@ public class RestaurantServiceImpl implements IRestaurantService {
 		toUpdate.setAddress(AddressDto.toEntity(dto.getAddress()));
 		toUpdate.setName(dto.getName());
 		toUpdate.setStars(dto.getStars());
+		toUpdate.setBudget(dto.getBudget());
+		toUpdate.setCoordinates(CoordinatesDto.toEntity(dto.getCoordinates()));
 
 		return RestaurantDto.fromEntity(restaurantRepository.save(toUpdate));
 	}
