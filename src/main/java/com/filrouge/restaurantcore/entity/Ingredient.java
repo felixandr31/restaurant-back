@@ -20,15 +20,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-//@NoArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "ingredient")
 public class Ingredient extends AbstractEntity {
 
-	public Ingredient() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+//	public Ingredient() {
+//		super();
+//		// TODO Auto-generated constructor stub
+//	}
 
 	/**
 	 * name
